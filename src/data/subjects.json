@@ -1,0 +1,4495 @@
+[
+  {
+    "id": "C000127",
+    "name": "Maria Cantwell",
+    "type": "Senator",
+    "state": "WA",
+    "party": "Democrat",
+    "description": "Senator for WA."
+  },
+  {
+    "id": "K000367",
+    "name": "Amy Klobuchar",
+    "type": "Senator",
+    "state": "MN",
+    "party": "Democrat",
+    "description": "Senator for MN."
+  },
+  {
+    "id": "S000033",
+    "name": "Bernard Sanders",
+    "type": "Senator",
+    "state": "VT",
+    "party": "Independent",
+    "description": "Senator for VT."
+  },
+  {
+    "id": "W000802",
+    "name": "Sheldon Whitehouse",
+    "type": "Senator",
+    "state": "RI",
+    "party": "Democrat",
+    "description": "Senator for RI."
+  },
+  {
+    "id": "B001261",
+    "name": "John Barrasso",
+    "type": "Senator",
+    "state": "WY",
+    "party": "Republican",
+    "description": "Senator for WY."
+  },
+  {
+    "id": "W000437",
+    "name": "Roger F. Wicker",
+    "type": "Senator",
+    "state": "MS",
+    "party": "Republican",
+    "description": "Senator for MS."
+  },
+  {
+    "id": "C001035",
+    "name": "Susan M. Collins",
+    "type": "Senator",
+    "state": "ME",
+    "party": "Republican",
+    "description": "Senator for ME."
+  },
+  {
+    "id": "C001056",
+    "name": "John Cornyn",
+    "type": "Senator",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Senator for TX."
+  },
+  {
+    "id": "D000563",
+    "name": "Richard J. Durbin",
+    "type": "Senator",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Senator for IL."
+  },
+  {
+    "id": "G000359",
+    "name": "Lindsey Graham",
+    "type": "Senator",
+    "state": "SC",
+    "party": "Republican",
+    "description": "Senator for SC."
+  },
+  {
+    "id": "M000355",
+    "name": "Mitch McConnell",
+    "type": "Senator",
+    "state": "KY",
+    "party": "Republican",
+    "description": "Senator for KY."
+  },
+  {
+    "id": "M001176",
+    "name": "Jeff Merkley",
+    "type": "Senator",
+    "state": "OR",
+    "party": "Democrat",
+    "description": "Senator for OR."
+  },
+  {
+    "id": "R000122",
+    "name": "Jack Reed",
+    "type": "Senator",
+    "state": "RI",
+    "party": "Democrat",
+    "description": "Senator for RI."
+  },
+  {
+    "id": "R000584",
+    "name": "James E. Risch",
+    "type": "Senator",
+    "state": "ID",
+    "party": "Republican",
+    "description": "Senator for ID."
+  },
+  {
+    "id": "S001181",
+    "name": "Jeanne Shaheen",
+    "type": "Senator",
+    "state": "NH",
+    "party": "Democrat",
+    "description": "Senator for NH."
+  },
+  {
+    "id": "W000805",
+    "name": "Mark R. Warner",
+    "type": "Senator",
+    "state": "VA",
+    "party": "Democrat",
+    "description": "Senator for VA."
+  },
+  {
+    "id": "G000555",
+    "name": "Kirsten E. Gillibrand",
+    "type": "Senator",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Senator for NY."
+  },
+  {
+    "id": "C001088",
+    "name": "Christopher A. Coons",
+    "type": "Senator",
+    "state": "DE",
+    "party": "Democrat",
+    "description": "Senator for DE."
+  },
+  {
+    "id": "A000055",
+    "name": "Robert B. Aderholt",
+    "type": "Representative",
+    "state": "AL",
+    "party": "Republican",
+    "description": "Representative for AL."
+  },
+  {
+    "id": "B001230",
+    "name": "Tammy Baldwin",
+    "type": "Senator",
+    "state": "WI",
+    "party": "Democrat",
+    "description": "Senator for WI."
+  },
+  {
+    "id": "B001267",
+    "name": "Michael F. Bennet",
+    "type": "Senator",
+    "state": "CO",
+    "party": "Democrat",
+    "description": "Senator for CO."
+  },
+  {
+    "id": "B001257",
+    "name": "Gus M. Bilirakis",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "B000490",
+    "name": "Sanford D. Bishop, Jr.",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Democrat",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "B001243",
+    "name": "Marsha Blackburn",
+    "type": "Senator",
+    "state": "TN",
+    "party": "Republican",
+    "description": "Senator for TN."
+  },
+  {
+    "id": "B001277",
+    "name": "Richard Blumenthal",
+    "type": "Senator",
+    "state": "CT",
+    "party": "Democrat",
+    "description": "Senator for CT."
+  },
+  {
+    "id": "B001236",
+    "name": "John Boozman",
+    "type": "Senator",
+    "state": "AR",
+    "party": "Republican",
+    "description": "Senator for AR."
+  },
+  {
+    "id": "B001260",
+    "name": "Vern Buchanan",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "C000059",
+    "name": "Ken Calvert",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Republican",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "C001047",
+    "name": "Shelley Moore Capito",
+    "type": "Senator",
+    "state": "WV",
+    "party": "Republican",
+    "description": "Senator for WV."
+  },
+  {
+    "id": "C001072",
+    "name": "André Carson",
+    "type": "Representative",
+    "state": "IN",
+    "party": "Democrat",
+    "description": "Representative for IN."
+  },
+  {
+    "id": "C001051",
+    "name": "John R. Carter",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "C001075",
+    "name": "Bill Cassidy",
+    "type": "Senator",
+    "state": "LA",
+    "party": "Republican",
+    "description": "Senator for LA."
+  },
+  {
+    "id": "C001066",
+    "name": "Kathy Castor",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Democrat",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "C001080",
+    "name": "Judy Chu",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "C001067",
+    "name": "Yvette D. Clarke",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "C001061",
+    "name": "Emanuel Cleaver",
+    "type": "Representative",
+    "state": "MO",
+    "party": "Democrat",
+    "description": "Representative for MO."
+  },
+  {
+    "id": "C000537",
+    "name": "James E. Clyburn",
+    "type": "Representative",
+    "state": "SC",
+    "party": "Democrat",
+    "description": "Representative for SC."
+  },
+  {
+    "id": "C001068",
+    "name": "Steve Cohen",
+    "type": "Representative",
+    "state": "TN",
+    "party": "Democrat",
+    "description": "Representative for TN."
+  },
+  {
+    "id": "C001053",
+    "name": "Tom Cole",
+    "type": "Representative",
+    "state": "OK",
+    "party": "Republican",
+    "description": "Representative for OK."
+  },
+  {
+    "id": "C001059",
+    "name": "Jim Costa",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "C001069",
+    "name": "Joe Courtney",
+    "type": "Representative",
+    "state": "CT",
+    "party": "Democrat",
+    "description": "Representative for CT."
+  },
+  {
+    "id": "C000880",
+    "name": "Mike Crapo",
+    "type": "Senator",
+    "state": "ID",
+    "party": "Republican",
+    "description": "Senator for ID."
+  },
+  {
+    "id": "C001087",
+    "name": "Eric A. \"Rick\" Crawford",
+    "type": "Representative",
+    "state": "AR",
+    "party": "Republican",
+    "description": "Representative for AR."
+  },
+  {
+    "id": "C001063",
+    "name": "Henry Cuellar",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "D000096",
+    "name": "Danny K. Davis",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "D000197",
+    "name": "Diana DeGette",
+    "type": "Representative",
+    "state": "CO",
+    "party": "Democrat",
+    "description": "Representative for CO."
+  },
+  {
+    "id": "D000216",
+    "name": "Rosa L. DeLauro",
+    "type": "Representative",
+    "state": "CT",
+    "party": "Democrat",
+    "description": "Representative for CT."
+  },
+  {
+    "id": "D000616",
+    "name": "Scott DesJarlais",
+    "type": "Representative",
+    "state": "TN",
+    "party": "Republican",
+    "description": "Representative for TN."
+  },
+  {
+    "id": "D000600",
+    "name": "Mario Diaz-Balart",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "D000399",
+    "name": "Lloyd Doggett",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "F000459",
+    "name": "Charles J. \"Chuck\" Fleischmann",
+    "type": "Representative",
+    "state": "TN",
+    "party": "Republican",
+    "description": "Representative for TN."
+  },
+  {
+    "id": "F000450",
+    "name": "Virginia Foxx",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "G000559",
+    "name": "John Garamendi",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "G000565",
+    "name": "Paul A. Gosar",
+    "type": "Representative",
+    "state": "AZ",
+    "party": "Republican",
+    "description": "Representative for AZ."
+  },
+  {
+    "id": "G000386",
+    "name": "Chuck Grassley",
+    "type": "Senator",
+    "state": "IA",
+    "party": "Republican",
+    "description": "Senator for IA."
+  },
+  {
+    "id": "G000546",
+    "name": "Sam Graves",
+    "type": "Representative",
+    "state": "MO",
+    "party": "Republican",
+    "description": "Representative for MO."
+  },
+  {
+    "id": "G000553",
+    "name": "Al Green",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "G000568",
+    "name": "H. Morgan Griffith",
+    "type": "Representative",
+    "state": "VA",
+    "party": "Republican",
+    "description": "Representative for VA."
+  },
+  {
+    "id": "G000558",
+    "name": "Brett Guthrie",
+    "type": "Representative",
+    "state": "KY",
+    "party": "Republican",
+    "description": "Representative for KY."
+  },
+  {
+    "id": "H001052",
+    "name": "Andy Harris",
+    "type": "Representative",
+    "state": "MD",
+    "party": "Republican",
+    "description": "Representative for MD."
+  },
+  {
+    "id": "H001046",
+    "name": "Martin Heinrich",
+    "type": "Senator",
+    "state": "NM",
+    "party": "Democrat",
+    "description": "Senator for NM."
+  },
+  {
+    "id": "H001047",
+    "name": "James A. Himes",
+    "type": "Representative",
+    "state": "CT",
+    "party": "Democrat",
+    "description": "Representative for CT."
+  },
+  {
+    "id": "H001042",
+    "name": "Mazie K. Hirono",
+    "type": "Senator",
+    "state": "HI",
+    "party": "Democrat",
+    "description": "Senator for HI."
+  },
+  {
+    "id": "H001061",
+    "name": "John Hoeven",
+    "type": "Senator",
+    "state": "ND",
+    "party": "Republican",
+    "description": "Senator for ND."
+  },
+  {
+    "id": "H000874",
+    "name": "Steny H. Hoyer",
+    "type": "Representative",
+    "state": "MD",
+    "party": "Democrat",
+    "description": "Representative for MD."
+  },
+  {
+    "id": "H001058",
+    "name": "Bill Huizenga",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Republican",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "J000288",
+    "name": "Henry C. \"Hank\" Johnson, Jr.",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Democrat",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "J000293",
+    "name": "Ron Johnson",
+    "type": "Senator",
+    "state": "WI",
+    "party": "Republican",
+    "description": "Senator for WI."
+  },
+  {
+    "id": "J000289",
+    "name": "Jim Jordan",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "K000009",
+    "name": "Marcy Kaptur",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Democrat",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "K000375",
+    "name": "William R. Keating",
+    "type": "Representative",
+    "state": "MA",
+    "party": "Democrat",
+    "description": "Representative for MA."
+  },
+  {
+    "id": "K000376",
+    "name": "Mike Kelly",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Republican",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "L000575",
+    "name": "James Lankford",
+    "type": "Senator",
+    "state": "OK",
+    "party": "Republican",
+    "description": "Senator for OK."
+  },
+  {
+    "id": "L000560",
+    "name": "Rick Larsen",
+    "type": "Representative",
+    "state": "WA",
+    "party": "Democrat",
+    "description": "Representative for WA."
+  },
+  {
+    "id": "L000557",
+    "name": "John B. Larson",
+    "type": "Representative",
+    "state": "CT",
+    "party": "Democrat",
+    "description": "Representative for CT."
+  },
+  {
+    "id": "L000566",
+    "name": "Robert E. Latta",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "L000577",
+    "name": "Mike Lee",
+    "type": "Senator",
+    "state": "UT",
+    "party": "Republican",
+    "description": "Senator for UT."
+  },
+  {
+    "id": "L000397",
+    "name": "Zoe Lofgren",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "L000491",
+    "name": "Frank D. Lucas",
+    "type": "Representative",
+    "state": "OK",
+    "party": "Republican",
+    "description": "Representative for OK."
+  },
+  {
+    "id": "L000570",
+    "name": "Ben Ray Luján",
+    "type": "Senator",
+    "state": "NM",
+    "party": "Democrat",
+    "description": "Senator for NM."
+  },
+  {
+    "id": "L000562",
+    "name": "Stephen F. Lynch",
+    "type": "Representative",
+    "state": "MA",
+    "party": "Democrat",
+    "description": "Representative for MA."
+  },
+  {
+    "id": "M000133",
+    "name": "Edward J. Markey",
+    "type": "Senator",
+    "state": "MA",
+    "party": "Democrat",
+    "description": "Senator for MA."
+  },
+  {
+    "id": "M001163",
+    "name": "Doris O. Matsui",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "M001157",
+    "name": "Michael T. McCaul",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "M001177",
+    "name": "Tom McClintock",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Republican",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "M001143",
+    "name": "Betty McCollum",
+    "type": "Representative",
+    "state": "MN",
+    "party": "Democrat",
+    "description": "Representative for MN."
+  },
+  {
+    "id": "M000312",
+    "name": "James P. McGovern",
+    "type": "Representative",
+    "state": "MA",
+    "party": "Democrat",
+    "description": "Representative for MA."
+  },
+  {
+    "id": "M001137",
+    "name": "Gregory W. Meeks",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "M001160",
+    "name": "Gwen Moore",
+    "type": "Representative",
+    "state": "WI",
+    "party": "Democrat",
+    "description": "Representative for WI."
+  },
+  {
+    "id": "M000934",
+    "name": "Jerry Moran",
+    "type": "Senator",
+    "state": "KS",
+    "party": "Republican",
+    "description": "Senator for KS."
+  },
+  {
+    "id": "M001153",
+    "name": "Lisa Murkowski",
+    "type": "Senator",
+    "state": "AK",
+    "party": "Republican",
+    "description": "Senator for AK."
+  },
+  {
+    "id": "M001169",
+    "name": "Christopher Murphy",
+    "type": "Senator",
+    "state": "CT",
+    "party": "Democrat",
+    "description": "Senator for CT."
+  },
+  {
+    "id": "M001111",
+    "name": "Patty Murray",
+    "type": "Senator",
+    "state": "WA",
+    "party": "Democrat",
+    "description": "Senator for WA."
+  },
+  {
+    "id": "N000002",
+    "name": "Jerrold Nadler",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "N000015",
+    "name": "Richard E. Neal",
+    "type": "Representative",
+    "state": "MA",
+    "party": "Democrat",
+    "description": "Representative for MA."
+  },
+  {
+    "id": "N000147",
+    "name": "Eleanor Holmes Norton",
+    "type": "Representative",
+    "state": "DC",
+    "party": "Democrat",
+    "description": "Representative for DC."
+  },
+  {
+    "id": "P000034",
+    "name": "Frank Pallone, Jr.",
+    "type": "Representative",
+    "state": "NJ",
+    "party": "Democrat",
+    "description": "Representative for NJ."
+  },
+  {
+    "id": "P000603",
+    "name": "Rand Paul",
+    "type": "Senator",
+    "state": "KY",
+    "party": "Republican",
+    "description": "Senator for KY."
+  },
+  {
+    "id": "P000197",
+    "name": "Nancy Pelosi",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "P000595",
+    "name": "Gary C. Peters",
+    "type": "Senator",
+    "state": "MI",
+    "party": "Democrat",
+    "description": "Senator for MI."
+  },
+  {
+    "id": "P000597",
+    "name": "Chellie Pingree",
+    "type": "Representative",
+    "state": "ME",
+    "party": "Democrat",
+    "description": "Representative for ME."
+  },
+  {
+    "id": "Q000023",
+    "name": "Mike Quigley",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "R000395",
+    "name": "Harold Rogers",
+    "type": "Representative",
+    "state": "KY",
+    "party": "Republican",
+    "description": "Representative for KY."
+  },
+  {
+    "id": "R000575",
+    "name": "Mike Rogers",
+    "type": "Representative",
+    "state": "AL",
+    "party": "Republican",
+    "description": "Representative for AL."
+  },
+  {
+    "id": "S001176",
+    "name": "Steve Scalise",
+    "type": "Representative",
+    "state": "LA",
+    "party": "Republican",
+    "description": "Representative for LA."
+  },
+  {
+    "id": "S001145",
+    "name": "Janice D. Schakowsky",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "S001150",
+    "name": "Adam B. Schiff",
+    "type": "Senator",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Senator for CA."
+  },
+  {
+    "id": "S000148",
+    "name": "Charles E. Schumer",
+    "type": "Senator",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Senator for NY."
+  },
+  {
+    "id": "S001183",
+    "name": "David Schweikert",
+    "type": "Representative",
+    "state": "AZ",
+    "party": "Republican",
+    "description": "Representative for AZ."
+  },
+  {
+    "id": "S001189",
+    "name": "Austin Scott",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Republican",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "S001157",
+    "name": "David Scott",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Democrat",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "S000185",
+    "name": "Robert C. \"Bobby\" Scott",
+    "type": "Representative",
+    "state": "VA",
+    "party": "Democrat",
+    "description": "Representative for VA."
+  },
+  {
+    "id": "S001184",
+    "name": "Tim Scott",
+    "type": "Senator",
+    "state": "SC",
+    "party": "Republican",
+    "description": "Senator for SC."
+  },
+  {
+    "id": "S001185",
+    "name": "Terri A. Sewell",
+    "type": "Representative",
+    "state": "AL",
+    "party": "Democrat",
+    "description": "Representative for AL."
+  },
+  {
+    "id": "S000344",
+    "name": "Brad Sherman",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "S001148",
+    "name": "Michael K. Simpson",
+    "type": "Representative",
+    "state": "ID",
+    "party": "Republican",
+    "description": "Representative for ID."
+  },
+  {
+    "id": "S000510",
+    "name": "Adam Smith",
+    "type": "Representative",
+    "state": "WA",
+    "party": "Democrat",
+    "description": "Representative for WA."
+  },
+  {
+    "id": "S001172",
+    "name": "Adrian Smith",
+    "type": "Representative",
+    "state": "NE",
+    "party": "Republican",
+    "description": "Representative for NE."
+  },
+  {
+    "id": "S000522",
+    "name": "Christopher H. Smith",
+    "type": "Representative",
+    "state": "NJ",
+    "party": "Republican",
+    "description": "Representative for NJ."
+  },
+  {
+    "id": "S001156",
+    "name": "Linda T. Sánchez",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "T000193",
+    "name": "Bennie G. Thompson",
+    "type": "Representative",
+    "state": "MS",
+    "party": "Democrat",
+    "description": "Representative for MS."
+  },
+  {
+    "id": "T000460",
+    "name": "Mike Thompson",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "T000467",
+    "name": "Glenn Thompson",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Republican",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "T000250",
+    "name": "John Thune",
+    "type": "Senator",
+    "state": "SD",
+    "party": "Republican",
+    "description": "Senator for SD."
+  },
+  {
+    "id": "T000469",
+    "name": "Paul Tonko",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "T000463",
+    "name": "Michael R. Turner",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "V000128",
+    "name": "Chris Van Hollen",
+    "type": "Senator",
+    "state": "MD",
+    "party": "Democrat",
+    "description": "Senator for MD."
+  },
+  {
+    "id": "V000081",
+    "name": "Nydia M. Velázquez",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "W000798",
+    "name": "Tim Walberg",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Republican",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "W000797",
+    "name": "Debbie Wasserman Schultz",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Democrat",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "W000187",
+    "name": "Maxine Waters",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "W000806",
+    "name": "Daniel Webster",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "W000800",
+    "name": "Peter Welch",
+    "type": "Senator",
+    "state": "VT",
+    "party": "Democrat",
+    "description": "Senator for VT."
+  },
+  {
+    "id": "W000795",
+    "name": "Joe Wilson",
+    "type": "Representative",
+    "state": "SC",
+    "party": "Republican",
+    "description": "Representative for SC."
+  },
+  {
+    "id": "W000808",
+    "name": "Frederica S. Wilson",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Democrat",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "W000804",
+    "name": "Robert J. Wittman",
+    "type": "Representative",
+    "state": "VA",
+    "party": "Republican",
+    "description": "Representative for VA."
+  },
+  {
+    "id": "W000809",
+    "name": "Steve Womack",
+    "type": "Representative",
+    "state": "AR",
+    "party": "Republican",
+    "description": "Representative for AR."
+  },
+  {
+    "id": "W000779",
+    "name": "Ron Wyden",
+    "type": "Senator",
+    "state": "OR",
+    "party": "Democrat",
+    "description": "Senator for OR."
+  },
+  {
+    "id": "Y000064",
+    "name": "Todd Young",
+    "type": "Senator",
+    "state": "IN",
+    "party": "Republican",
+    "description": "Senator for IN."
+  },
+  {
+    "id": "A000369",
+    "name": "Mark E. Amodei",
+    "type": "Representative",
+    "state": "NV",
+    "party": "Republican",
+    "description": "Representative for NV."
+  },
+  {
+    "id": "B001278",
+    "name": "Suzanne Bonamici",
+    "type": "Representative",
+    "state": "OR",
+    "party": "Democrat",
+    "description": "Representative for OR."
+  },
+  {
+    "id": "D000617",
+    "name": "Suzan K. DelBene",
+    "type": "Representative",
+    "state": "WA",
+    "party": "Democrat",
+    "description": "Representative for WA."
+  },
+  {
+    "id": "M001184",
+    "name": "Thomas Massie",
+    "type": "Representative",
+    "state": "KY",
+    "party": "Republican",
+    "description": "Representative for KY."
+  },
+  {
+    "id": "S001194",
+    "name": "Brian Schatz",
+    "type": "Senator",
+    "state": "HI",
+    "party": "Democrat",
+    "description": "Senator for HI."
+  },
+  {
+    "id": "F000454",
+    "name": "Bill Foster",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "T000468",
+    "name": "Dina Titus",
+    "type": "Representative",
+    "state": "NV",
+    "party": "Democrat",
+    "description": "Representative for NV."
+  },
+  {
+    "id": "C001095",
+    "name": "Tom Cotton",
+    "type": "Senator",
+    "state": "AR",
+    "party": "Republican",
+    "description": "Senator for AR."
+  },
+  {
+    "id": "H001068",
+    "name": "Jared Huffman",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "B001287",
+    "name": "Ami Bera",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "S001193",
+    "name": "Eric Swalwell",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "B001285",
+    "name": "Julia Brownley",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "R000599",
+    "name": "Raul Ruiz",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "T000472",
+    "name": "Mark Takano",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "V000130",
+    "name": "Juan Vargas",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "P000608",
+    "name": "Scott H. Peters",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "F000462",
+    "name": "Lois Frankel",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Democrat",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "D000622",
+    "name": "Tammy Duckworth",
+    "type": "Senator",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Senator for IL."
+  },
+  {
+    "id": "B001282",
+    "name": "Andy Barr",
+    "type": "Representative",
+    "state": "KY",
+    "party": "Republican",
+    "description": "Representative for KY."
+  },
+  {
+    "id": "W000817",
+    "name": "Elizabeth Warren",
+    "type": "Senator",
+    "state": "MA",
+    "party": "Democrat",
+    "description": "Senator for MA."
+  },
+  {
+    "id": "K000383",
+    "name": "Angus S. King, Jr.",
+    "type": "Senator",
+    "state": "ME",
+    "party": "Independent",
+    "description": "Senator for ME."
+  },
+  {
+    "id": "W000812",
+    "name": "Ann Wagner",
+    "type": "Representative",
+    "state": "MO",
+    "party": "Republican",
+    "description": "Representative for MO."
+  },
+  {
+    "id": "D000618",
+    "name": "Steve Daines",
+    "type": "Senator",
+    "state": "MT",
+    "party": "Republican",
+    "description": "Senator for MT."
+  },
+  {
+    "id": "H001067",
+    "name": "Richard Hudson",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "C001096",
+    "name": "Kevin Cramer",
+    "type": "Senator",
+    "state": "ND",
+    "party": "Republican",
+    "description": "Senator for ND."
+  },
+  {
+    "id": "F000463",
+    "name": "Deb Fischer",
+    "type": "Senator",
+    "state": "NE",
+    "party": "Republican",
+    "description": "Senator for NE."
+  },
+  {
+    "id": "M001188",
+    "name": "Grace Meng",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "J000294",
+    "name": "Hakeem S. Jeffries",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "B001281",
+    "name": "Joyce Beatty",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Democrat",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "J000295",
+    "name": "David P. Joyce",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "M001190",
+    "name": "Markwayne Mullin",
+    "type": "Senator",
+    "state": "OK",
+    "party": "Republican",
+    "description": "Senator for OK."
+  },
+  {
+    "id": "P000605",
+    "name": "Scott Perry",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Republican",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "C001098",
+    "name": "Ted Cruz",
+    "type": "Senator",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Senator for TX."
+  },
+  {
+    "id": "W000814",
+    "name": "Randy K. Weber, Sr.",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "C001091",
+    "name": "Joaquin Castro",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "W000816",
+    "name": "Roger Williams",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "V000131",
+    "name": "Marc A. Veasey",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "K000384",
+    "name": "Tim Kaine",
+    "type": "Senator",
+    "state": "VA",
+    "party": "Democrat",
+    "description": "Senator for VA."
+  },
+  {
+    "id": "P000607",
+    "name": "Mark Pocan",
+    "type": "Representative",
+    "state": "WI",
+    "party": "Democrat",
+    "description": "Representative for WI."
+  },
+  {
+    "id": "K000385",
+    "name": "Robin L. Kelly",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "S001195",
+    "name": "Jason Smith",
+    "type": "Representative",
+    "state": "MO",
+    "party": "Republican",
+    "description": "Representative for MO."
+  },
+  {
+    "id": "B001288",
+    "name": "Cory A. Booker",
+    "type": "Senator",
+    "state": "NJ",
+    "party": "Democrat",
+    "description": "Senator for NJ."
+  },
+  {
+    "id": "C001101",
+    "name": "Katherine M. Clark",
+    "type": "Representative",
+    "state": "MA",
+    "party": "Democrat",
+    "description": "Representative for MA."
+  },
+  {
+    "id": "N000188",
+    "name": "Donald Norcross",
+    "type": "Representative",
+    "state": "NJ",
+    "party": "Democrat",
+    "description": "Representative for NJ."
+  },
+  {
+    "id": "A000370",
+    "name": "Alma S. Adams",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Democrat",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "P000609",
+    "name": "Gary J. Palmer",
+    "type": "Representative",
+    "state": "AL",
+    "party": "Republican",
+    "description": "Representative for AL."
+  },
+  {
+    "id": "H001072",
+    "name": "J. French Hill",
+    "type": "Representative",
+    "state": "AR",
+    "party": "Republican",
+    "description": "Representative for AR."
+  },
+  {
+    "id": "W000821",
+    "name": "Bruce Westerman",
+    "type": "Representative",
+    "state": "AR",
+    "party": "Republican",
+    "description": "Representative for AR."
+  },
+  {
+    "id": "G000574",
+    "name": "Ruben Gallego",
+    "type": "Senator",
+    "state": "AZ",
+    "party": "Democrat",
+    "description": "Senator for AZ."
+  },
+  {
+    "id": "D000623",
+    "name": "Mark DeSaulnier",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "A000371",
+    "name": "Pete Aguilar",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "L000582",
+    "name": "Ted Lieu",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "T000474",
+    "name": "Norma J. Torres",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "C001103",
+    "name": "Earl L. \"Buddy\" Carter",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Republican",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "L000583",
+    "name": "Barry Loudermilk",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Republican",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "A000372",
+    "name": "Rick W. Allen",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Republican",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "B001295",
+    "name": "Mike Bost",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Republican",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "M001196",
+    "name": "Seth Moulton",
+    "type": "Representative",
+    "state": "MA",
+    "party": "Democrat",
+    "description": "Representative for MA."
+  },
+  {
+    "id": "M001194",
+    "name": "John R. Moolenaar",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Republican",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "D000624",
+    "name": "Debbie Dingell",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Democrat",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "E000294",
+    "name": "Tom Emmer",
+    "type": "Representative",
+    "state": "MN",
+    "party": "Republican",
+    "description": "Representative for MN."
+  },
+  {
+    "id": "R000603",
+    "name": "David Rouzer",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "W000822",
+    "name": "Bonnie Watson Coleman",
+    "type": "Representative",
+    "state": "NJ",
+    "party": "Democrat",
+    "description": "Representative for NJ."
+  },
+  {
+    "id": "S001196",
+    "name": "Elise M. Stefanik",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Republican",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "B001296",
+    "name": "Brendan F. Boyle",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Democrat",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "B001291",
+    "name": "Brian Babin",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "B001292",
+    "name": "Donald S. Beyer, Jr.",
+    "type": "Representative",
+    "state": "VA",
+    "party": "Democrat",
+    "description": "Representative for VA."
+  },
+  {
+    "id": "P000610",
+    "name": "Stacey E. Plaskett",
+    "type": "Representative",
+    "state": "VI",
+    "party": "Democrat",
+    "description": "Representative for VI."
+  },
+  {
+    "id": "N000189",
+    "name": "Dan Newhouse",
+    "type": "Representative",
+    "state": "WA",
+    "party": "Republican",
+    "description": "Representative for WA."
+  },
+  {
+    "id": "G000576",
+    "name": "Glenn Grothman",
+    "type": "Representative",
+    "state": "WI",
+    "party": "Republican",
+    "description": "Representative for WI."
+  },
+  {
+    "id": "R000600",
+    "name": "Aumua Amata Coleman Radewagen",
+    "type": "Representative",
+    "state": "AS",
+    "party": "Republican",
+    "description": "Representative for AS."
+  },
+  {
+    "id": "S001198",
+    "name": "Dan Sullivan",
+    "type": "Senator",
+    "state": "AK",
+    "party": "Republican",
+    "description": "Senator for AK."
+  },
+  {
+    "id": "E000295",
+    "name": "Joni Ernst",
+    "type": "Senator",
+    "state": "IA",
+    "party": "Republican",
+    "description": "Senator for IA."
+  },
+  {
+    "id": "T000476",
+    "name": "Thom Tillis",
+    "type": "Senator",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Senator for NC."
+  },
+  {
+    "id": "R000605",
+    "name": "Mike Rounds",
+    "type": "Senator",
+    "state": "SD",
+    "party": "Republican",
+    "description": "Senator for SD."
+  },
+  {
+    "id": "K000388",
+    "name": "Trent Kelly",
+    "type": "Representative",
+    "state": "MS",
+    "party": "Republican",
+    "description": "Representative for MS."
+  },
+  {
+    "id": "L000585",
+    "name": "Darin LaHood",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Republican",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "D000626",
+    "name": "Warren Davidson",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "C001108",
+    "name": "James Comer",
+    "type": "Representative",
+    "state": "KY",
+    "party": "Republican",
+    "description": "Representative for KY."
+  },
+  {
+    "id": "E000296",
+    "name": "Dwight Evans",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Democrat",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "K000393",
+    "name": "John Kennedy",
+    "type": "Senator",
+    "state": "LA",
+    "party": "Republican",
+    "description": "Senator for LA."
+  },
+  {
+    "id": "H001076",
+    "name": "Margaret Wood Hassan",
+    "type": "Senator",
+    "state": "NH",
+    "party": "Democrat",
+    "description": "Senator for NH."
+  },
+  {
+    "id": "C001113",
+    "name": "Catherine Cortez Masto",
+    "type": "Senator",
+    "state": "NV",
+    "party": "Democrat",
+    "description": "Senator for NV."
+  },
+  {
+    "id": "S001190",
+    "name": "Bradley Scott Schneider",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "B001302",
+    "name": "Andy Biggs",
+    "type": "Representative",
+    "state": "AZ",
+    "party": "Republican",
+    "description": "Representative for AZ."
+  },
+  {
+    "id": "K000389",
+    "name": "Ro Khanna",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "P000613",
+    "name": "Jimmy Panetta",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "C001112",
+    "name": "Salud O. Carbajal",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "B001300",
+    "name": "Nanette Diaz Barragán",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "C001110",
+    "name": "J. Luis Correa",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "B001303",
+    "name": "Lisa Blunt Rochester",
+    "type": "Senator",
+    "state": "DE",
+    "party": "Democrat",
+    "description": "Senator for DE."
+  },
+  {
+    "id": "D000628",
+    "name": "Neal P. Dunn",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "R000609",
+    "name": "John H. Rutherford",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "S001200",
+    "name": "Darren Soto",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Democrat",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "M001199",
+    "name": "Brian J. Mast",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "K000391",
+    "name": "Raja Krishnamoorthi",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "B001299",
+    "name": "Jim Banks",
+    "type": "Senator",
+    "state": "IN",
+    "party": "Republican",
+    "description": "Senator for IN."
+  },
+  {
+    "id": "M001198",
+    "name": "Roger Marshall",
+    "type": "Senator",
+    "state": "KS",
+    "party": "Republican",
+    "description": "Senator for KS."
+  },
+  {
+    "id": "H001077",
+    "name": "Clay Higgins",
+    "type": "Representative",
+    "state": "LA",
+    "party": "Republican",
+    "description": "Representative for LA."
+  },
+  {
+    "id": "J000299",
+    "name": "Mike Johnson",
+    "type": "Representative",
+    "state": "LA",
+    "party": "Republican",
+    "description": "Representative for LA."
+  },
+  {
+    "id": "R000606",
+    "name": "Jamie Raskin",
+    "type": "Representative",
+    "state": "MD",
+    "party": "Democrat",
+    "description": "Representative for MD."
+  },
+  {
+    "id": "B001301",
+    "name": "Jack Bergman",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Republican",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "B001305",
+    "name": "Ted Budd",
+    "type": "Senator",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Senator for NC."
+  },
+  {
+    "id": "B001298",
+    "name": "Don Bacon",
+    "type": "Representative",
+    "state": "NE",
+    "party": "Republican",
+    "description": "Representative for NE."
+  },
+  {
+    "id": "G000583",
+    "name": "Josh Gottheimer",
+    "type": "Representative",
+    "state": "NJ",
+    "party": "Democrat",
+    "description": "Representative for NJ."
+  },
+  {
+    "id": "R000608",
+    "name": "Jacky Rosen",
+    "type": "Senator",
+    "state": "NV",
+    "party": "Democrat",
+    "description": "Senator for NV."
+  },
+  {
+    "id": "E000297",
+    "name": "Adriano Espaillat",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "F000466",
+    "name": "Brian K. Fitzpatrick",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Republican",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "S001199",
+    "name": "Lloyd Smucker",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Republican",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "K000392",
+    "name": "David Kustoff",
+    "type": "Representative",
+    "state": "TN",
+    "party": "Republican",
+    "description": "Representative for TN."
+  },
+  {
+    "id": "G000581",
+    "name": "Vicente Gonzalez",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "A000375",
+    "name": "Jodey C. Arrington",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "J000298",
+    "name": "Pramila Jayapal",
+    "type": "Representative",
+    "state": "WA",
+    "party": "Democrat",
+    "description": "Representative for WA."
+  },
+  {
+    "id": "E000298",
+    "name": "Ron Estes",
+    "type": "Representative",
+    "state": "KS",
+    "party": "Republican",
+    "description": "Representative for KS."
+  },
+  {
+    "id": "N000190",
+    "name": "Ralph Norman",
+    "type": "Representative",
+    "state": "SC",
+    "party": "Republican",
+    "description": "Representative for SC."
+  },
+  {
+    "id": "G000585",
+    "name": "Jimmy Gomez",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "C001114",
+    "name": "John R. Curtis",
+    "type": "Senator",
+    "state": "UT",
+    "party": "Republican",
+    "description": "Senator for UT."
+  },
+  {
+    "id": "S001203",
+    "name": "Tina Smith",
+    "type": "Senator",
+    "state": "MN",
+    "party": "Democrat",
+    "description": "Senator for MN."
+  },
+  {
+    "id": "H001079",
+    "name": "Cindy Hyde-Smith",
+    "type": "Senator",
+    "state": "MS",
+    "party": "Republican",
+    "description": "Senator for MS."
+  },
+  {
+    "id": "C001115",
+    "name": "Michael Cloud",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "B001306",
+    "name": "Troy Balderson",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "H001082",
+    "name": "Kevin Hern",
+    "type": "Representative",
+    "state": "OK",
+    "party": "Republican",
+    "description": "Representative for OK."
+  },
+  {
+    "id": "M001206",
+    "name": "Joseph D. Morelle",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "S001205",
+    "name": "Mary Gay Scanlon",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Democrat",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "C001055",
+    "name": "Ed Case",
+    "type": "Representative",
+    "state": "HI",
+    "party": "Democrat",
+    "description": "Representative for HI."
+  },
+  {
+    "id": "H001066",
+    "name": "Steven Horsford",
+    "type": "Representative",
+    "state": "NV",
+    "party": "Democrat",
+    "description": "Representative for NV."
+  },
+  {
+    "id": "S001211",
+    "name": "Greg Stanton",
+    "type": "Representative",
+    "state": "AZ",
+    "party": "Democrat",
+    "description": "Representative for AZ."
+  },
+  {
+    "id": "H001090",
+    "name": "Josh Harder",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "L000593",
+    "name": "Mike Levin",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "N000191",
+    "name": "Joe Neguse",
+    "type": "Representative",
+    "state": "CO",
+    "party": "Democrat",
+    "description": "Representative for CO."
+  },
+  {
+    "id": "C001121",
+    "name": "Jason Crow",
+    "type": "Representative",
+    "state": "CO",
+    "party": "Democrat",
+    "description": "Representative for CO."
+  },
+  {
+    "id": "H001081",
+    "name": "Jahana Hayes",
+    "type": "Representative",
+    "state": "CT",
+    "party": "Democrat",
+    "description": "Representative for CT."
+  },
+  {
+    "id": "S001214",
+    "name": "W. Gregory Steube",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "M001208",
+    "name": "Lucy McBath",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Democrat",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "F000469",
+    "name": "Russ Fulcher",
+    "type": "Representative",
+    "state": "ID",
+    "party": "Republican",
+    "description": "Representative for ID."
+  },
+  {
+    "id": "G000586",
+    "name": "Jesús G. \"Chuy\" García",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "C001117",
+    "name": "Sean Casten",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "U000040",
+    "name": "Lauren Underwood",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "B001307",
+    "name": "James R. Baird",
+    "type": "Representative",
+    "state": "IN",
+    "party": "Republican",
+    "description": "Representative for IN."
+  },
+  {
+    "id": "D000629",
+    "name": "Sharice Davids",
+    "type": "Representative",
+    "state": "KS",
+    "party": "Democrat",
+    "description": "Representative for KS."
+  },
+  {
+    "id": "T000482",
+    "name": "Lori Trahan",
+    "type": "Representative",
+    "state": "MA",
+    "party": "Democrat",
+    "description": "Representative for MA."
+  },
+  {
+    "id": "P000617",
+    "name": "Ayanna Pressley",
+    "type": "Representative",
+    "state": "MA",
+    "party": "Democrat",
+    "description": "Representative for MA."
+  },
+  {
+    "id": "S001208",
+    "name": "Elissa Slotkin",
+    "type": "Senator",
+    "state": "MI",
+    "party": "Democrat",
+    "description": "Senator for MI."
+  },
+  {
+    "id": "S001215",
+    "name": "Haley M. Stevens",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Democrat",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "T000481",
+    "name": "Rashida Tlaib",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Democrat",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "C001119",
+    "name": "Angie Craig",
+    "type": "Representative",
+    "state": "MN",
+    "party": "Democrat",
+    "description": "Representative for MN."
+  },
+  {
+    "id": "O000173",
+    "name": "Ilhan Omar",
+    "type": "Representative",
+    "state": "MN",
+    "party": "Democrat",
+    "description": "Representative for MN."
+  },
+  {
+    "id": "S001212",
+    "name": "Pete Stauber",
+    "type": "Representative",
+    "state": "MN",
+    "party": "Republican",
+    "description": "Representative for MN."
+  },
+  {
+    "id": "G000591",
+    "name": "Michael Guest",
+    "type": "Representative",
+    "state": "MS",
+    "party": "Republican",
+    "description": "Representative for MS."
+  },
+  {
+    "id": "P000614",
+    "name": "Chris Pappas",
+    "type": "Representative",
+    "state": "NH",
+    "party": "Democrat",
+    "description": "Representative for NH."
+  },
+  {
+    "id": "V000133",
+    "name": "Jefferson Van Drew",
+    "type": "Representative",
+    "state": "NJ",
+    "party": "Republican",
+    "description": "Representative for NJ."
+  },
+  {
+    "id": "K000394",
+    "name": "Andy Kim",
+    "type": "Senator",
+    "state": "NJ",
+    "party": "Democrat",
+    "description": "Senator for NJ."
+  },
+  {
+    "id": "L000590",
+    "name": "Susie Lee",
+    "type": "Representative",
+    "state": "NV",
+    "party": "Democrat",
+    "description": "Representative for NV."
+  },
+  {
+    "id": "O000172",
+    "name": "Alexandria Ocasio-Cortez",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "D000631",
+    "name": "Madeleine Dean",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Democrat",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "H001085",
+    "name": "Chrissy Houlahan",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Democrat",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "M001204",
+    "name": "Daniel Meuser",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Republican",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "J000302",
+    "name": "John Joyce",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Republican",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "R000610",
+    "name": "Guy Reschenthaler",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Republican",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "T000480",
+    "name": "William R. Timmons IV",
+    "type": "Representative",
+    "state": "SC",
+    "party": "Republican",
+    "description": "Representative for SC."
+  },
+  {
+    "id": "J000301",
+    "name": "Dusty Johnson",
+    "type": "Representative",
+    "state": "SD",
+    "party": "Republican",
+    "description": "Representative for SD."
+  },
+  {
+    "id": "B001309",
+    "name": "Tim Burchett",
+    "type": "Representative",
+    "state": "TN",
+    "party": "Republican",
+    "description": "Representative for TN."
+  },
+  {
+    "id": "R000612",
+    "name": "John W. Rose",
+    "type": "Representative",
+    "state": "TN",
+    "party": "Republican",
+    "description": "Representative for TN."
+  },
+  {
+    "id": "C001120",
+    "name": "Dan Crenshaw",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "G000589",
+    "name": "Lance Gooden",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "F000468",
+    "name": "Lizzie Fletcher",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "E000299",
+    "name": "Veronica Escobar",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "R000614",
+    "name": "Chip Roy",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "G000587",
+    "name": "Sylvia R. Garcia",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "C001118",
+    "name": "Ben Cline",
+    "type": "Representative",
+    "state": "VA",
+    "party": "Republican",
+    "description": "Representative for VA."
+  },
+  {
+    "id": "S001216",
+    "name": "Kim Schrier",
+    "type": "Representative",
+    "state": "WA",
+    "party": "Democrat",
+    "description": "Representative for WA."
+  },
+  {
+    "id": "S001213",
+    "name": "Bryan Steil",
+    "type": "Representative",
+    "state": "WI",
+    "party": "Republican",
+    "description": "Representative for WI."
+  },
+  {
+    "id": "M001205",
+    "name": "Carol D. Miller",
+    "type": "Representative",
+    "state": "WV",
+    "party": "Republican",
+    "description": "Representative for WV."
+  },
+  {
+    "id": "S001217",
+    "name": "Rick Scott",
+    "type": "Senator",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Senator for FL."
+  },
+  {
+    "id": "H001089",
+    "name": "Josh Hawley",
+    "type": "Senator",
+    "state": "MO",
+    "party": "Republican",
+    "description": "Senator for MO."
+  },
+  {
+    "id": "G000592",
+    "name": "Jared F. Golden",
+    "type": "Representative",
+    "state": "ME",
+    "party": "Democrat",
+    "description": "Representative for ME."
+  },
+  {
+    "id": "M001210",
+    "name": "Gregory F. Murphy",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "M000687",
+    "name": "Kweisi Mfume",
+    "type": "Representative",
+    "state": "MD",
+    "party": "Democrat",
+    "description": "Representative for MD."
+  },
+  {
+    "id": "T000165",
+    "name": "Thomas P. Tiffany",
+    "type": "Representative",
+    "state": "WI",
+    "party": "Republican",
+    "description": "Representative for WI."
+  },
+  {
+    "id": "K000377",
+    "name": "Mark Kelly",
+    "type": "Senator",
+    "state": "AZ",
+    "party": "Democrat",
+    "description": "Senator for AZ."
+  },
+  {
+    "id": "L000571",
+    "name": "Cynthia M. Lummis",
+    "type": "Senator",
+    "state": "WY",
+    "party": "Republican",
+    "description": "Senator for WY."
+  },
+  {
+    "id": "I000056",
+    "name": "Darrell Issa",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Republican",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "S000250",
+    "name": "Pete Sessions",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "V000129",
+    "name": "David G. Valadao",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Republican",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "T000278",
+    "name": "Tommy Tuberville",
+    "type": "Senator",
+    "state": "AL",
+    "party": "Republican",
+    "description": "Senator for AL."
+  },
+  {
+    "id": "H000273",
+    "name": "John W. Hickenlooper",
+    "type": "Senator",
+    "state": "CO",
+    "party": "Democrat",
+    "description": "Senator for CO."
+  },
+  {
+    "id": "H000601",
+    "name": "Bill Hagerty",
+    "type": "Senator",
+    "state": "TN",
+    "party": "Republican",
+    "description": "Senator for TN."
+  },
+  {
+    "id": "M001212",
+    "name": "Barry Moore",
+    "type": "Representative",
+    "state": "AL",
+    "party": "Republican",
+    "description": "Representative for AL."
+  },
+  {
+    "id": "O000019",
+    "name": "Jay Obernolte",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Republican",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "K000397",
+    "name": "Young Kim",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Republican",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "J000305",
+    "name": "Sara Jacobs",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "B000825",
+    "name": "Lauren Boebert",
+    "type": "Representative",
+    "state": "CO",
+    "party": "Republican",
+    "description": "Representative for CO."
+  },
+  {
+    "id": "C001039",
+    "name": "Kat Cammack",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "F000472",
+    "name": "Scott Franklin",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "D000032",
+    "name": "Byron Donalds",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "G000593",
+    "name": "Carlos A. Gimenez",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "S000168",
+    "name": "Maria Elvira Salazar",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "W000788",
+    "name": "Nikema Williams",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Democrat",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "C001116",
+    "name": "Andrew S. Clyde",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Republican",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "H001091",
+    "name": "Ashley Hinson",
+    "type": "Representative",
+    "state": "IA",
+    "party": "Republican",
+    "description": "Representative for IA."
+  },
+  {
+    "id": "M001215",
+    "name": "Mariannette Miller-Meeks",
+    "type": "Representative",
+    "state": "IA",
+    "party": "Republican",
+    "description": "Representative for IA."
+  },
+  {
+    "id": "F000446",
+    "name": "Randy Feenstra",
+    "type": "Representative",
+    "state": "IA",
+    "party": "Republican",
+    "description": "Representative for IA."
+  },
+  {
+    "id": "M001211",
+    "name": "Mary E. Miller",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Republican",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "M001214",
+    "name": "Frank J. Mrvan",
+    "type": "Representative",
+    "state": "IN",
+    "party": "Democrat",
+    "description": "Representative for IN."
+  },
+  {
+    "id": "S000929",
+    "name": "Victoria Spartz",
+    "type": "Representative",
+    "state": "IN",
+    "party": "Republican",
+    "description": "Representative for IN."
+  },
+  {
+    "id": "M000871",
+    "name": "Tracey Mann",
+    "type": "Representative",
+    "state": "KS",
+    "party": "Republican",
+    "description": "Representative for KS."
+  },
+  {
+    "id": "A000148",
+    "name": "Jake Auchincloss",
+    "type": "Representative",
+    "state": "MA",
+    "party": "Democrat",
+    "description": "Representative for MA."
+  },
+  {
+    "id": "M001136",
+    "name": "Lisa C. McClain",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Republican",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "F000470",
+    "name": "Michelle Fischbach",
+    "type": "Representative",
+    "state": "MN",
+    "party": "Republican",
+    "description": "Representative for MN."
+  },
+  {
+    "id": "R000305",
+    "name": "Deborah K. Ross",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Democrat",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "L000273",
+    "name": "Teresa Leger Fernandez",
+    "type": "Representative",
+    "state": "NM",
+    "party": "Democrat",
+    "description": "Representative for NM."
+  },
+  {
+    "id": "G000597",
+    "name": "Andrew R. Garbarino",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Republican",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "M000317",
+    "name": "Nicole Malliotakis",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Republican",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "T000486",
+    "name": "Ritchie Torres",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "B000740",
+    "name": "Stephanie I. Bice",
+    "type": "Representative",
+    "state": "OK",
+    "party": "Republican",
+    "description": "Representative for OK."
+  },
+  {
+    "id": "B000668",
+    "name": "Cliff Bentz",
+    "type": "Representative",
+    "state": "OR",
+    "party": "Republican",
+    "description": "Representative for OR."
+  },
+  {
+    "id": "M000194",
+    "name": "Nancy Mace",
+    "type": "Representative",
+    "state": "SC",
+    "party": "Republican",
+    "description": "Representative for SC."
+  },
+  {
+    "id": "H001086",
+    "name": "Diana Harshbarger",
+    "type": "Representative",
+    "state": "TN",
+    "party": "Republican",
+    "description": "Representative for TN."
+  },
+  {
+    "id": "F000246",
+    "name": "Pat Fallon",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "P000048",
+    "name": "August Pfluger",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "J000304",
+    "name": "Ronny Jackson",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "N000026",
+    "name": "Troy E. Nehls",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "G000594",
+    "name": "Tony Gonzales",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "V000134",
+    "name": "Beth Van Duyne",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "M001213",
+    "name": "Blake D. Moore",
+    "type": "Representative",
+    "state": "UT",
+    "party": "Republican",
+    "description": "Representative for UT."
+  },
+  {
+    "id": "O000086",
+    "name": "Burgess Owens",
+    "type": "Representative",
+    "state": "UT",
+    "party": "Republican",
+    "description": "Representative for UT."
+  },
+  {
+    "id": "S001159",
+    "name": "Marilyn Strickland",
+    "type": "Representative",
+    "state": "WA",
+    "party": "Democrat",
+    "description": "Representative for WA."
+  },
+  {
+    "id": "F000471",
+    "name": "Scott Fitzgerald",
+    "type": "Representative",
+    "state": "WI",
+    "party": "Republican",
+    "description": "Representative for WI."
+  },
+  {
+    "id": "P000145",
+    "name": "Alex Padilla",
+    "type": "Senator",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Senator for CA."
+  },
+  {
+    "id": "O000174",
+    "name": "Jon Ossoff",
+    "type": "Senator",
+    "state": "GA",
+    "party": "Democrat",
+    "description": "Senator for GA."
+  },
+  {
+    "id": "W000790",
+    "name": "Raphael G. Warnock",
+    "type": "Senator",
+    "state": "GA",
+    "party": "Democrat",
+    "description": "Senator for GA."
+  },
+  {
+    "id": "T000478",
+    "name": "Claudia Tenney",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Republican",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "L000595",
+    "name": "Julia Letlow",
+    "type": "Representative",
+    "state": "LA",
+    "party": "Republican",
+    "description": "Representative for LA."
+  },
+  {
+    "id": "C001125",
+    "name": "Troy A. Carter",
+    "type": "Representative",
+    "state": "LA",
+    "party": "Democrat",
+    "description": "Representative for LA."
+  },
+  {
+    "id": "S001218",
+    "name": "Melanie A. Stansbury",
+    "type": "Representative",
+    "state": "NM",
+    "party": "Democrat",
+    "description": "Representative for NM."
+  },
+  {
+    "id": "E000071",
+    "name": "Jake Ellzey",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "B001313",
+    "name": "Shontel M. Brown",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Democrat",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "C001126",
+    "name": "Mike Carey",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "C001127",
+    "name": "Sheila Cherfilus-McCormick",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Democrat",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "F000474",
+    "name": "Mike Flood",
+    "type": "Representative",
+    "state": "NE",
+    "party": "Republican",
+    "description": "Representative for NE."
+  },
+  {
+    "id": "F000475",
+    "name": "Brad Finstad",
+    "type": "Representative",
+    "state": "MN",
+    "party": "Republican",
+    "description": "Representative for MN."
+  },
+  {
+    "id": "R000579",
+    "name": "Patrick Ryan",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "Y000067",
+    "name": "Rudy Yakym III",
+    "type": "Representative",
+    "state": "IN",
+    "party": "Republican",
+    "description": "Representative for IN."
+  },
+  {
+    "id": "Z000018",
+    "name": "Ryan K. Zinke",
+    "type": "Representative",
+    "state": "MT",
+    "party": "Republican",
+    "description": "Representative for MT."
+  },
+  {
+    "id": "B001319",
+    "name": "Katie Boyd Britt",
+    "type": "Senator",
+    "state": "AL",
+    "party": "Republican",
+    "description": "Senator for AL."
+  },
+  {
+    "id": "S001227",
+    "name": "Eric Schmitt",
+    "type": "Senator",
+    "state": "MO",
+    "party": "Republican",
+    "description": "Senator for MO."
+  },
+  {
+    "id": "F000479",
+    "name": "John Fetterman",
+    "type": "Senator",
+    "state": "PA",
+    "party": "Democrat",
+    "description": "Senator for PA."
+  },
+  {
+    "id": "S001220",
+    "name": "Dale W. Strong",
+    "type": "Representative",
+    "state": "AL",
+    "party": "Republican",
+    "description": "Representative for AL."
+  },
+  {
+    "id": "C001132",
+    "name": "Elijah Crane",
+    "type": "Representative",
+    "state": "AZ",
+    "party": "Republican",
+    "description": "Representative for AZ."
+  },
+  {
+    "id": "C001133",
+    "name": "Juan Ciscomani",
+    "type": "Representative",
+    "state": "AZ",
+    "party": "Republican",
+    "description": "Representative for AZ."
+  },
+  {
+    "id": "K000401",
+    "name": "Kevin Kiley",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Republican",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "M001225",
+    "name": "Kevin Mullin",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "K000400",
+    "name": "Sydney Kamlager-Dove",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "G000598",
+    "name": "Robert Garcia",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "P000620",
+    "name": "Brittany Pettersen",
+    "type": "Representative",
+    "state": "CO",
+    "party": "Democrat",
+    "description": "Representative for CO."
+  },
+  {
+    "id": "B001314",
+    "name": "Aaron Bean",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "M001216",
+    "name": "Cory Mills",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "F000476",
+    "name": "Maxwell Frost",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Democrat",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "L000596",
+    "name": "Anna Paulina Luna",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "L000597",
+    "name": "Laurel M. Lee",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "M001217",
+    "name": "Jared Moskowitz",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Democrat",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "M001218",
+    "name": "Richard McCormick",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Republican",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "C001129",
+    "name": "Mike Collins",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Republican",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "M001219",
+    "name": "James C. Moylan",
+    "type": "Representative",
+    "state": "GU",
+    "party": "Republican",
+    "description": "Representative for GU."
+  },
+  {
+    "id": "T000487",
+    "name": "Jill N. Tokuda",
+    "type": "Representative",
+    "state": "HI",
+    "party": "Democrat",
+    "description": "Representative for HI."
+  },
+  {
+    "id": "N000193",
+    "name": "Zachary Nunn",
+    "type": "Representative",
+    "state": "IA",
+    "party": "Republican",
+    "description": "Representative for IA."
+  },
+  {
+    "id": "J000309",
+    "name": "Jonathan L. Jackson",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "R000617",
+    "name": "Delia C. Ramirez",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "B001315",
+    "name": "Nikki Budzinski",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "S001225",
+    "name": "Eric Sorensen",
+    "type": "Representative",
+    "state": "IL",
+    "party": "Democrat",
+    "description": "Representative for IL."
+  },
+  {
+    "id": "H001093",
+    "name": "Erin Houchin",
+    "type": "Representative",
+    "state": "IN",
+    "party": "Republican",
+    "description": "Representative for IN."
+  },
+  {
+    "id": "M001220",
+    "name": "Morgan McGarvey",
+    "type": "Representative",
+    "state": "KY",
+    "party": "Democrat",
+    "description": "Representative for KY."
+  },
+  {
+    "id": "I000058",
+    "name": "Glenn Ivey",
+    "type": "Representative",
+    "state": "MD",
+    "party": "Democrat",
+    "description": "Representative for MD."
+  },
+  {
+    "id": "S001221",
+    "name": "Hillary J. Scholten",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Democrat",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "J000307",
+    "name": "John James",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Republican",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "T000488",
+    "name": "Shri Thanedar",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Democrat",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "A000379",
+    "name": "Mark Alford",
+    "type": "Representative",
+    "state": "MO",
+    "party": "Republican",
+    "description": "Representative for MO."
+  },
+  {
+    "id": "B001316",
+    "name": "Eric Burlison",
+    "type": "Representative",
+    "state": "MO",
+    "party": "Republican",
+    "description": "Representative for MO."
+  },
+  {
+    "id": "E000235",
+    "name": "Mike Ezell",
+    "type": "Representative",
+    "state": "MS",
+    "party": "Republican",
+    "description": "Representative for MS."
+  },
+  {
+    "id": "D000230",
+    "name": "Donald G. Davis",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Democrat",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "F000477",
+    "name": "Valerie P. Foushee",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Democrat",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "E000246",
+    "name": "Chuck Edwards",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "K000398",
+    "name": "Thomas H. Kean, Jr.",
+    "type": "Representative",
+    "state": "NJ",
+    "party": "Republican",
+    "description": "Representative for NJ."
+  },
+  {
+    "id": "M001226",
+    "name": "Robert Menendez",
+    "type": "Representative",
+    "state": "NJ",
+    "party": "Democrat",
+    "description": "Representative for NJ."
+  },
+  {
+    "id": "V000136",
+    "name": "Gabe Vasquez",
+    "type": "Representative",
+    "state": "NM",
+    "party": "Democrat",
+    "description": "Representative for NM."
+  },
+  {
+    "id": "L000598",
+    "name": "Nick LaLota",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Republican",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "G000599",
+    "name": "Daniel S. Goldman",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "L000599",
+    "name": "Michael Lawler",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Republican",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "L000600",
+    "name": "Nicholas A. Langworthy",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Republican",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "L000601",
+    "name": "Greg Landsman",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Democrat",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "M001222",
+    "name": "Max L. Miller",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "S001223",
+    "name": "Emilia Strong Sykes",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Democrat",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "B001317",
+    "name": "Josh Brecheen",
+    "type": "Representative",
+    "state": "OK",
+    "party": "Republican",
+    "description": "Representative for OK."
+  },
+  {
+    "id": "H001094",
+    "name": "Val T. Hoyle",
+    "type": "Representative",
+    "state": "OR",
+    "party": "Democrat",
+    "description": "Representative for OR."
+  },
+  {
+    "id": "S001226",
+    "name": "Andrea Salinas",
+    "type": "Representative",
+    "state": "OR",
+    "party": "Democrat",
+    "description": "Representative for OR."
+  },
+  {
+    "id": "L000602",
+    "name": "Summer L. Lee",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Democrat",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "D000530",
+    "name": "Christopher R. Deluzio",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Democrat",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "M001223",
+    "name": "Seth Magaziner",
+    "type": "Representative",
+    "state": "RI",
+    "party": "Democrat",
+    "description": "Representative for RI."
+  },
+  {
+    "id": "F000478",
+    "name": "Russell Fry",
+    "type": "Representative",
+    "state": "SC",
+    "party": "Republican",
+    "description": "Representative for SC."
+  },
+  {
+    "id": "O000175",
+    "name": "Andrew Ogles",
+    "type": "Representative",
+    "state": "TN",
+    "party": "Republican",
+    "description": "Representative for TN."
+  },
+  {
+    "id": "M001224",
+    "name": "Nathaniel Moran",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "S001224",
+    "name": "Keith Self",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "L000603",
+    "name": "Morgan Luttrell",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "D000594",
+    "name": "Monica De La Cruz",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "C001130",
+    "name": "Jasmine Crockett",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "C001131",
+    "name": "Greg Casar",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "H001095",
+    "name": "Wesley Hunt",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "K000399",
+    "name": "Jennifer A. Kiggans",
+    "type": "Representative",
+    "state": "VA",
+    "party": "Republican",
+    "description": "Representative for VA."
+  },
+  {
+    "id": "B001318",
+    "name": "Becca Balint",
+    "type": "Representative",
+    "state": "VT",
+    "party": "Democrat",
+    "description": "Representative for VT."
+  },
+  {
+    "id": "G000600",
+    "name": "Marie Gluesenkamp Perez",
+    "type": "Representative",
+    "state": "WA",
+    "party": "Democrat",
+    "description": "Representative for WA."
+  },
+  {
+    "id": "V000135",
+    "name": "Derrick Van Orden",
+    "type": "Representative",
+    "state": "WI",
+    "party": "Republican",
+    "description": "Representative for WI."
+  },
+  {
+    "id": "H001096",
+    "name": "Harriet M. Hageman",
+    "type": "Representative",
+    "state": "WY",
+    "party": "Republican",
+    "description": "Representative for WY."
+  },
+  {
+    "id": "R000618",
+    "name": "Pete Ricketts",
+    "type": "Senator",
+    "state": "NE",
+    "party": "Republican",
+    "description": "Senator for NE."
+  },
+  {
+    "id": "M001227",
+    "name": "Jennifer L. McClellan",
+    "type": "Representative",
+    "state": "VA",
+    "party": "Democrat",
+    "description": "Representative for VA."
+  },
+  {
+    "id": "A000380",
+    "name": "Gabe Amo",
+    "type": "Representative",
+    "state": "RI",
+    "party": "Democrat",
+    "description": "Representative for RI."
+  },
+  {
+    "id": "M001228",
+    "name": "Celeste Maloy",
+    "type": "Representative",
+    "state": "UT",
+    "party": "Republican",
+    "description": "Representative for UT."
+  },
+  {
+    "id": "S001201",
+    "name": "Thomas R. Suozzi",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "K000402",
+    "name": "Timothy M. Kennedy",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "F000480",
+    "name": "Vince Fong",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Republican",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "R000619",
+    "name": "Michael A. Rulli",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "M001229",
+    "name": "LaMonica McIver",
+    "type": "Representative",
+    "state": "NJ",
+    "party": "Democrat",
+    "description": "Representative for NJ."
+  },
+  {
+    "id": "W000829",
+    "name": "Tony Wied",
+    "type": "Representative",
+    "state": "WI",
+    "party": "Republican",
+    "description": "Representative for WI."
+  },
+  {
+    "id": "F000110",
+    "name": "Cleo Fields",
+    "type": "Representative",
+    "state": "LA",
+    "party": "Democrat",
+    "description": "Representative for LA."
+  },
+  {
+    "id": "S001188",
+    "name": "Marlin A. Stutzman",
+    "type": "Representative",
+    "state": "IN",
+    "party": "Republican",
+    "description": "Representative for IN."
+  },
+  {
+    "id": "C001123",
+    "name": "Gilbert Ray Cisneros, Jr.",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "A000382",
+    "name": "Angela D. Alsobrooks",
+    "type": "Senator",
+    "state": "MD",
+    "party": "Democrat",
+    "description": "Senator for MD."
+  },
+  {
+    "id": "S001232",
+    "name": "Tim Sheehy",
+    "type": "Senator",
+    "state": "MT",
+    "party": "Republican",
+    "description": "Senator for MT."
+  },
+  {
+    "id": "M001242",
+    "name": "Bernie Moreno",
+    "type": "Senator",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Senator for OH."
+  },
+  {
+    "id": "M001243",
+    "name": "David McCormick",
+    "type": "Senator",
+    "state": "PA",
+    "party": "Republican",
+    "description": "Senator for PA."
+  },
+  {
+    "id": "B001323",
+    "name": "Nicholas J. Begich III",
+    "type": "Representative",
+    "state": "AK",
+    "party": "Republican",
+    "description": "Representative for AK."
+  },
+  {
+    "id": "F000481",
+    "name": "Shomari Figures",
+    "type": "Representative",
+    "state": "AL",
+    "party": "Democrat",
+    "description": "Representative for AL."
+  },
+  {
+    "id": "A000381",
+    "name": "Yassamin Ansari",
+    "type": "Representative",
+    "state": "AZ",
+    "party": "Democrat",
+    "description": "Representative for AZ."
+  },
+  {
+    "id": "H001098",
+    "name": "Abraham J. Hamadeh",
+    "type": "Representative",
+    "state": "AZ",
+    "party": "Republican",
+    "description": "Representative for AZ."
+  },
+  {
+    "id": "S001231",
+    "name": "Lateefah Simon",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "G000605",
+    "name": "Adam Gray",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "L000607",
+    "name": "Sam T. Liccardo",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "W000830",
+    "name": "George Whitesides",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "R000620",
+    "name": "Luz M. Rivas",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "F000483",
+    "name": "Laura Friedman",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "T000491",
+    "name": "Derek Tran",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "M001241",
+    "name": "Dave Min",
+    "type": "Representative",
+    "state": "CA",
+    "party": "Democrat",
+    "description": "Representative for CA."
+  },
+  {
+    "id": "H001100",
+    "name": "Jeff Hurd",
+    "type": "Representative",
+    "state": "CO",
+    "party": "Republican",
+    "description": "Representative for CO."
+  },
+  {
+    "id": "C001137",
+    "name": "Jeff Crank",
+    "type": "Representative",
+    "state": "CO",
+    "party": "Republican",
+    "description": "Representative for CO."
+  },
+  {
+    "id": "E000300",
+    "name": "Gabe Evans",
+    "type": "Representative",
+    "state": "CO",
+    "party": "Republican",
+    "description": "Representative for CO."
+  },
+  {
+    "id": "M001238",
+    "name": "Sarah McBride",
+    "type": "Representative",
+    "state": "DE",
+    "party": "Democrat",
+    "description": "Representative for DE."
+  },
+  {
+    "id": "H001099",
+    "name": "Mike Haridopolos",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "J000311",
+    "name": "Brian Jack",
+    "type": "Representative",
+    "state": "GA",
+    "party": "Republican",
+    "description": "Representative for GA."
+  },
+  {
+    "id": "S001229",
+    "name": "Jefferson Shreve",
+    "type": "Representative",
+    "state": "IN",
+    "party": "Republican",
+    "description": "Representative for IN."
+  },
+  {
+    "id": "M001233",
+    "name": "Mark B. Messmer",
+    "type": "Representative",
+    "state": "IN",
+    "party": "Republican",
+    "description": "Representative for IN."
+  },
+  {
+    "id": "S001228",
+    "name": "Derek Schmidt",
+    "type": "Representative",
+    "state": "KS",
+    "party": "Republican",
+    "description": "Representative for KS."
+  },
+  {
+    "id": "O000176",
+    "name": "Johnny Olszewski, Jr.",
+    "type": "Representative",
+    "state": "MD",
+    "party": "Democrat",
+    "description": "Representative for MD."
+  },
+  {
+    "id": "E000301",
+    "name": "Sarah Elfreth",
+    "type": "Representative",
+    "state": "MD",
+    "party": "Democrat",
+    "description": "Representative for MD."
+  },
+  {
+    "id": "M001232",
+    "name": "April McClain Delaney",
+    "type": "Representative",
+    "state": "MD",
+    "party": "Democrat",
+    "description": "Representative for MD."
+  },
+  {
+    "id": "B001321",
+    "name": "Tom Barrett",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Republican",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "M001237",
+    "name": "Kristen McDonald Rivet",
+    "type": "Representative",
+    "state": "MI",
+    "party": "Democrat",
+    "description": "Representative for MI."
+  },
+  {
+    "id": "M001234",
+    "name": "Kelly Morrison",
+    "type": "Representative",
+    "state": "MN",
+    "party": "Democrat",
+    "description": "Representative for MN."
+  },
+  {
+    "id": "B001324",
+    "name": "Wesley Bell",
+    "type": "Representative",
+    "state": "MO",
+    "party": "Democrat",
+    "description": "Representative for MO."
+  },
+  {
+    "id": "O000177",
+    "name": "Robert F. Onder, Jr.",
+    "type": "Representative",
+    "state": "MO",
+    "party": "Republican",
+    "description": "Representative for MO."
+  },
+  {
+    "id": "K000404",
+    "name": "Kimberlyn King-Hinds",
+    "type": "Representative",
+    "state": "MP",
+    "party": "Republican",
+    "description": "Representative for MP."
+  },
+  {
+    "id": "D000634",
+    "name": "Troy Downing",
+    "type": "Representative",
+    "state": "MT",
+    "party": "Republican",
+    "description": "Representative for MT."
+  },
+  {
+    "id": "M001240",
+    "name": "Addison P. McDowell",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "H001102",
+    "name": "Mark Harris",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "H001101",
+    "name": "Pat Harrigan",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "K000405",
+    "name": "Brad Knott",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "M001236",
+    "name": "Tim Moore",
+    "type": "Representative",
+    "state": "NC",
+    "party": "Republican",
+    "description": "Representative for NC."
+  },
+  {
+    "id": "F000482",
+    "name": "Julie Fedorchak",
+    "type": "Representative",
+    "state": "ND",
+    "party": "Republican",
+    "description": "Representative for ND."
+  },
+  {
+    "id": "G000604",
+    "name": "Maggie Goodlander",
+    "type": "Representative",
+    "state": "NH",
+    "party": "Democrat",
+    "description": "Representative for NH."
+  },
+  {
+    "id": "C001136",
+    "name": "Herbert C. Conaway, Jr.",
+    "type": "Representative",
+    "state": "NJ",
+    "party": "Democrat",
+    "description": "Representative for NJ."
+  },
+  {
+    "id": "P000621",
+    "name": "Nellie Pou",
+    "type": "Representative",
+    "state": "NJ",
+    "party": "Democrat",
+    "description": "Representative for NJ."
+  },
+  {
+    "id": "G000602",
+    "name": "Laura Gillen",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "L000606",
+    "name": "George Latimer",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "R000622",
+    "name": "Josh Riley",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "M001231",
+    "name": "John W. Mannion",
+    "type": "Representative",
+    "state": "NY",
+    "party": "Democrat",
+    "description": "Representative for NY."
+  },
+  {
+    "id": "T000490",
+    "name": "David J. Taylor",
+    "type": "Representative",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Representative for OH."
+  },
+  {
+    "id": "D000635",
+    "name": "Maxine Dexter",
+    "type": "Representative",
+    "state": "OR",
+    "party": "Democrat",
+    "description": "Representative for OR."
+  },
+  {
+    "id": "B001326",
+    "name": "Janelle S. Bynum",
+    "type": "Representative",
+    "state": "OR",
+    "party": "Democrat",
+    "description": "Representative for OR."
+  },
+  {
+    "id": "M001230",
+    "name": "Ryan Mackenzie",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Republican",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "B001327",
+    "name": "Robert P. Bresnahan, Jr.",
+    "type": "Representative",
+    "state": "PA",
+    "party": "Republican",
+    "description": "Representative for PA."
+  },
+  {
+    "id": "H001103",
+    "name": "Pablo José Hernández",
+    "type": "Representative",
+    "state": "PR",
+    "party": "Democrat",
+    "description": "Representative for PR."
+  },
+  {
+    "id": "B001325",
+    "name": "Sheri Biggs",
+    "type": "Representative",
+    "state": "SC",
+    "party": "Republican",
+    "description": "Representative for SC."
+  },
+  {
+    "id": "G000601",
+    "name": "Craig A. Goldman",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "G000603",
+    "name": "Brandon Gill",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Republican",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "J000310",
+    "name": "Julie Johnson",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "K000403",
+    "name": "Mike Kennedy",
+    "type": "Representative",
+    "state": "UT",
+    "party": "Republican",
+    "description": "Representative for UT."
+  },
+  {
+    "id": "M001239",
+    "name": "John J. McGuire III",
+    "type": "Representative",
+    "state": "VA",
+    "party": "Republican",
+    "description": "Representative for VA."
+  },
+  {
+    "id": "V000138",
+    "name": "Eugene Simon Vindman",
+    "type": "Representative",
+    "state": "VA",
+    "party": "Democrat",
+    "description": "Representative for VA."
+  },
+  {
+    "id": "S001230",
+    "name": "Suhas Subramanyam",
+    "type": "Representative",
+    "state": "VA",
+    "party": "Democrat",
+    "description": "Representative for VA."
+  },
+  {
+    "id": "B001322",
+    "name": "Michael Baumgartner",
+    "type": "Representative",
+    "state": "WA",
+    "party": "Republican",
+    "description": "Representative for WA."
+  },
+  {
+    "id": "R000621",
+    "name": "Emily Randall",
+    "type": "Representative",
+    "state": "WA",
+    "party": "Democrat",
+    "description": "Representative for WA."
+  },
+  {
+    "id": "M001235",
+    "name": "Riley M. Moore",
+    "type": "Representative",
+    "state": "WV",
+    "party": "Republican",
+    "description": "Representative for WV."
+  },
+  {
+    "id": "J000312",
+    "name": "James C. Justice",
+    "type": "Senator",
+    "state": "WV",
+    "party": "Republican",
+    "description": "Senator for WV."
+  },
+  {
+    "id": "H001104",
+    "name": "Jon Husted",
+    "type": "Senator",
+    "state": "OH",
+    "party": "Republican",
+    "description": "Senator for OH."
+  },
+  {
+    "id": "M001244",
+    "name": "Ashley Moody",
+    "type": "Senator",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Senator for FL."
+  },
+  {
+    "id": "P000622",
+    "name": "Jimmy Patronis",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "F000484",
+    "name": "Randy Fine",
+    "type": "Representative",
+    "state": "FL",
+    "party": "Republican",
+    "description": "Representative for FL."
+  },
+  {
+    "id": "W000831",
+    "name": "James R. Walkinshaw",
+    "type": "Representative",
+    "state": "VA",
+    "party": "Democrat",
+    "description": "Representative for VA."
+  },
+  {
+    "id": "G000606",
+    "name": "Adelita S. Grijalva",
+    "type": "Representative",
+    "state": "AZ",
+    "party": "Democrat",
+    "description": "Representative for AZ."
+  },
+  {
+    "id": "V000139",
+    "name": "Matt Van Epps",
+    "type": "Representative",
+    "state": "TN",
+    "party": "Republican",
+    "description": "Representative for TN."
+  },
+  {
+    "id": "M001245",
+    "name": "Christian Menefee",
+    "type": "Representative",
+    "state": "TX",
+    "party": "Democrat",
+    "description": "Representative for TX."
+  },
+  {
+    "id": "donald-trump",
+    "name": "Donald Trump",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "President"
+  },
+  {
+    "id": "j-d-vance",
+    "name": "J.D. Vance",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Vice President"
+  },
+  {
+    "id": "marco-rubio",
+    "name": "Marco Rubio",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of State"
+  },
+  {
+    "id": "scott-bessent",
+    "name": "Scott Bessent",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of the Treasury"
+  },
+  {
+    "id": "pete-hegseth",
+    "name": "Pete Hegseth",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of Defense"
+  },
+  {
+    "id": "pam-bondi",
+    "name": "Pam Bondi",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Attorney General"
+  },
+  {
+    "id": "doug-burgum",
+    "name": "Doug Burgum",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of the Interior"
+  },
+  {
+    "id": "brooke-rollins",
+    "name": "Brooke Rollins",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of Agriculture"
+  },
+  {
+    "id": "howard-lutnick",
+    "name": "Howard Lutnick",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of Commerce"
+  },
+  {
+    "id": "lori-chavez-deremer",
+    "name": "Lori Chavez-DeRemer",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of Labor"
+  },
+  {
+    "id": "robert-f-kennedy-jr",
+    "name": "Robert F. Kennedy Jr.",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of Health and Human Services"
+  },
+  {
+    "id": "scott-turner",
+    "name": "Scott Turner",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of Housing and Urban Development"
+  },
+  {
+    "id": "sean-duffy",
+    "name": "Sean Duffy",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of Transportation"
+  },
+  {
+    "id": "chris-wright",
+    "name": "Chris Wright",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of Energy"
+  },
+  {
+    "id": "linda-mcmahon",
+    "name": "Linda McMahon",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of Education"
+  },
+  {
+    "id": "doug-collins",
+    "name": "Doug Collins",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of Veterans Affairs"
+  },
+  {
+    "id": "markwayne-mullin",
+    "name": "Markwayne Mullin",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Secretary of Homeland Security"
+  },
+  {
+    "id": "susie-wiles",
+    "name": "Susie Wiles",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "White House Chief of Staff"
+  },
+  {
+    "id": "lee-zeldin",
+    "name": "Lee Zeldin",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Administrator of the EPA"
+  },
+  {
+    "id": "russ-vought",
+    "name": "Russ Vought",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Director of the OMB"
+  },
+  {
+    "id": "tulsi-gabbard",
+    "name": "Tulsi Gabbard",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Director of National Intelligence"
+  },
+  {
+    "id": "john-ratcliffe",
+    "name": "John Ratcliffe",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Director of the CIA"
+  },
+  {
+    "id": "vivek-ramaswamy",
+    "name": "Vivek Ramaswamy",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Department of Government Efficiency"
+  },
+  {
+    "id": "kash-patel",
+    "name": "Kash Patel",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "FBI Director"
+  },
+  {
+    "id": "tom-homan",
+    "name": "Tom Homan",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Border Czar"
+  },
+  {
+    "id": "kristi-noem",
+    "name": "Kristi Noem",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "Special Envoy for the Shield of the Americas"
+  },
+  {
+    "id": "michael-waltz",
+    "name": "Michael Waltz",
+    "type": "Admin Official",
+    "party": "Republican",
+    "description": "UN Ambassador"
+  }
+]

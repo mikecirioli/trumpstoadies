@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import liesData from '../data/lies.json';
+
+// Sort descending by date
+const lies = liesData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<Layout title="Trump's Lies - Fact Checker">
+    <div class="header-section">
+		<h2>Trump's Lies</h2>
+		<p class="subtitle">A documented catalogue of prominent falsehoods, absurd claims, and misleading statements, verified against transcripts.</p>
+	</div>
+
+    <div class="lies-feed">
+		{lies.map(lie => (
+			<article class="lie-card">
+                <div class="card-header">
+					<span class="date">{lie.date}</span>
+					<span class="topic">{lie.topic}</span>
+				</div>
+                <div class="quote-section">
+                    <blockquote>"{lie.quote}"</blockquote>
+                </div>
+                <div class="debunk-section">
+                    <h4>The Reality:</h4>
+                    <p>{lie.debunk}</p>
+                </div>
+				<div class="card-footer">
+					{lie.sourceUrl && <a href={lie.sourceUrl} target="_blank" rel="noopener noreferrer" class="source-link">Read Transcript &rarr;</a>}
+				</div>
+			</article>
+		))}
+        {lies.length === 0 && <p>No lies tracked yet.</p>}
+	</div>
+</Layout>
+
+<style>
+    .header-section {
+        margin-bottom: 2rem;
+    }
+    .header-section h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    .subtitle {
+        color: var(--color-muted);
+        font-size: 1.1rem;
+    }
+    .lies-feed {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .lie-card {
+        background: var(--color-card);
+        border: 1px solid var(--color-border);
+        border-left: 4px solid var(--color-accent);
+        border-radius: 8px;
+        padding: 1.5rem;
+    }
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.875rem;
+        color: var(--color-muted);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .topic {
+        background: #eee;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: bold;
+        color: var(--color-text);
+    }
+    .quote-section {
+        background: #fdf2f2;
+        padding: 1rem 1.5rem;
+        border-radius: 4px;
+        margin-bottom: 1.5rem;
+        border-left: 3px solid #e74c3c;
+    }
+    .quote-section blockquote {
+        margin: 0;
+        font-size: 1.25rem;
+        font-style: italic;
+        color: #333;
+    }
+    .debunk-section h4 {
+        color: var(--color-accent);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        letter-spacing: 0.5px;
+    }
+    .debunk-section p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+    }
+    .card-footer {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        border-top: 1px solid var(--color-border);
+        padding-top: 1rem;
+    }
+    .source-link {
+        font-weight: bold;
+        color: var(--color-muted);
+    }
+    .source-link:hover {
+        color: var(--color-text);
+    }
+</style>

@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import actionsData from '../data/actions.json';
+
+// Get unique issues and count occurrences
+const topicCounts = actionsData.reduce((acc, action) => {
+    acc[action.topic] = (acc[action.topic] || 0) + 1;
+    return acc;
+}, {} as Record<string, number>);
+
+const sortedTopics = Object.entries(topicCounts).sort((a, b) => b[1] - a[1]);
+---
+
+<Layout title="Issues - Trump's Toadies">
+    <div class="header-section">
+		<h2>Issues</h2>
+		<p class="subtitle">Actions categorized by topic area.</p>
+	</div>
+
+    <div class="issue-grid">
+        {sortedTopics.map(([topic, count]) => (
+            <div class="issue-card">
+                <h3>{topic}</h3>
+                <div class="count-display">
+                    <strong>{count}</strong> action{count !== 1 ? 's' : ''}
+                </div>
+                <a href={`/?topic=${encodeURIComponent(topic)}`} class="view-link">View Actions &rarr;</a>
+            </div>
+        ))}
+    </div>
+</Layout>
+
+<script>
+    // This allows the homepage to filter by URL parameter
+    // Needs matching logic in index.astro
+</script>
+
+<style>
+    .header-section {
+        margin-bottom: 2rem;
+    }
+    .header-section h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    .subtitle {
+        color: var(--color-muted);
+        font-size: 1.1rem;
+    }
+    .issue-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    .issue-card {
+        background: var(--color-card);
+        border: 1px solid var(--color-border);
+        border-top: 4px solid var(--color-accent);
+        padding: 1.5rem;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+    }
+    .issue-card h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    }
+    .count-display {
+        color: var(--color-muted);
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        flex-grow: 1;
+    }
+    .count-display strong {
+        color: var(--color-text);
+    }
+    .view-link {
+        font-weight: bold;
+    }
+</style>
