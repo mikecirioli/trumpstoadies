@@ -1,0 +1,325 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import rankingsData from '../../data/rankings.json';
+
+const { senate, house, meta } = rankingsData;
+
+// Compute inline score color: deep red at 100%, white at 50%, deep blue at 0%
+// Interpolate: score 100 -> #c0392b, score 50 -> #ffffff, score 0 -> #2980b9
+function scoreColor(score: number): string {
+    if (score >= 50) {
+        // red (#c0392b) to white (#ffffff) as score goes from 100 to 50
+        const t = (score - 50) / 50; // 1 at 100%, 0 at 50%
+        const r = Math.round(0xc0 + (0xff - 0xc0) * (1 - t));
+        const g = Math.round(0x39 + (0xff - 0x39) * (1 - t));
+        const b = Math.round(0x2b + (0xff - 0x2b) * (1 - t));
+        return `rgb(${r},${g},${b})`;
+    } else {
+        // white (#ffffff) to blue (#2980b9) as score goes from 50 to 0
+        const t = score / 50; // 1 at 50%, 0 at 0%
+        const r = Math.round(0x29 + (0xff - 0x29) * t);
+        const g = Math.round(0x80 + (0xff - 0x80) * t);
+        const b = Math.round(0xb9 + (0xff - 0xb9) * t);
+        return `rgb(${r},${g},${b})`;
+    }
+}
+
+// Text color for score cell — dark text on light backgrounds, white on dark
+function scoreTextColor(score: number): string {
+    // Near middle (roughly 35–65) the background is light enough for dark text
+    return (score > 30 && score < 70) ? '#111' : '#fff';
+}
+
+function partyColor(party: string): string {
+    const p = party.toLowerCase();
+    if (p === 'republican') return '#e74c3c';
+    if (p === 'democrat')   return '#3498db';
+    return '#95a5a6';
+}
+
+function partyInitial(party: string): string {
+    const p = party.toLowerCase();
+    if (p === 'republican') return 'R';
+    if (p === 'democrat')   return 'D';
+    return 'I';
+}
+---
+
+<Layout title="Rankings - Trump's Toadies">
+    <div class="header-section">
+        <h2>Toadie Rankings</h2>
+        <p class="subtitle">
+            Ranked by percentage of Trump-aligned votes.
+            Minimum {3} votes required to appear.
+            {meta.senateEvents} Senate events &bull; {meta.houseEvents} House events tracked.
+        </p>
+    </div>
+
+    <div class="tab-bar" role="tablist">
+        <button class="tab-btn active" id="tab-senate" role="tab" aria-selected="true" aria-controls="panel-senate" data-target="senate">
+            Senate
+            <span class="tab-count">{senate.length}</span>
+        </button>
+        <button class="tab-btn" id="tab-house" role="tab" aria-selected="false" aria-controls="panel-house" data-target="house">
+            House
+            <span class="tab-count">{house.length}</span>
+        </button>
+    </div>
+
+    <!-- Senate Panel -->
+    <div id="panel-senate" role="tabpanel" aria-labelledby="tab-senate" class="tab-panel">
+        <table class="rankings-table">
+            <thead>
+                <tr>
+                    <th class="col-rank">Rank</th>
+                    <th class="col-name">Name</th>
+                    <th class="col-state">State</th>
+                    <th class="col-score">Score</th>
+                    <th class="col-votes">Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {senate.map(entry => (
+                    <tr>
+                        <td class="col-rank">
+                            <span class="rank-num">#{entry.rank}</span>
+                            <span class="party-rank" style={`background:${partyColor(entry.party)}`}>
+                                {partyInitial(entry.party)} #{entry.partyRank}
+                            </span>
+                        </td>
+                        <td class="col-name">
+                            <a href={`${import.meta.env.BASE_URL}/subjects/${entry.subjectId}/`} class="subject-link">
+                                <span class="party-dot" style={`background:${partyColor(entry.party)}`}></span>
+                                {entry.name}
+                            </a>
+                        </td>
+                        <td class="col-state">{entry.state}</td>
+                        <td class="col-score">
+                            <span class="score-pill" style={`background:${scoreColor(entry.score)};color:${scoreTextColor(entry.score)}`}>
+                                {entry.score.toFixed(1)}%
+                            </span>
+                        </td>
+                        <td class="col-votes">{entry.pro}/{entry.total}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- House Panel -->
+    <div id="panel-house" role="tabpanel" aria-labelledby="tab-house" class="tab-panel hidden">
+        <table class="rankings-table">
+            <thead>
+                <tr>
+                    <th class="col-rank">Rank</th>
+                    <th class="col-name">Name</th>
+                    <th class="col-state">State</th>
+                    <th class="col-score">Score</th>
+                    <th class="col-votes">Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {house.map(entry => (
+                    <tr>
+                        <td class="col-rank">
+                            <span class="rank-num">#{entry.rank}</span>
+                            <span class="party-rank" style={`background:${partyColor(entry.party)}`}>
+                                {partyInitial(entry.party)} #{entry.partyRank}
+                            </span>
+                        </td>
+                        <td class="col-name">
+                            <a href={`${import.meta.env.BASE_URL}/subjects/${entry.subjectId}/`} class="subject-link">
+                                <span class="party-dot" style={`background:${partyColor(entry.party)}`}></span>
+                                {entry.name}
+                            </a>
+                        </td>
+                        <td class="col-state">{entry.state}</td>
+                        <td class="col-score">
+                            <span class="score-pill" style={`background:${scoreColor(entry.score)};color:${scoreTextColor(entry.score)}`}>
+                                {entry.score.toFixed(1)}%
+                            </span>
+                        </td>
+                        <td class="col-votes">{entry.pro}/{entry.total}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    </div>
+</Layout>
+
+<script>
+    const tabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+    const panels  = document.querySelectorAll<HTMLElement>('.tab-panel');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.target!;
+
+            tabBtns.forEach(b => {
+                b.classList.toggle('active', b === btn);
+                b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+            });
+
+            panels.forEach(panel => {
+                panel.classList.toggle('hidden', panel.id !== `panel-${target}`);
+            });
+        });
+    });
+</script>
+
+<style>
+    .header-section {
+        margin-bottom: 1.5rem;
+    }
+    .header-section h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    .subtitle {
+        color: var(--color-muted);
+        font-size: 1rem;
+    }
+
+    /* Tabs */
+    .tab-bar {
+        display: flex;
+        gap: 0;
+        border-bottom: 2px solid var(--color-border);
+        margin-bottom: 1.5rem;
+    }
+    .tab-btn {
+        background: none;
+        border: none;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -2px;
+        padding: 0.6rem 1.4rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        color: var(--color-muted);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: color 0.15s, border-color 0.15s;
+    }
+    .tab-btn:hover {
+        color: var(--color-text);
+    }
+    .tab-btn.active {
+        color: var(--color-accent);
+        border-bottom-color: var(--color-accent);
+    }
+    .tab-count {
+        font-size: 0.75rem;
+        background: var(--color-border);
+        border-radius: 10px;
+        padding: 0.1rem 0.45rem;
+        font-weight: 700;
+        color: var(--color-muted);
+    }
+    .tab-btn.active .tab-count {
+        background: #fdf2f2;
+        color: var(--color-accent);
+    }
+
+    /* Panels */
+    .tab-panel {
+        overflow-x: auto;
+    }
+    .tab-panel.hidden {
+        display: none;
+    }
+
+    /* Table */
+    .rankings-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+    }
+    .rankings-table thead th {
+        text-align: left;
+        padding: 0.5rem 0.75rem;
+        border-bottom: 2px solid var(--color-border);
+        font-weight: 700;
+        color: var(--color-muted);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+    }
+    .rankings-table tbody tr {
+        border-bottom: 1px solid var(--color-border);
+        transition: background 0.1s;
+    }
+    .rankings-table tbody tr:hover {
+        background: #f5f5f5;
+    }
+    .rankings-table td {
+        padding: 0.6rem 0.75rem;
+        vertical-align: middle;
+    }
+
+    /* Column widths */
+    .col-rank  { width: 9rem; white-space: nowrap; }
+    .col-name  { min-width: 10rem; }
+    .col-state { width: 3.5rem; text-align: center; color: var(--color-muted); font-size: 0.85rem; }
+    .col-score { width: 6rem; text-align: center; }
+    .col-votes { width: 5rem; text-align: center; color: var(--color-muted); font-size: 0.85rem; white-space: nowrap; }
+
+    /* Rank cell */
+    .col-rank {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .rank-num {
+        font-weight: 700;
+        font-size: 0.95rem;
+        min-width: 2.2rem;
+    }
+    .party-rank {
+        font-size: 0.65rem;
+        font-weight: 700;
+        padding: 0.15rem 0.4rem;
+        border-radius: 3px;
+        color: #fff;
+        white-space: nowrap;
+    }
+
+    /* Name cell */
+    .subject-link {
+        color: var(--color-text);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .subject-link:hover {
+        color: var(--color-accent);
+        text-decoration: none;
+    }
+    .party-dot {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    /* Score pill */
+    .score-pill {
+        display: inline-block;
+        padding: 0.2rem 0.55rem;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 0.88rem;
+        min-width: 4rem;
+        text-align: center;
+    }
+
+    /* Mobile: hide state column */
+    @media (max-width: 480px) {
+        .col-state { display: none; }
+        .col-rank  { width: auto; }
+        .tab-btn   { padding: 0.6rem 0.9rem; font-size: 0.9rem; }
+    }
+</style>

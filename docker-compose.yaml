@@ -1,0 +1,16 @@
+services:
+  trumpstoadies:
+    build: .
+    container_name: trumpstoadies
+    restart: unless-stopped
+    ports:
+      - "8100:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      # Data files — editable from host, read by build and cron
+      - ./data:/app/src/data
+      # Cron state and ingest log
+      - ./state:/app/state
+      # Built site — cron writes here (/app/dist), nginx serves from here
+      - ./dist:/app/dist
+      - ./dist:/usr/share/nginx/html

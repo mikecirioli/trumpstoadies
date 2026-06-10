@@ -28,7 +28,9 @@ async function parseHouseXML(filePath, metadata) {
                 title: `Voted ${vote} on ${metadata.title}`,
                 description: `Voted ${vote} on ${metadata.legisNum}: ${metadata.description}`,
                 sourceUrl: metadata.sourceUrl,
-                alignment: vote === metadata.proVote ? 'pro' : 'anti'
+                alignment: vote === metadata.proVote ? 'pro' : 'anti',
+                eventId: metadata.eventId,
+                eventTitle: metadata.eventTitle
             });
         }
     });
@@ -72,7 +74,9 @@ async function parseSenateXML(filePath, metadata) {
                     title: `Voted ${vote} on ${metadata.title}`,
                     description: `Voted ${vote} on ${metadata.legisNum}: ${metadata.description}`,
                     sourceUrl: metadata.sourceUrl,
-                    alignment: vote === metadata.proVote ? 'pro' : 'anti'
+                    alignment: vote === metadata.proVote ? 'pro' : 'anti',
+                    eventId: metadata.eventId,
+                    eventTitle: metadata.eventTitle
                 });
             }
         } else {
@@ -100,7 +104,9 @@ async function run() {
         legisNum: 'H.R. 28',
         description: 'Protection of Women and Girls in Sports Act of 2025',
         sourceUrl: 'https://clerk.house.gov/Votes/202512',
-        proVote: 'Yea'
+        proVote: 'Yea',
+        eventId: '2025-01-14-hr28-sports-act',
+        eventTitle: 'H.R. 28: Protection of Women and Girls in Sports Act'
     };
 
     const hegsethMetadata = {
@@ -110,8 +116,10 @@ async function run() {
         title: 'Confirmation of Pete Hegseth as Secretary of Defense',
         legisNum: 'PN11-7',
         description: 'Confirmation of Pete Hegseth, of Tennessee, to be Secretary of Defense',
-        sourceUrl: 'https://www.senate.gov/legislative/LIS/roll_call_votes/vote1191/vote_119_1_00015.xml',
-        proVote: 'Yea'
+        sourceUrl: 'https://www.senate.gov/legislative/LIS/roll_call_votes/vote1192/vote_119_1_00015.xml',
+        proVote: 'Yea',
+        eventId: '2025-01-24-hegseth-confirmation',
+        eventTitle: 'Confirmation of Pete Hegseth as Secretary of Defense'
     };
 
     const hr2616Metadata = {
@@ -122,7 +130,9 @@ async function run() {
         legisNum: 'H.R. 2616',
         description: 'PROTECT Kids Act of 2026',
         sourceUrl: 'https://clerk.house.gov/Votes/2026184',
-        proVote: 'Yea'
+        proVote: 'Aye',
+        eventId: '2026-05-20-hr2616-protect-kids-act',
+        eventTitle: 'H.R. 2616: PROTECT Kids Act'
     };
 
     const sjres185Metadata = {
@@ -133,7 +143,9 @@ async function run() {
         legisNum: 'S.J.Res. 185',
         description: 'Directing the removal of United States Armed Forces from hostilities within or against the Islamic Republic of Iran',
         sourceUrl: 'https://www.senate.gov/legislative/LIS/roll_call_votes/vote1192/vote_119_2_00129.xml',
-        proVote: 'Yea' // Yea is for removal (anti-war/hostility)
+        proVote: 'Yea',
+        eventId: '2026-05-19-sjres185-iran-war-powers',
+        eventTitle: 'S.J.Res. 185: Iran War Powers Resolution (2026)'
     };
 
     await parseHouseXML('hr28_vote.xml', hr28Metadata);

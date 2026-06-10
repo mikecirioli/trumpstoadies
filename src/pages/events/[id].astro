@@ -2,10 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import actionsData from '../../data/actions.json';
 import subjectsData from '../../data/subjects.json';
+import eventsMeta from '../../data/events_meta.json';
 
 export async function getStaticPaths() {
-  // Get unique event IDs
-  const eventIds = [...new Set(actionsData.map(a => a.eventId))];
+  // Get unique event IDs, filtering out any missing/undefined ones
+  const eventIds = [...new Set(actionsData.map(a => a.eventId).filter(Boolean))];
   
   return eventIds.map(eventId => {
     const eventActions = actionsData.filter(a => a.eventId === eventId);
@@ -26,26 +27,72 @@ export async function getStaticPaths() {
 
 const { event, eventActions } = Astro.props;
 
+const meta = (eventsMeta as any)[event.id] ?? null;
+
 // Map subjects to actions
 const fullActions = eventActions.map(action => {
     const subject = subjectsData.find(s => s.id === action.subjectId);
     return { ...action, subject };
 });
 
-const proActions = fullActions.filter(a => a.alignment === 'pro');
-const antiActions = fullActions.filter(a => a.alignment === 'anti');
+const byState = (a: any, b: any) => (a.subject?.state ?? '').localeCompare(b.subject?.state ?? '') || (a.subject?.name ?? '').localeCompare(b.subject?.name ?? '');
+const proActions = fullActions.filter(a => a.alignment === 'pro').sort(byState);
+const antiActions = fullActions.filter(a => a.alignment === 'anti').sort(byState);
+
+const getMajorityParty = (actions) => {
+    const counts = actions.reduce((acc, a) => {
+        const party = a.subject?.party || 'Independent';
+        acc[party] = (acc[party] || 0) + 1;
+        return acc;
+    }, {});
+    return Object.keys(counts).reduce((a, b) => (counts[a] || 0) > (counts[b] || 0) ? a : b, 'Independent');
+};
+
+const proMajorityParty = getMajorityParty(proActions);
+const antiMajorityParty = getMajorityParty(antiActions);
 ---
 
 <Layout title={`${event.title} - Trump's Toadies`}>
     <div class="event-header">
-        <a href="/">&larr; Back to Feed</a>
+        <a href={`${import.meta.env.BASE_URL}/`}>&larr; Back to Feed</a>
         <div class="meta">
             <span class="date">{event.date}</span>
             <span class="topic">{event.topic}</span>
         </div>
         <h2>{event.title}</h2>
         <p class="description">{event.description}</p>
-        
+
+        {meta?.summary && (
+          <div class="ai-summary">
+            <p class="summary-text">{meta.summary}</p>
+            <div class="vote-rationale">
+              {meta.why_yes && (
+                <div class="rationale pro">
+                  <span class="rationale-label">✓ Case for Yea</span>
+                  {meta.why_yes}
+                </div>
+              )}
+              {meta.why_no && (
+                <div class="rationale anti">
+                  <span class="rationale-label">✗ Case for Nay</span>
+                  {meta.why_no}
+                </div>
+              )}
+            </div>
+            {meta.trump_signal && (
+              <div class="trump-signal">
+                <strong>Trump alignment:</strong> {meta.trump_signal}
+              </div>
+            )}
+            {meta.tags && meta.tags.length > 0 && (
+              <div class="tag-row">
+                {meta.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+              </div>
+            )}
+            <p class="ai-label">AI-generated summary · <a href={event.sourceUrl} target="_blank" rel="noopener noreferrer">View official record</a></p>
+          </div>
+        )}
+
         {event.sourceUrl && (
             <div class="source-link-container">
                 <a href={event.sourceUrl} target="_blank" rel="noopener noreferrer" class="btn outline">View Official Record</a>
@@ -53,17 +100,25 @@ const antiActions = fullActions.filter(a => a.alignment === 'anti');
         )}
     </div>
 
+    <div class="legend">
+        <span class="legend-label">Column Colors (Majority Party):</span>
+        <span class="legend-item"><span class="party-dot party-republican"></span> Republican</span>
+        <span class="legend-item"><span class="party-dot party-democrat"></span> Democrat</span>
+        <span class="legend-item"><span class="party-dot party-independent"></span> Independent</span>
+        <span class="legend-item">Example: <span class="badge">Nay</span></span>
+    </div>
+
     <div class="actions-container">
         {proActions.length > 0 && (
-            <div class="action-column toady-column">
-                <div class="column-header pro">
-                    <h3>Toady Actions</h3>
+            <div class="action-column pro-column">
+                <div class={`column-header party-${proMajorityParty.toLowerCase()}`}>
+                    <h3>Yay</h3>
                     <span class="count">{proActions.length}</span>
                 </div>
-                <p class="column-desc">Votes or actions that aligned with or supported Donald Trump's position.</p>
+                <p class="column-desc">Voted Yea on this measure.</p>
                 <div class="subject-list">
                     {proActions.map(action => (
-                        <a href={`/subjects/${action.subject?.id}`} class="subject-row">
+                        <a href={`${import.meta.env.BASE_URL}/subjects/${action.subject?.id}/`} class="subject-row">
                             <div class="subject-name">
                                 <strong>{action.subject?.name}</strong>
                                 <span class="badge">{action.subject?.state}</span>
@@ -78,14 +133,14 @@ const antiActions = fullActions.filter(a => a.alignment === 'anti');
 
         {antiActions.length > 0 && (
             <div class="action-column anti-column">
-                <div class="column-header anti">
-                    <h3>Opposing Actions</h3>
+                <div class={`column-header party-${antiMajorityParty.toLowerCase()}`}>
+                    <h3>Nay</h3>
                     <span class="count">{antiActions.length}</span>
                 </div>
-                <p class="column-desc">Votes or actions that opposed Donald Trump's position.</p>
+                <p class="column-desc">Voted Nay on this measure.</p>
                 <div class="subject-list">
                     {antiActions.map(action => (
-                        <a href={`/subjects/${action.subject?.id}`} class="subject-row">
+                        <a href={`${import.meta.env.BASE_URL}/subjects/${action.subject?.id}/`} class="subject-row">
                             <div class="subject-name">
                                 <strong>{action.subject?.name}</strong>
                                 <span class="badge">{action.subject?.state}</span>
@@ -101,6 +156,21 @@ const antiActions = fullActions.filter(a => a.alignment === 'anti');
 </Layout>
 
 <style>
+    .ai-summary { background: #f8f9fa; border: 1px solid #e9ecef; border-left: 3px solid #95a5a6; border-radius: 6px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    .summary-text { margin-bottom: 0.75rem; }
+    .vote-rationale { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+    @media (max-width: 600px) { .vote-rationale { grid-template-columns: 1fr; } }
+    .rationale { font-size: 0.875rem; border-radius: 4px; padding: 0.6rem 0.75rem; border: 1px solid; }
+    .rationale.pro { background: #fdf8f8; border-color: #f5b7b1; color: #444; }
+    .rationale.anti { background: #f8fbff; border-color: #a9cce3; color: #444; }
+    .rationale-label { display: block; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.25rem; }
+    .rationale.pro .rationale-label { color: #c0392b; }
+    .rationale.anti .rationale-label { color: #2980b9; }
+    .trump-signal { font-size: 0.875rem; color: #555; background: #fff; border: 1px solid #e9ecef; border-radius: 4px; padding: 0.5rem 0.75rem; margin-bottom: 0.75rem; }
+    .tag-row { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .tag { font-size: 0.7rem; padding: 0.15rem 0.5rem; background: #eee; border-radius: 12px; color: #555; }
+    .ai-label { font-size: 0.75rem; color: var(--color-muted); margin: 0; }
+
     .event-header {
         background: var(--color-card);
         border: 1px solid var(--color-border);
@@ -184,20 +254,18 @@ const antiActions = fullActions.filter(a => a.alignment === 'anti');
         margin: 0;
         font-size: 1.5rem;
     }
-    .column-header.pro {
-        background: #fdf2f2;
-        border-bottom-color: #f5b7b1;
-    }
-    .column-header.pro h3, .column-header.pro .count {
-        color: #c0392b;
-    }
-    .column-header.anti {
-        background: #ebf5fb;
-        border-bottom-color: #a9cce3;
-    }
-    .column-header.anti h3, .column-header.anti .count {
-        color: #2980b9;
-    }
+    .column-header.party-republican { background: #fdf2f2; border-bottom-color: #f5b7b1; }
+    .column-header.party-republican h3, .column-header.party-republican .count { color: #c0392b; }
+    .column-header.party-democrat { background: #ebf5fb; border-bottom-color: #a9cce3; }
+    .column-header.party-democrat h3, .column-header.party-democrat .count { color: #2980b9; }
+    .column-header.party-independent { background: #f9f9f9; border-bottom-color: #ccc; }
+    .column-header.party-independent h3, .column-header.party-independent .count { color: #555; }
+    
+    .legend { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: center; font-size: 0.9rem; color: #555; background: #fff; padding: 0.75rem 1rem; border-radius: 6px; border: 1px solid var(--color-border); }
+    .legend-label { font-weight: bold; }
+    .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+    .legend-item .badge { background: #eee; color: #333; font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 4px; }
+    
     .count {
         font-size: 1.5rem;
         font-weight: bold;

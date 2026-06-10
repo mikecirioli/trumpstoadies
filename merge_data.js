@@ -13,10 +13,14 @@ async function run() {
     return {
       id: leg.id.bioguide,
       name: name,
-      type: 'Representative',
+      type: term.type === 'sen' ? 'Senator' : 'Representative',
       state: term.state,
       party: term.party,
-      description: `${term.type === 'sen' ? 'Senator' : 'Representative'} for ${term.state}.`
+      description: `${term.type === 'sen' ? 'Senator' : 'Representative'} for ${term.state}.`,
+      url: term.url || null,
+      phone: term.phone || null,
+      contact_form: term.contact_form || null,
+      address: term.address || null
     };
   });
 
@@ -60,8 +64,14 @@ async function run() {
 
   // Merge Congress
   newSubjects.forEach(s => {
-    if (!all.find(x => x.id === s.id)) {
+    const existingSubject = all.find(x => x.id === s.id);
+    if (!existingSubject) {
       all.push(s);
+    } else {
+      existingSubject.url = s.url;
+      existingSubject.phone = s.phone;
+      existingSubject.contact_form = s.contact_form;
+      existingSubject.address = s.address;
     }
   });
 

@@ -2,35 +2,58 @@
 import Layout from '../layouts/Layout.astro';
 import actionsData from '../data/actions.json';
 import subjectsData from '../data/subjects.json';
+import eventsMeta from '../data/events_meta.json';
 
-// Group actions by eventId
+// Build subject party lookup
+const subjectParty: Record<string, string> = {};
+subjectsData.forEach((s: any) => { subjectParty[s.id] = s.party ?? ''; });
+
+// Extract vote value from title: "Voted Yea on ..." → "Yea"
+function voteValue(title: string): string {
+    const m = title.match(/^Voted (\S+) on /);
+    return m ? m[1] : '';
+}
+// Normalise to Yea/Nay regardless of Aye/No variants
+function isYea(v: string) { return v === 'Yea' || v === 'Aye'; }
+
+// Group actions by eventId — skip orphaned actions with no eventId
 const eventsMap = new Map();
 
-actionsData.forEach(action => {
+actionsData.filter((a: any) => a.eventId).forEach((action: any) => {
     if (!eventsMap.has(action.eventId)) {
+        const meta = (eventsMeta as any)[action.eventId];
         eventsMap.set(action.eventId, {
             id: action.eventId,
             date: action.date,
             topic: action.topic,
             title: action.eventTitle,
-            // Create a general description without the specific "Voted Yea/Nay" prefix
             description: action.description.replace(/^Voted .*? on (the Motion to Discharge )?/, '').replace(/^Voted .*? on /, ''),
             sourceUrl: action.sourceUrl,
-            actions: [],
+            chamber: action.chamber ?? (action.id.startsWith('sen-') ? 'senate' : 'house'),
             proCount: 0,
-            antiCount: 0
+            antiCount: 0,
+            // vote breakdown: yea/nay totals + R/D splits
+            yeaTotal: 0, nayTotal: 0,
+            yeaR: 0, yeaD: 0, nayR: 0, nayD: 0,
+            // LLM enrichment
+            summary: meta?.summary ?? null,
+            tags: meta?.tags ?? [],
         });
     }
-    
     const event = eventsMap.get(action.eventId);
-    event.actions.push(action);
     if (action.alignment === 'pro') event.proCount++;
-    if (action.alignment === 'anti') event.antiCount++;
+    else event.antiCount++;
+
+    const vote  = voteValue(action.title);
+    const party = subjectParty[action.subjectId] ?? '';
+    const yea   = isYea(vote);
+    if (yea)  { event.yeaTotal++; if (party === 'Republican') event.yeaR++; else if (party === 'Democrat') event.yeaD++; }
+    else      { event.nayTotal++; if (party === 'Republican') event.nayR++; else if (party === 'Democrat') event.nayD++; }
 });
 
-const events = Array.from(eventsMap.values()).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const events = Array.from(eventsMap.values()).sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-const topics = [...new Set(events.map(e => e.topic))];
+const topics = [...new Set(events.map((e: any) => e.topic))];
 ---
 
 <Layout title="Trump's Toadies - Tracker Feed">
@@ -56,31 +79,50 @@ const topics = [...new Set(events.map(e => e.topic))];
 	</div>
 
 	<div class="action-feed" id="actionFeed">
-		{events.map(event => (
-			<article class="event-card" data-topic={event.topic} data-search={`${event.title} ${event.topic} ${event.description}`.toLowerCase()}>
+		{events.map(event => {
+			const toadiesWon = event.proCount >= event.antiCount;
+			return (
+			<article class={`event-card ${toadiesWon ? 'toady-won' : 'opposition-won'}`} data-topic={event.topic} data-search={`${event.title} ${event.topic} ${event.description}`.toLowerCase()}>
 				<div class="card-header">
 					<span class="date">{event.date}</span>
+					<span class={`chamber-badge ${event.chamber}`}>{event.chamber === 'senate' ? 'Senate' : 'House'}</span>
 					<span class="topic">{event.topic}</span>
+					<span class={`result-badge ${toadiesWon ? 'pro' : 'anti'}`}>
+						{toadiesWon ? 'Toadies Won' : 'Opposition Held'}
+					</span>
 				</div>
-				<h3><a href={`/events/${event.id}`}>{event.title}</a></h3>
-				<p class="description">{event.description}</p>
-				
-                <div class="stats-row">
-                    <div class="stat pro">
-                        <strong>{event.proCount}</strong> Toady Action{event.proCount !== 1 ? 's' : ''}
-                    </div>
-                    {event.antiCount > 0 && (
-                        <div class="stat anti">
-                            <strong>{event.antiCount}</strong> Opposing
+				<h3><a href={`${import.meta.env.BASE_URL}/events/${event.id}/`}>{event.title}</a></h3>
+				<p class="description">
+				  {event.summary ?? event.description}
+				</p>
+				{event.tags.length > 0 && (
+				  <div class="tag-row">
+				    {event.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+				  </div>
+				)}
+
+                <div class="vote-breakdown">
+                    <div class="vote-bubble yea">
+                        <div class="bubble-total">{event.yeaTotal} Yea</div>
+                        <div class="bubble-parties">
+                            <span class="party-r">R: {event.yeaR}</span>
+                            <span class="party-d">D: {event.yeaD}</span>
                         </div>
-                    )}
+                    </div>
+                    <div class="vote-bubble nay">
+                        <div class="bubble-total">{event.nayTotal} Nay</div>
+                        <div class="bubble-parties">
+                            <span class="party-r">R: {event.nayR}</span>
+                            <span class="party-d">D: {event.nayD}</span>
+                        </div>
+                    </div>
                 </div>
 
 				<div class="card-footer">
-					<a href={`/events/${event.id}`} class="btn">View All Votes & Details</a>
+					<a href={`${import.meta.env.BASE_URL}/events/${event.id}/`} class="btn">View All Votes & Details</a>
 				</div>
 			</article>
-		))}
+		)})}
 	</div>
 </Layout>
 
@@ -170,10 +212,16 @@ const topics = [...new Set(events.map(e => e.topic))];
     .event-card {
         background: var(--color-card);
         border: 1px solid var(--color-border);
-        border-left: 4px solid var(--color-text);
+        border-left: 4px solid var(--color-border);
         border-radius: 8px;
         padding: 1.5rem;
         transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .event-card.toady-won {
+        border-left-color: #e74c3c;
+    }
+    .event-card.opposition-won {
+        border-left-color: #3498db;
     }
     .event-card:hover {
         transform: translateY(-2px);
@@ -181,12 +229,17 @@ const topics = [...new Set(events.map(e => e.topic))];
     }
     .card-header {
         display: flex;
-        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
         font-size: 0.875rem;
         color: var(--color-muted);
         margin-bottom: 0.5rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        flex-wrap: wrap;
+    }
+    .card-header .date {
+        margin-right: auto;
     }
     .topic {
         background: #eee;
@@ -194,6 +247,38 @@ const topics = [...new Set(events.map(e => e.topic))];
         border-radius: 4px;
         font-weight: bold;
         color: var(--color-text);
+    }
+    .chamber-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .chamber-badge.senate {
+        background: #2c3e50;
+        color: #fff;
+    }
+    .chamber-badge.house {
+        background: #7f8c8d;
+        color: #fff;
+    }
+    .result-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    .result-badge.pro {
+        background: #fdf2f2;
+        color: #c0392b;
+        border: 1px solid #f5b7b1;
+    }
+    .result-badge.anti {
+        background: #ebf5fb;
+        color: #2980b9;
+        border: 1px solid #a9cce3;
     }
     .event-card h3 {
         font-size: 1.5rem;
@@ -206,29 +291,51 @@ const topics = [...new Set(events.map(e => e.topic))];
         color: var(--color-accent);
     }
     .description {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
         font-size: 1.1rem;
     }
-    .stats-row {
+    .tag-row { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .tag { font-size: 0.7rem; padding: 0.15rem 0.5rem; background: #eee; border-radius: 12px; color: #555; }
+    .vote-breakdown {
         display: flex;
         gap: 1rem;
         margin-bottom: 1.5rem;
     }
-    .stat {
-        padding: 0.5rem 1rem;
-        border-radius: 6px;
-        font-size: 0.95rem;
+    .vote-bubble {
+        flex: 1;
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        border: 1px solid transparent;
     }
-    .stat.pro {
+    .vote-bubble.yea {
         background: #fdf2f2;
-        color: #c0392b;
-        border: 1px solid #f5b7b1;
+        border-color: #f5b7b1;
     }
-    .stat.anti {
+    .vote-bubble.nay {
         background: #ebf5fb;
-        color: #2980b9;
-        border: 1px solid #a9cce3;
+        border-color: #a9cce3;
     }
+    .bubble-total {
+        font-size: 1.4rem;
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 0.4rem;
+    }
+    .vote-bubble.yea .bubble-total { color: #c0392b; }
+    .vote-bubble.nay .bubble-total { color: #2980b9; }
+    .bubble-parties {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        padding-top: 0.35rem;
+        margin-top: 0.1rem;
+    }
+    .party-r { color: #e74c3c; }
+    .party-d { color: #3498db; }
     .card-footer {
         display: flex;
         gap: 1rem;

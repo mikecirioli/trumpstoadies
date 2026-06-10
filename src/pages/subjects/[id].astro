@@ -15,17 +15,56 @@ const { subject } = Astro.props;
 const subjectActions = actionsData
     .filter(a => a.subjectId === subject.id)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const hasContactInfo = subject.url || subject.phone || subject.contact_form || subject.address;
+
+const partyKey = subject.party?.toLowerCase() ?? '';
+const partyColor = partyKey === 'republican' ? '#e74c3c'
+    : partyKey === 'democrat' ? '#3498db'
+    : '#95a5a6';
 ---
 
 <Layout title={`${subject.name} - Trump's Toadies`}>
-    <div class="profile-header">
-        <a href="/">&larr; Back to Feed</a>
+    <div class="profile-header" style={`border-top: 4px solid ${partyColor}`}>
+        <a href={`${import.meta.env.BASE_URL}/`}>&larr; Back to Feed</a>
         <div class="title-row">
             <h2>{subject.name}</h2>
             <span class="badge">{subject.type}</span>
             {subject.state && <span class="badge state-badge">{subject.state}</span>}
+            {subject.party && (
+                <span class="badge party-badge" style={`background: ${partyColor}`}>{subject.party}</span>
+            )}
         </div>
         <p class="description">{subject.description}</p>
+        
+        {hasContactInfo && (
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-grid">
+                    {subject.phone && (
+                        <div class="contact-item">
+                            <strong>Phone:</strong> <a href={`tel:${subject.phone}`}>{subject.phone}</a>
+                        </div>
+                    )}
+                    {subject.contact_form && (
+                        <div class="contact-item">
+                            <strong>Contact Form:</strong> <a href={subject.contact_form} target="_blank" rel="noopener noreferrer">Send a Message</a>
+                        </div>
+                    )}
+                    {subject.url && (
+                        <div class="contact-item">
+                            <strong>Website:</strong> <a href={subject.url} target="_blank" rel="noopener noreferrer">Official Site</a>
+                        </div>
+                    )}
+                    {subject.address && (
+                        <div class="contact-item full-width">
+                            <strong>Office Address:</strong> {subject.address}
+                        </div>
+                    )}
+                </div>
+            </div>
+        )}
+
         <div class="stats">
             <strong>{subjectActions.length}</strong> Actions Tracked
         </div>
@@ -34,21 +73,24 @@ const subjectActions = actionsData
     <h3 class="section-title">Tracked Actions</h3>
     
     <div class="action-feed">
-		{subjectActions.map(action => (
-			<article class="action-card">
-				<div class="card-header">
-					<span class="date">{action.date}</span>
-					<span class="topic">{action.topic}</span>
-				</div>
-				<h4>{action.title}</h4>
-				<p class="description">{action.description}</p>
-				<div class="card-footer">
-					{action.sourceUrl && <a href={action.sourceUrl} target="_blank" rel="noopener noreferrer" class="source-link">Source &rarr;</a>}
-				</div>
-			</article>
-		))}
+                {subjectActions.map(action => (
+                        <article class={`action-card alignment-${action.alignment}`}>
+                                <div class="card-header">
+                                        <span class="date">{action.date}</span>
+                                        <span class="topic">{action.topic}</span>
+                                        <span class={`alignment-badge ${action.alignment}`}>
+                                            {action.alignment === 'pro' ? 'Yay' : 'Nay'}
+                                        </span>
+                                </div>
+                                <h4>{action.title}</h4>
+                                <p class="description">{action.description}</p>
+                                <div class="card-footer">
+                                        {action.sourceUrl && <a href={action.sourceUrl} target="_blank" rel="noopener noreferrer" class="source-link">Source &rarr;</a>}
+                                </div>
+                        </article>
+                ))}
         {subjectActions.length === 0 && <p>No actions tracked yet.</p>}
-	</div>
+        </div>
 </Layout>
 
 <style>
@@ -86,10 +128,53 @@ const subjectActions = actionsData
     .state-badge {
         background: #7f8c8d;
     }
+    .party-badge {
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
     .description {
         font-size: 1.125rem;
         margin-bottom: 1.5rem;
     }
+    
+    /* Contact Info Styles */
+    .contact-info {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 6px;
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    .contact-info h3 {
+        font-size: 1.1rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    .contact-item {
+        font-size: 0.95rem;
+    }
+    .contact-item strong {
+        color: var(--color-muted);
+        margin-right: 0.25rem;
+    }
+    .contact-item.full-width {
+        grid-column: 1 / -1;
+    }
+    @media (max-width: 600px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
     .stats {
         padding-top: 1rem;
         border-top: 1px solid var(--color-border);
@@ -113,18 +198,48 @@ const subjectActions = actionsData
     .action-card {
         background: var(--color-card);
         border: 1px solid var(--color-border);
-        border-left: 4px solid var(--color-accent);
+        border-left: 4px solid var(--color-border);
         border-radius: 8px;
         padding: 1.5rem;
     }
+    .action-card.alignment-pro {
+        border-left-color: #e74c3c;
+        background: #fffafa;
+    }
+    .action-card.alignment-anti {
+        border-left-color: #3498db;
+        background: #f8fbff;
+    }
     .card-header {
         display: flex;
-        justify-content: space-between;
+        gap: 0.75rem;
+        align-items: center;
         font-size: 0.875rem;
         color: var(--color-muted);
         margin-bottom: 0.5rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        flex-wrap: wrap;
+    }
+    .card-header .date {
+        margin-right: auto;
+    }
+    .alignment-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .alignment-badge.pro {
+        background: #fdf2f2;
+        color: #c0392b;
+        border: 1px solid #f5b7b1;
+    }
+    .alignment-badge.anti {
+        background: #ebf5fb;
+        color: #2980b9;
+        border: 1px solid #a9cce3;
     }
     .topic {
         background: #eee;
@@ -136,8 +251,5 @@ const subjectActions = actionsData
     .action-card h4 {
         font-size: 1.25rem;
         margin-bottom: 0.5rem;
-    }
-    .description {
-        margin-bottom: 1.5rem;
     }
 </style>

@@ -1,0 +1,131 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import actionsData from '../../data/actions.json';
+
+const eventsMap = new Map();
+
+actionsData.filter(a => a.eventId).forEach(action => {
+    if (!eventsMap.has(action.eventId)) {
+        eventsMap.set(action.eventId, {
+            id: action.eventId,
+            date: action.date,
+            topic: action.topic,
+            title: action.eventTitle,
+            chamber: action.chamber ?? (action.id.startsWith('sen-') ? 'senate' : 'house'),
+            proCount: 0,
+            antiCount: 0,
+        });
+    }
+    const event = eventsMap.get(action.eventId);
+    if (action.alignment === 'pro') event.proCount++;
+    if (action.alignment === 'anti') event.antiCount++;
+});
+
+const events = Array.from(eventsMap.values()).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<Layout title="Events - Trump's Toadies">
+    <div class="header-section">
+        <h2>All Events</h2>
+        <p class="subtitle">Every tracked vote and action, sorted by date.</p>
+    </div>
+
+    <div class="event-list">
+        {events.map(event => (
+            <a href={`${import.meta.env.BASE_URL}/events/${event.id}/`} class="event-row">
+                <div class="event-meta">
+                    <span class="date">{event.date}</span>
+                    <span class={`chamber-badge ${event.chamber}`}>{event.chamber === 'senate' ? 'S' : 'H'}</span>
+                    <span class="topic">{event.topic}</span>
+                </div>
+                <div class="event-title">{event.title}</div>
+                <div class="event-stats">
+                    <span class="pro">{event.proCount} Toadies</span>
+                    {event.antiCount > 0 && <span class="anti">{event.antiCount} Opposing</span>}
+                </div>
+            </a>
+        ))}
+    </div>
+</Layout>
+
+<style>
+    .header-section {
+        margin-bottom: 2rem;
+    }
+    .header-section h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    .subtitle {
+        color: var(--color-muted);
+        font-size: 1.1rem;
+    }
+    .event-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .chamber-badge {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.4rem;
+        border-radius: 3px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .chamber-badge.senate { background: #2c3e50; color: #fff; }
+    .chamber-badge.house  { background: #7f8c8d; color: #fff; }
+    .event-row {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        background: var(--color-card);
+        border: 1px solid var(--color-border);
+        border-left: 4px solid var(--color-accent);
+        border-radius: 6px;
+        padding: 1rem 1.25rem;
+        color: var(--color-text);
+        text-decoration: none;
+        transition: background 0.1s;
+        flex-wrap: wrap;
+    }
+    .event-row:hover {
+        background: #f5f5f5;
+        text-decoration: none;
+    }
+    .event-meta {
+        display: flex;
+        gap: 0.75rem;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--color-muted);
+        min-width: 220px;
+    }
+    .topic {
+        font-weight: bold;
+        color: var(--color-text);
+    }
+    .event-title {
+        flex: 1;
+        font-weight: 600;
+    }
+    .event-stats {
+        display: flex;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+    }
+    .pro {
+        color: #c0392b;
+        background: #fdf2f2;
+        border: 1px solid #f5b7b1;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+    }
+    .anti {
+        color: #2980b9;
+        background: #ebf5fb;
+        border: 1px solid #a9cce3;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+    }
+</style>
