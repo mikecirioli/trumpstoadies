@@ -13,6 +13,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# runtime state (ingest log + vote state) — not source
+state/
+
 # environment variables
 .env
 .env.production
