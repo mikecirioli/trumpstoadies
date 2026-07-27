@@ -43,9 +43,13 @@ function log(msg) {
 async function findOllama() {
     for (const host of OLLAMA_HOSTS) {
         try {
+            log(`Probing ${host}...`);
             const res = await fetch(`${host}/api/tags`, { signal: AbortSignal.timeout(3000) });
+            log(`Probe result for ${host}: ${res.status}`);
             if (res.ok) return host;
-        } catch {}
+        } catch (e) {
+            log(`Probe error for ${host}: ${e.message}`);
+        }
     }
     return null;
 }

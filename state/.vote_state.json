@@ -1,0 +1,798 @@
+{
+  "lastHouseRoll": 249,
+  "lastSenateRoll": 197,
+  "ingested": [
+    {
+      "chamber": "senate",
+      "roll": 197,
+      "title": "Confirmation: Jeffrey T. Kuntz, of Florida, to be U.S. District Judge for the Southern District of Florida",
+      "date": "2026-07-16T15:38:52.911Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 196,
+      "title": "Motion to Invoke Cloture: Jeffrey T. Kuntz to be U.S. District Judge for the Southern District of Florida",
+      "date": "2026-07-16T15:38:53.479Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 195,
+      "title": "Motion to Invoke Cloture: Motion to Proceed to S. 4784; An original bill to authorize appropriations for fiscal year 2027 for military activities of the Department of Defense, for military construction, and for defense activities of the Department of Energy, to prescribe military personnel strengths for such fiscal year, and for other purposes.",
+      "date": "2026-07-16T15:38:54.103Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 194,
+      "title": "Confirmation: Matthew A. Schwartz, of New York, to be U.S. Circuit Judge for the Second Circuit",
+      "date": "2026-07-16T15:38:54.717Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 193,
+      "title": "Confirmation: Arthur Roberts Jones, of T.X., to be U.S. District Judge for the Southern District of Texas",
+      "date": "2026-07-16T15:38:55.240Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 192,
+      "title": "Motion to Proceed to S. J. Res. 185; A joint resolution to direct the removal of United States Armed Forces from hostilities within or against the Islamic Republic of Iran that have not been authorized by Congress.",
+      "date": "2026-07-16T15:38:56.060Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 191,
+      "title": "Motion to Invoke Cloture: Matthew A. Schwartz, to be U.S. Circuit Judge for the Second Circuit",
+      "date": "2026-07-16T15:38:56.509Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 190,
+      "title": "Motion to Proceed to S.J.Res. 196; A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Department of Education relating to \"Reimagining and Improving Student Education-Federal Student Loan Program Final Regulations\".",
+      "date": "2026-07-16T15:38:57.030Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 189,
+      "title": "Motion to Invoke Cloture: Arthur Roberts Jones to be U.S. District Judge for the Southern District of Texas",
+      "date": "2026-07-16T15:38:57.632Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 188,
+      "title": "Confirmation: Michael J. Hendershot, of Ohio, to be U.S. District Judge for the Northern District of Ohio",
+      "date": "2026-07-16T15:38:58.219Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 187,
+      "title": "Motion to Invoke Cloture: Michael J. Hendershot to be U.S. District Judge for the Northern District of Ohio",
+      "date": "2026-07-16T15:38:58.793Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 186,
+      "title": "Confirmation: John George Edward Marck, of Texas, to be U.S. District Judge for the Southern District of Texas",
+      "date": "2026-07-16T15:38:59.387Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 185,
+      "title": "Motion to Invoke Cloture: John George Edward Marck to be U.S. District Judge for the Southern District of Texas",
+      "date": "2026-07-16T15:39:00.056Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 184,
+      "title": "H. Con. Res. 86; A concurrent resolution directing the President, pursuant to section 5(c) of the War Powers Resolution, to remove United States Armed Forces from hostilities with Iran.",
+      "date": "2026-07-16T15:39:00.721Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 183,
+      "title": "Confirmation: Darrell Owens, of Pennsylvania, to be U.S. Representative to the Organization for Security and Cooperation in Europe",
+      "date": "2026-07-16T15:39:01.276Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 182,
+      "title": "Motion to Concur in the House Amendment to the Senate Amendment to H.R. 6644 with an Amendment (SA 5823); A bill a bill to increase the supply of housing in America, and for other purposes.",
+      "date": "2026-07-16T15:39:01.940Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 181,
+      "title": "Confirmation: George Holding, of North Carolina, to be United States Director of the European Bank for Reconstruction and Development",
+      "date": "2026-07-16T15:39:02.598Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 180,
+      "title": "Motion to Invoke Cloture: Motion to Concur in the House Amendment to the Senate Amendment to H.R. 6644 with an Amendment (SA 5823); A bill a bill to increase the supply of housing in America, and for other purposes.",
+      "date": "2026-07-16T15:39:03.122Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 179,
+      "title": "Motion to Discharge: S.Res. 616 from the Committee on Foreign Relations; A resolution requesting information on Honduras's human rights practices pursuant to section 502B(c) of the Foreign Assistance Act of 1961.",
+      "date": "2026-07-16T15:39:03.641Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 178,
+      "title": "Motion to Invoke Cloture: George Holding to be United States Director of the European Bank for Reconstruction and Development",
+      "date": "2026-07-16T15:39:04.257Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 177,
+      "title": "Confirmation: Michelle Steel, of California, to be Ambassador of the United States of America to the Republic of Korea",
+      "date": "2026-07-16T15:39:04.740Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 176,
+      "title": "Motion to Invoke Cloture: Michelle Steel to be Ambassador of the United States of America to the Republic of Korea",
+      "date": "2026-07-16T15:39:05.388Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 175,
+      "title": "Motion to Proceed to House Message to Accompany H.R. 6644; A bill a bill to increase the supply of housing in America, and for other purposes.",
+      "date": "2026-07-16T15:39:05.925Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 174,
+      "title": "Motion to Discharge S.J.Res. 172; A joint resolution to direct the removal of United States Armed Forces from hostilities within or against the Islamic Republic of Iran that have not been authorized by Congress.",
+      "date": "2026-07-16T15:39:06.397Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 173,
+      "title": "Motion to Proceed to S.J.Res. 190; A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Executive Office for Immigration Review relating to \"Appellate Procedures for the Board of Immigration Appeals\".",
+      "date": "2026-07-16T15:39:06.855Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 172,
+      "title": "Confirmation: Justin D. Smith, of Missouri, to be U.S. Circuit Judge for the Eighth Circuit",
+      "date": "2026-07-16T15:39:07.281Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 171,
+      "title": "Motion to Invoke Cloture: Justin D. Smith to be U.S. Circuit Judge for the Eighth Circuit",
+      "date": "2026-07-16T15:39:07.693Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 170,
+      "title": "Confirmation: Brock Dahl, of Maryland, to be Legal Adviser of the Department of State",
+      "date": "2026-07-16T15:39:08.115Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 169,
+      "title": "Motion to Invoke Cloture: Brock Dahl to be Legal Adviser of the Department of State",
+      "date": "2026-07-16T15:39:08.703Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 168,
+      "title": "Confirmation: Anthony J. Powell, of Kansas, to be U.S. District Judge for the District of Kansas",
+      "date": "2026-07-16T15:39:09.286Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 167,
+      "title": "Motion to Invoke Cloture: Anthony J. Powell to be U.S. District Judge for the District of Kansas",
+      "date": "2026-07-16T15:39:09.764Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 166,
+      "title": "Confirmation: Anthony W. Mattivi, of Kansas, to be U.S. District Judge for the District of Kansas",
+      "date": "2026-07-16T15:39:10.313Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 165,
+      "title": "Motion to Invoke Cloture: Anthony W. Mattivi to be U.S. District Judge for the District of Kansas",
+      "date": "2026-07-16T15:39:10.742Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 164,
+      "title": "Motion to Proceed to the House Message to Accompany S. 1318; A bill to direct the American Battle Monuments Commission to establish a program to identify American-Jewish servicemembers buried in United States military cemeteries overseas under markers that incorrectly represent their religion and heritage, and for other purposes.",
+      "date": "2026-07-16T15:39:11.185Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 163,
+      "title": "S. 2, As Amended; An original bill to provide for reconciliation pursuant to title II of S. Con. Res. 33.",
+      "date": "2026-07-16T15:39:11.622Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 162,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Schiff Amdt. No. 5740; To provide for limitations on judgments, awards, and compromise settlements under section 1304 of title 31, United States Code.",
+      "date": "2026-07-16T15:39:12.072Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 161,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Van Hollen Amdt. No. 5632; To prohibit the use of funds to provide payments to certain individuals.",
+      "date": "2026-07-16T15:39:12.591Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 160,
+      "title": "Cortez Masto Amdt. No. 5463; To appropriate amounts for local law enforcement hiring programs.",
+      "date": "2026-07-16T15:39:13.144Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 159,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Cassidy Amdt. No. 5812; To provide compensation to law enforcement officers who defended the United States Capitol during the events that occurred at or near the United States Capitol on January 6, 2021, and for other purposes.",
+      "date": "2026-07-16T15:39:13.579Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 158,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Coons Amdt. No. 5457; To prohibit the Department of Justice from using taxpayer funds to make settlement payments to individuals convicted of assaulting law enforcement officers on January 6, 2021.",
+      "date": "2026-07-16T15:39:14.022Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 157,
+      "title": "Padilla Amdt. No. 5808; To make appropriations for transparency and accountability.",
+      "date": "2026-07-16T15:39:14.578Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 156,
+      "title": "Gallego Amdt. No. 5813; To make funds available for the timely adjudication of DACA renewal applications.",
+      "date": "2026-07-16T15:39:15.473Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 155,
+      "title": "Peters Amdt. No. 5763; To rescind unobligated balances under the One Big Beautiful Bill Act.",
+      "date": "2026-07-16T15:39:16.161Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 154,
+      "title": "Hirono Amdt. No. 5506; To transfer amounts for youth mentoring programs of the Department of Justice.",
+      "date": "2026-07-16T15:39:16.831Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 153,
+      "title": "Wyden Motion to Commit S. 2 to the Committee on the Judiciary with Instructions; An original bill to provide for reconciliation pursuant to title II of S. Con. Res. 33.",
+      "date": "2026-07-16T15:39:17.528Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 152,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Durbin Amdt. No. 5806; To repurpose funds previously appropriated for U.S. Immigration and Customs Enforcement for the timely processing of DACA applications and related employment authorization documents and to prohibit the use of funds to arrest, detain, deport, or remove DACA recipients.",
+      "date": "2026-07-16T15:39:18.206Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 151,
+      "title": "Motion to Waive All Budgetary Discipline Re: Lee Amdt. No. 5804; To ensure only citizens are registered to vote in elections for Federal office, and to require voters to provide photo identification.",
+      "date": "2026-07-16T15:39:18.846Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 150,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Booker Amdt. No. 5803; To support the work performed by the Immigration Detention Ombudsman.",
+      "date": "2026-07-16T15:39:19.471Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 149,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Baldwin Amdt. No. 5485; To redirect funding for U.S. Immigration and Customs Enforcement to the Child Care and Development Block Grant program.",
+      "date": "2026-07-16T15:39:20.055Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 148,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Sanders Amdt. No. 5451; To place reasonable limits on contributions to Super PACs which make independent expenditures.",
+      "date": "2026-07-16T15:39:20.574Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 147,
+      "title": "Warnock Motion to Commit S. 2 to the Committee on the Judiciary with Instructions; An original bill to provide for reconciliation pursuant to title II of S. Con. Res. 33.",
+      "date": "2026-07-16T15:39:21.371Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 146,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Kim Amdt. No. 5545; To make appropriations for the conduct of inspections of the Delaney Hall Detention Facility.",
+      "date": "2026-07-16T15:39:22.055Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 145,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Hickenlooper Amdt. No. 5501; To prohibit the distribution of Federal funds to individuals convicted of certain crimes.",
+      "date": "2026-07-16T15:39:22.713Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 144,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Graham Amdt. No. 5779; To ensure only citizens are registered to vote in elections for Federal office, and to require voters to provide photo identification, and for other purposes.",
+      "date": "2026-07-16T15:39:23.375Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 143,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Warner Amdt. No. 5556; To prohibit an individual from acting as Director of National Intelligence if such individual is simultaneously serving as the head of any other Federal department or agency.",
+      "date": "2026-07-16T15:39:24.018Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 142,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Hassan Amdt. No. 5535; To help build 7,000,000 new homes.",
+      "date": "2026-07-16T15:39:24.639Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 141,
+      "title": "Ossoff Motion to Commit S. 2 to the Committee on the Judiciary with Instructions; An original bill to provide for reconciliation pursuant to title II of S. Con. Res. 33.",
+      "date": "2026-07-16T15:39:25.289Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 140,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Reed Amdt. No. 5514; To provide funding for the HOME Investment Partnerships program.",
+      "date": "2026-07-16T15:39:25.719Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 139,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Merkley Amdt. No. 5512; To provide a clarification relating to, and to prohibit the use of funds for, the White House Ballroom.",
+      "date": "2026-07-16T15:39:26.275Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 138,
+      "title": "Motion to Waive All Applicable Budgetary Discipline Re: Tillis Amdt. No. 5452; To reallocate funds that would have been used for the Anti-Weaponization Fund to fraud enforcement.",
+      "date": "2026-07-16T15:39:27.161Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 137,
+      "title": "Schumer motion to commit S.2 to the Committee on the Judiciary with instructions; An original bill to provide for reconciliation pursuant to title II of S. Con. Res. 33.",
+      "date": "2026-07-16T15:39:27.841Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 136,
+      "title": "Motion to Proceed to S. 2; An original bill to provide for reconciliation pursuant to title II of S. Con. Res. 33.",
+      "date": "2026-07-16T15:39:28.575Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 135,
+      "title": "Motion to Proceed: S.J. Res. 188; A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Environmental Protection Agency relating to \"National Emission Standards for Hazardous Air Pollutants: Coal- and Oil-Fired Electric Utility Steam Generating Units: Final Repeal\".",
+      "date": "2026-07-16T15:39:29.209Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 134,
+      "title": "Confirmation: Jeffrey M. Kuhlman, of Kansas, to be U.S. District Judge for the District of Kansas",
+      "date": "2026-07-16T15:39:29.852Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 133,
+      "title": "Motion to Invoke Cloture: Jeffrey M. Kuhlman to be U.S. District Judge for the District of Kansas",
+      "date": "2026-07-16T15:39:30.383Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 132,
+      "title": "Confirmation: Kathleen S. Lane, of Montana, to be U.S. District Judge for the District of Montana",
+      "date": "2026-07-16T15:39:31.042Z"
+    },
+    {
+      "chamber": "senate",
+      "roll": 131,
+      "title": "Motion to Invoke Cloture: Kathleen S. Lane to be U.S. District Judge for the District of Montana",
+      "date": "2026-07-16T15:39:31.552Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 185,
+      "title": "Providing for consideration of the bill (H.R. 1041) Veterans 2nd Amendment Protection Act; providing for consideration of the bill (H.R. 6047) Sharri Briley and Eric Edmundson Veterans Benefits Expansion Act; and providing for consideration of the bill (H.R. 1329) Smithsonian American Women’s History Museum Act",
+      "date": "2026-07-16T15:39:46.799Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 186,
+      "title": "Providing for consideration of the bill (H.R. 1041) Veterans 2nd Amendment Protection Act; providing for consideration of the bill (H.R. 6047) Sharri Briley and Eric Edmundson Veterans Benefits Expansion Act; and providing for consideration of the bill (H.R. 1329) Smithsonian American Women’s History Museum Act",
+      "date": "2026-07-16T15:39:47.369Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 187,
+      "title": "Smithsonian American Women’s History Museum Act",
+      "date": "2026-07-16T15:39:48.026Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 188,
+      "title": "Smithsonian American Women’s History Museum Act",
+      "date": "2026-07-16T15:39:48.565Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 189,
+      "title": "Veterans 2nd Amendment Protection Act",
+      "date": "2026-07-16T15:39:49.205Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 190,
+      "title": "Veterans 2nd Amendment Protection Act",
+      "date": "2026-07-16T15:39:49.961Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 191,
+      "title": "Sharri Briley and Eric Edmundson Veterans Benefits Expansion Act",
+      "date": "2026-07-16T15:39:50.843Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 192,
+      "title": "American Battlefield Protection Program Amendments Act",
+      "date": "2026-07-16T15:39:51.408Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 193,
+      "title": "ARTIST Act",
+      "date": "2026-07-16T15:39:52.205Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 194,
+      "title": "Providing for consideration of the bills (H.R. 8646) Agriculture, Rural Development, Food and Drug Administration, and Related Agency Appropriations Act, 2027; (H.R. 7726) Stop Child Care Scams Act; (H.R. 7892) No Aid for Ghost Students Act; and (H.R. 8872) Preventing Waste, Fraud, and Abuse in TANF Act",
+      "date": "2026-07-16T15:39:52.965Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 195,
+      "title": "Providing for consideration of the bills (H.R. 8646) Agriculture, Rural Development, Food and Drug Administration, and Related Agency Appropriations Act, 2027; (H.R. 7726) Stop Child Care Scams Act; (H.R. 7892) No Aid for Ghost Students Act; and (H.R. 8872) Preventing Waste, Fraud, and Abuse in TANF Act",
+      "date": "2026-07-16T15:39:53.588Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 196,
+      "title": "Northwest Straits Marine Conservation Initiative Reauthorization Act",
+      "date": "2026-07-16T15:39:54.447Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 197,
+      "title": "No Funds for Repeat Child Care Violations Act",
+      "date": "2026-07-16T15:39:55.020Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 198,
+      "title": "No Funds for Repeat Child Care Violations Act",
+      "date": "2026-07-16T15:39:55.838Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 199,
+      "title": "Directing the President, pursuant to section 5(c) of the War Powers Resolution, to remove United States Armed Forces from hostilities with Iran",
+      "date": "2026-07-16T15:39:56.752Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 200,
+      "title": "Providing for consideration of the bill (H.R. 2913) to authorize support for Ukraine, and for other purposes",
+      "date": "2026-07-16T15:39:57.491Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 201,
+      "title": "Directing the President pursuant to section 5(c) of the War Powers Resolution to remove United States Armed Forces from Lebanon",
+      "date": "2026-07-16T15:39:58.247Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 202,
+      "title": "Waiving a requirement of clause 6(a) of rule XIII with respect to consideration of certain resolutions reported from the Committee on Rules",
+      "date": "2026-07-16T15:39:58.897Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 203,
+      "title": "Waiving a requirement of clause 6(a) of rule XIII with respect to consideration of certain resolutions reported from the Committee on Rules",
+      "date": "2026-07-16T15:39:59.451Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 204,
+      "title": "Agriculture, Rural Development, Food and Drug Administration, and Related Agency Appropriations Act, 2027",
+      "date": "2026-07-16T15:40:00.574Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 205,
+      "title": "Agriculture, Rural Development, Food and Drug Administration, and Related Agency Appropriations Act, 2027",
+      "date": "2026-07-16T15:40:01.535Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 206,
+      "title": "Providing for consideration of the bill (H.R. 2913) to authorize support for Ukraine, and for other purposes",
+      "date": "2026-07-16T15:40:02.110Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 207,
+      "title": "Ukraine Support Act",
+      "date": "2026-07-16T15:40:03.025Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 208,
+      "title": "TRUE Accountability Act",
+      "date": "2026-07-16T15:40:04.068Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 209,
+      "title": "Federal Fraud Prevention Workforce Training Act",
+      "date": "2026-07-16T15:40:05.084Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 210,
+      "title": "Providing for consideration of the bills H.R. 8312, H.R. 8464, and S. 2 and providing for consideration of the resolution H.Res. 1355",
+      "date": "2026-07-16T15:40:06.213Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 211,
+      "title": "Providing for consideration of the bills H.R. 8312, H.R. 8464, and S. 2 and providing for consideration of the resolution H.Res. 1355",
+      "date": "2026-07-16T15:40:07.179Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 212,
+      "title": "Providing for consideration of the bill (H.R. 5408) to accelerate workplace time-to-contract under the National Labor Relations Act",
+      "date": "2026-07-16T15:40:08.170Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 213,
+      "title": "Secure America Act",
+      "date": "2026-07-16T15:40:09.208Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 214,
+      "title": "Secure America Act",
+      "date": "2026-07-16T15:40:10.318Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 215,
+      "title": "Providing for consideration of the bill (H.R. 5408) to accelerate workplace time-to-contract under the National Labor Relations Act",
+      "date": "2026-07-16T15:40:11.562Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 216,
+      "title": "Faster Labor Contracts Act",
+      "date": "2026-07-16T15:40:12.827Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 217,
+      "title": "No Aid for Ghost Students Act",
+      "date": "2026-07-16T15:40:13.766Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 218,
+      "title": "Fraud Prevention and Accountability Act",
+      "date": "2026-07-16T15:40:14.793Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 219,
+      "title": "Stopping Fraudulent Payments Act",
+      "date": "2026-07-16T15:40:15.516Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 220,
+      "title": "Stopping Fraudulent Payments Act",
+      "date": "2026-07-16T15:40:16.329Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 221,
+      "title": "To amend the FISA Amendments Act of 2008 to extend the authorities of title VII of the Foreign Intelligence Surveillance Act of 1978, and for other purposes",
+      "date": "2026-07-16T15:40:17.095Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 222,
+      "title": "Condemning actors seeking to defraud the U.S. Government, and expressing the sense of the House of Representatives that government-wide fraud and improper payment prevention reforms will meaningfully improve the financial prosperity of the U.S., and that Federal program eligibility should be verified before payment",
+      "date": "2026-07-16T15:40:17.844Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 223,
+      "title": "Emergency Conservation Program Improvement Act",
+      "date": "2026-07-16T15:40:18.659Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 224,
+      "title": "Housing for the 21st Century Act",
+      "date": "2026-07-16T15:40:19.404Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 225,
+      "title": "Small Business Lending Fraud Prevention Act",
+      "date": "2026-07-16T15:40:20.263Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 226,
+      "title": "Small Business Technological Advancement Act",
+      "date": "2026-07-16T15:40:21.110Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 227,
+      "title": "Financial Exploitation Prevention Act",
+      "date": "2026-07-16T15:40:21.964Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 228,
+      "title": "KIDS Act",
+      "date": "2026-07-16T15:40:22.703Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 229,
+      "title": "TRIA Program Reauthorization Act",
+      "date": "2026-07-16T15:40:23.419Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 230,
+      "title": "Providing for consideration of the bills H.R. 8800, H.R. 8595, and H.R. 8884; and providing for consideration of the resolution H. Res. 1383",
+      "date": "2026-07-16T15:40:24.018Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 231,
+      "title": "Providing for consideration of the bills H.R. 8800, H.R. 8595, and H.R. 8884; and providing for consideration of the resolution H. Res. 1383",
+      "date": "2026-07-16T15:40:24.611Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 232,
+      "title": "Directing the President pursuant to section 5(c) of the War Powers Resolution to remove United States Armed Forces from hostilities in Lebanon",
+      "date": "2026-07-16T15:40:25.212Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 233,
+      "title": "Directing the Committee on Ethics to preserve and publicly release records relating to monetary settlements involving acts of sexual harassment",
+      "date": "2026-07-16T15:40:26.273Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 234,
+      "title": "Weatherizing Infrastructure in the North and Terrorism Emergency Readiness Act",
+      "date": "2026-07-16T15:40:27.237Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 235,
+      "title": "Improving Travel for American Families Act",
+      "date": "2026-07-16T15:40:28.126Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 236,
+      "title": "Providing for consideration of the bills (H.R. 139) Sunshine Protection Act; (H.R. 8595) National Security, Department of State, and Related Agencies Appropriations Act, 2027; (H.R. 9237) Take Care of America’s Veterans Act; and (H.R. 1181) Protecting Privacy in Purchases Act",
+      "date": "2026-07-16T15:40:29.065Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 237,
+      "title": "Providing for consideration of the bills (H.R. 139) Sunshine Protection Act; (H.R. 8595) National Security, Department of State, and Related Agencies Appropriations Act, 2027; (H.R. 9237) Take Care of America’s Veterans Act; and (H.R. 1181) Protecting Privacy in Purchases Act",
+      "date": "2026-07-16T15:40:30.017Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 238,
+      "title": "Sunshine Protection Act",
+      "date": "2026-07-16T15:40:30.878Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 239,
+      "title": "Protecting Privacy in Purchases Act",
+      "date": "2026-07-16T15:40:31.714Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 240,
+      "title": "Protecting Privacy in Purchases Act",
+      "date": "2026-07-16T15:40:32.872Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 241,
+      "title": "",
+      "date": "2026-07-16T15:40:33.785Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 242,
+      "title": "",
+      "date": "2026-07-16T15:40:34.829Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 243,
+      "title": "",
+      "date": "2026-07-16T15:40:35.857Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 244,
+      "title": "",
+      "date": "2026-07-16T15:40:36.969Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 245,
+      "title": "",
+      "date": "2026-07-16T15:40:38.032Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 246,
+      "title": "National Security, Department of State, and Related Programs Appropriations Act, 2027",
+      "date": "2026-07-16T15:40:39.372Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 247,
+      "title": "National Security, Department of State, and Related Programs Appropriations Act, 2027",
+      "date": "2026-07-16T15:40:40.357Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 248,
+      "title": "To name the Department of Veterans Affairs multispecialty clinic in Marietta, Georgia, as the “Colonel Michael H. Boyce Department of Veterans Affairs Multispecialty Clinic”",
+      "date": "2026-07-16T15:40:41.302Z"
+    },
+    {
+      "chamber": "house",
+      "roll": 249,
+      "title": "Take Care of America’s Veterans Act",
+      "date": "2026-07-16T15:40:41.917Z"
+    }
+  ]
+}

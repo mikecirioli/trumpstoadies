@@ -76,13 +76,19 @@ const topics = [...new Set(events.map((e: any) => e.topic))];
                 <option value={topic}>{topic}</option>
             ))}
         </select>
+
+        <select id="chamberFilter">
+            <option value="">All Chambers</option>
+            <option value="house">House</option>
+            <option value="senate">Senate</option>
+        </select>
 	</div>
 
 	<div class="action-feed" id="actionFeed">
 		{events.map(event => {
 			const toadiesWon = event.proCount >= event.antiCount;
 			return (
-			<article class={`event-card ${toadiesWon ? 'toady-won' : 'opposition-won'}`} data-topic={event.topic} data-search={`${event.title} ${event.topic} ${event.description}`.toLowerCase()}>
+			<article class={`event-card ${toadiesWon ? 'toady-won' : 'opposition-won'}`} data-topic={event.topic} data-chamber={event.chamber} data-search={`${event.title} ${event.topic} ${event.description}`.toLowerCase()}>
 				<div class="card-header">
 					<span class="date">{event.date}</span>
 					<span class={`chamber-badge ${event.chamber}`}>{event.chamber === 'senate' ? 'Senate' : 'House'}</span>
@@ -124,22 +130,29 @@ const topics = [...new Set(events.map((e: any) => e.topic))];
 			</article>
 		)})}
 	</div>
+
+    <footer>
+        <p style="text-align: center; color: var(--color-muted); margin-top: 2rem;">Last updated: June 12, 2026</p>
+    </footer>
 </Layout>
 
 <script>
     const searchInput = document.getElementById('searchInput') as HTMLInputElement;
     const topicFilter = document.getElementById('topicFilter') as HTMLSelectElement;
+    const chamberFilter = document.getElementById('chamberFilter') as HTMLSelectElement;
     const cards = document.querySelectorAll('.event-card');
 
     function filterCards() {
         const searchTerm = searchInput.value.toLowerCase();
         const topicValue = topicFilter.value;
+        const chamberValue = chamberFilter.value;
 
         cards.forEach((card: any) => {
             const matchesSearch = card.dataset.search.includes(searchTerm);
             const matchesTopic = topicValue === '' || card.dataset.topic === topicValue;
+            const matchesChamber = chamberValue === '' || card.dataset.chamber === chamberValue;
 
-            if (matchesSearch && matchesTopic) {
+            if (matchesSearch && matchesTopic && matchesChamber) {
                 card.style.display = 'block';
             } else {
                 card.style.display = 'none';
@@ -149,6 +162,7 @@ const topics = [...new Set(events.map((e: any) => e.topic))];
 
     searchInput.addEventListener('input', filterCards);
     topicFilter.addEventListener('change', filterCards);
+    chamberFilter.addEventListener('change', filterCards);
 </script>
 
 <style>

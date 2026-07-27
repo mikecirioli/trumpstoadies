@@ -51,11 +51,6 @@ const SKIP_TITLE_PATTERNS = [
 ];
 
 function shouldSkip(question = '', title = '') {
-    const q = question.trim();
-    // Must be a tracked question type
-    if (!TRACK_QUESTIONS.some(s => q.startsWith(s))) return true;
-    // Even tracked question types can be procedural based on title
-    if (SKIP_TITLE_PATTERNS.some(r => r.test(title))) return true;
     return false;
 }
 
@@ -94,7 +89,7 @@ function log(msg) {
 
 function fetchUrl(url) {
     return new Promise((resolve, reject) => {
-        https.get(url, (res) => {
+        const req = https.get(url, { timeout: 30000 }, (res) => {
             if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
                 return fetchUrl(res.headers.location).then(resolve).catch(reject);
             }
@@ -102,6 +97,11 @@ function fetchUrl(url) {
             res.on('data', chunk => data += chunk);
             res.on('end', () => resolve(data));
         }).on('error', reject);
+
+        req.on('timeout', () => {
+            req.destroy();
+            reject(new Error('Request timed out'));
+        });
     });
 }
 
@@ -118,10 +118,14 @@ async function checkSenate(state) {
 
     const newVotes = [];
     for (const v of votes) {
+        // DEBUG
+        log(`DEBUG VOTE: ${JSON.stringify(v)}`);
+        
         const rollNum  = parseInt(v['vote_number'][0], 10);
         if (rollNum <= state.lastSenateRoll) continue;
 
-        const question = v['question']?.[0]?.trim() ?? '';
+        const qRaw = v['question']?.[0];
+        const question = (typeof qRaw === 'string' ? qRaw : (qRaw?._ ?? ''))?.trim() ?? '';
         const title    = v['title']?.[0]?.trim()    ?? '';
         const issue    = v['issue']?.[0]?.trim()    ?? '';
 
