@@ -1,0 +1,28 @@
+{
+  "name": "trumpstoadies",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "postbuild": "cp src/data/subjects.json dist/subjects.json",
+    "preview": "astro preview",
+    "astro": "astro",
+    "enrich": "node enrich_events.js",
+    "rankings": "node generate_rankings.js",
+    "update:enrich": "node enrich_events.js",
+    "update:rankings": "node generate_rankings.js",
+    "update:deploy": "npm run build && rsync -av --delete dist/ root@optiplex:/export/homeassistant/trumpstoadies/dist/",
+    "update": "npm run enrich && npm run rankings && npm run update:deploy"
+  },
+  "dependencies": {
+    "astro": "^5.17.1",
+    "js-yaml": "^4.1.1",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "broken-link-checker": "^0.7.8",
+    "link-checker": "^1.4.2",
+    "vite-plugin-static-copy": "^3.4.0"
+  }
+}
