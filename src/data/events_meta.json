@@ -2130,11 +2130,16 @@
     "enriched": "2026-06-12T15:56:44.423Z"
   },
   "2026-06-15-pn-851-7-confirmation-justin-d-smith": {
-    "failed": true,
-    "attempts": 3,
-    "lastError": "No JSON found in response",
-    "lastTried": "2026-06-16T00:45:10.068Z",
-    "gaveUp": true
+    "summary": "Confirms the nomination of Justin D. Smith of Missouri to serve as a United States Circuit Judge for the Eighth Circuit Court of Appeals.",
+    "why_yes": "Supporters cite his judicial experience, conservative constitutional philosophy, and qualifications for the federal appellate bench.",
+    "why_no": "Critics raised concerns regarding his past rulings and ideological alignment on civil rights and regulatory authority.",
+    "trump_signal": "Supporting conservative judicial nominees to federal appellate courts aligns directly with Donald Trump's judicial reshaping agenda.",
+    "tags": [
+      "judiciary",
+      "nominations",
+      "eighth-circuit",
+      "federal-bench"
+    ]
   },
   "2026-06-16-hr-6644-motion-to-proceed-to-house-mes": {
     "summary": "This legislation aims to boost the availability of housing in America by implementing various measures.",
