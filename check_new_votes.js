@@ -34,6 +34,7 @@ const TRACK_QUESTIONS = [
     'On the Resolution of Ratification',
     'On the Motion to Discharge',   // war powers resolutions use this
     'On Agreeing to the Resolution', // only if it's a substantive resolution, checked below
+    'On the Concurrent Resolution', // substantive concurrent resolutions (e.g. War Powers)
 ];
 
 // Even if the question matches above, skip if title contains these
@@ -51,6 +52,9 @@ const SKIP_TITLE_PATTERNS = [
 ];
 
 function shouldSkip(question = '', title = '') {
+    const q = question.trim();
+    if (!TRACK_QUESTIONS.some(s => q.startsWith(s))) return true;
+    if (SKIP_TITLE_PATTERNS.some(r => r.test(title))) return true;
     return false;
 }
 
@@ -283,6 +287,7 @@ async function main() {
 
     saveState(state);
     log('=== check_new_votes done ===\n');
+    process.exit(0);
 }
 
 main().catch(err => { log(`FATAL: ${err.message}`); process.exit(1); });
