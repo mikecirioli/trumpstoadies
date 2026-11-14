@@ -50,11 +50,12 @@ const getMajorityParty = (actions) => {
 
 const proMajorityParty = getMajorityParty(proActions);
 const antiMajorityParty = getMajorityParty(antiActions);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title={`${event.title} - Trump's Toadies`}>
     <div class="event-header">
-        <a href={`${import.meta.env.BASE_URL}/`}>&larr; Back to Feed</a>
+        <a href={`${base}/`}>&larr; Back to Feed</a>
         <div class="meta">
             <span class="date">{event.date}</span>
             <span class="topic">{event.topic}</span>
@@ -118,7 +119,7 @@ const antiMajorityParty = getMajorityParty(antiActions);
                 <p class="column-desc">Voted Yea on this measure.</p>
                 <div class="subject-list">
                     {proActions.map(action => (
-                        <a href={`${import.meta.env.BASE_URL}/subjects/${action.subject?.id}/`} class="subject-row">
+                        <a href={`${base}/subjects/${action.subject?.id}/`} class="subject-row">
                             <div class="subject-name">
                                 <strong>{action.subject?.name}</strong>
                                 <span class="badge">{action.subject?.state}</span>
@@ -140,7 +141,7 @@ const antiMajorityParty = getMajorityParty(antiActions);
                 <p class="column-desc">Voted Nay on this measure.</p>
                 <div class="subject-list">
                     {antiActions.map(action => (
-                        <a href={`${import.meta.env.BASE_URL}/subjects/${action.subject?.id}/`} class="subject-row">
+                        <a href={`${base}/subjects/${action.subject?.id}/`} class="subject-row">
                             <div class="subject-name">
                                 <strong>{action.subject?.name}</strong>
                                 <span class="badge">{action.subject?.state}</span>

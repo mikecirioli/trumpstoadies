@@ -22,11 +22,12 @@ const partyKey = subject.party?.toLowerCase() ?? '';
 const partyColor = partyKey === 'republican' ? '#e74c3c'
     : partyKey === 'democrat' ? '#3498db'
     : '#95a5a6';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title={`${subject.name} - Trump's Toadies`}>
     <div class="profile-header" style={`border-top: 4px solid ${partyColor}`}>
-        <a href={`${import.meta.env.BASE_URL}/`}>&larr; Back to Feed</a>
+        <a href={`${base}/`}>&larr; Back to Feed</a>
         <div class="title-row">
             <h2>{subject.name}</h2>
             <span class="badge">{subject.type}</span>

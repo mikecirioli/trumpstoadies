@@ -22,6 +22,7 @@ actionsData.filter(a => a.eventId).forEach(action => {
 });
 
 const events = Array.from(eventsMap.values()).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title="Events - Trump's Toadies">
@@ -32,7 +33,7 @@ const events = Array.from(eventsMap.values()).sort((a, b) => new Date(b.date).ge
 
     <div class="event-list">
         {events.map(event => (
-            <a href={`${import.meta.env.BASE_URL}/events/${event.id}/`} class="event-row">
+            <a href={`${base}/events/${event.id}/`} class="event-row">
                 <div class="event-meta">
                     <span class="date">{event.date}</span>
                     <span class={`chamber-badge ${event.chamber}`}>{event.chamber === 'senate' ? 'S' : 'H'}</span>

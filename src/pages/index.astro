@@ -4,6 +4,8 @@ import actionsData from '../data/actions.json';
 import subjectsData from '../data/subjects.json';
 import eventsMeta from '../data/events_meta.json';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 // Build subject party lookup
 const subjectParty: Record<string, string> = {};
 subjectsData.forEach((s: any) => { subjectParty[s.id] = s.party ?? ''; });
@@ -97,7 +99,7 @@ const topics = [...new Set(events.map((e: any) => e.topic))];
 						{toadiesWon ? 'Toadies Won' : 'Opposition Held'}
 					</span>
 				</div>
-				<h3><a href={`${import.meta.env.BASE_URL}/events/${event.id}/`}>{event.title}</a></h3>
+				<h3><a href={`${base}/events/${event.id}/`}>{event.title}</a></h3>
 				<p class="description">
 				  {event.summary ?? event.description}
 				</p>
@@ -125,7 +127,7 @@ const topics = [...new Set(events.map((e: any) => e.topic))];
                 </div>
 
 				<div class="card-footer">
-					<a href={`${import.meta.env.BASE_URL}/events/${event.id}/`} class="btn">View All Votes & Details</a>
+					<a href={`${base}/events/${event.id}/`} class="btn">View All Votes & Details</a>
 				</div>
 			</article>
 		)})}

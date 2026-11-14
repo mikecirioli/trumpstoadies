@@ -39,6 +39,7 @@ const sortedTopics = Array.from(topicMap.entries()).sort((a, b) => {
     const bLatest = b[1][0]?.date ?? '';
     return bLatest.localeCompare(aLatest);
 });
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title="Issues - Trump's Toadies">
@@ -52,7 +53,7 @@ const sortedTopics = Array.from(topicMap.entries()).sort((a, b) => {
             <h3 class="topic-title">{topic} <span class="count">({events.length} vote{events.length !== 1 ? 's' : ''})</span></h3>
             <div class="event-list">
                 {events.map(event => (
-                    <a href={`${import.meta.env.BASE_URL}/events/${event.id}/`} class="event-row">
+                    <a href={`${base}/events/${event.id}/`} class="event-row">
                         <span class="date">{event.date}</span>
                         <span class={`chamber-badge ${event.chamber}`}>{event.chamber === 'senate' ? 'S' : 'H'}</span>
                         <span class="title">{event.title}</span>

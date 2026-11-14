@@ -17,6 +17,7 @@ const byType = subjectsWithStats.reduce((acc, subject) => {
 }, {} as Record<string, typeof subjectsWithStats>);
 
 const types = Object.keys(byType);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title="People & Businesses - Trump's Toadies">
@@ -42,7 +43,7 @@ const types = Object.keys(byType);
                 {subjects.map(subject => {
                     const isToady = subject.toadyActions > 0 || (subject.type !== 'Representative' && subject.type !== 'Senator');
                     return (
-                    <a href={`${import.meta.env.BASE_URL}/subjects/${subject.id}/`}
+                    <a href={`${base}/subjects/${subject.id}/`}
                        class={`subject-card party-border-${(subject.party ?? 'unknown').toLowerCase().replace(/\s+/g, '-')}`}
                        data-is-toady={isToady ? 'true' : 'false'}
                        data-search={`${subject.name} ${subject.state || ''} ${subject.party || ''}`.toLowerCase()}>
