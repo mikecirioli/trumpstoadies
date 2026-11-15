@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteExplainer from '../components/SiteExplainer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout title="About & Methodology - Trump's Toadies" description="Methodology, data sourcing, and scoring framework behind Trump's Toadies congressional voting tracker.">
+    <div class="about-header">
+        <h2>About Trump's Toadies</h2>
+        <p class="subtitle">
+            An open-source, non-partisan public interest project providing quantitative transparency into congressional alignment with Donald Trump's legislative agenda, executive actions, and nominations.
+        </p>
+    </div>
+
+    <!-- Interactive Explainer & Legend Component -->
+    <SiteExplainer />
+
+    <section class="about-content">
+        <article class="content-block">
+            <h3>1. Mission & Purpose</h3>
+            <p>
+                In democratic governance, accountability begins with an accurate, accessible record of how elected representatives vote.
+                Congressional roll calls are often buried in dense legislative language, procedural motions, and thousands of pages of official XML.
+            </p>
+            <p>
+                <strong>Trump's Toadies</strong> tracks, decodes, and visualizes the roll-call voting record of all 535 members of the 119th United States Congress on key legislation and nominations where Donald Trump or his administration has taken a clear executive position.
+            </p>
+        </article>
+
+        <article class="content-block">
+            <h3>2. Data Provenance & Ingestion</h3>
+            <p>
+                Every roll call vote recorded on this site is scraped directly from authoritative United States government sources:
+            </p>
+            <ul class="data-sources-list">
+                <li>
+                    <strong>U.S. Senate:</strong> Official Senate Roll Call Votes feed (<a href="https://www.senate.gov/legislative/votes_new.htm" target="_blank" rel="noopener">senate.gov</a>).
+                </li>
+                <li>
+                    <strong>U.S. House of Representatives:</strong> Office of the Clerk Roll Call Votes (<a href="https://clerk.house.gov/Votes" target="_blank" rel="noopener">clerk.house.gov</a>).
+                </li>
+                <li>
+                    <strong>Legislative Text:</strong> Congress.gov XML records for bill text, amendments, and official summaries.
+                </li>
+            </ul>
+            <p>
+                No third-party opinion polls or partisan commentary are used to tabulate votes. Only official "Yea", "Nay", "Present", or "Not Voting" entries logged into the Congressional Record are counted.
+            </p>
+        </article>
+
+        <article class="content-block">
+            <h3>3. AI Synthesis & Plain-English Explanations</h3>
+            <p>
+                To help citizens understand procedural maneuvers (such as motions to table, cloture votes, discharge petitions, and amendments in the nature of a substitute), our automated data pipeline uses advanced language models to synthesize:
+            </p>
+            <ul>
+                <li><strong>Plain-English Summaries:</strong> What the bill or motion actually does in practice.</li>
+                <li><strong>Pro Arguments:</strong> The key arguments voiced by proponents of the legislation.</li>
+                <li><strong>Con Arguments:</strong> The key objections voiced by opponents or critics.</li>
+            </ul>
+            <p>
+                AI outputs are strictly bound by instructions to remain neutral, factual, and non-editorializing, reflecting the arguments documented on the congressional floor.
+            </p>
+        </article>
+
+        <article class="content-block">
+            <h3>4. The Scoring Formula</h3>
+            <p>
+                The <strong>Toady Score</strong> reflects the percentage of tracked congressional actions where a lawmaker cast their vote in support of Donald Trump's stated position:
+            </p>
+            <div class="formula-display">
+                <span class="math-box">Score = (Trump-Aligned Votes / Total Eligible Tracked Votes Cast) &times; 100</span>
+            </div>
+            <p>
+                <strong>Tiebreaker Rules:</strong> In the event of identical percentages, rank is broken by total number of affirmative votes cast.
+            </p>
+            <p>
+                <strong>Thresholds:</strong> Lawmakers must have participated in at least 3 tracked votes to receive an official ranking. Abstentions, medical leaves, or official absences are excluded from both the numerator and denominator.
+            </p>
+        </article>
+
+        <article class="content-block">
+            <h3>5. Open Source & Independent</h3>
+            <p>
+                Trump's Toadies is completely open source and community maintained. The site is generated as static HTML for high performance, zero tracking, and complete privacy.
+            </p>
+            <p>
+                Have feedback, corrections, or want to contribute? Visit our <a href="https://github.com/3-bad-dogs/trumpstoadies" target="_blank" rel="noopener">GitHub repository</a> or explore our <a href={`${base}/feed/`}>Vote Feed</a> and <a href={`${base}/rankings/`}>Complete Rankings</a>.
+            </p>
+        </article>
+    </section>
+</Layout>
+
+<style>
+    .about-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .about-header h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    .subtitle {
+        color: var(--color-muted);
+        font-size: 1.1rem;
+        max-width: 700px;
+    }
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+    .content-block {
+        background: var(--color-card);
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .content-block h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: #222;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 0.5rem;
+    }
+    .content-block p {
+        margin-bottom: 1rem;
+        line-height: 1.7;
+    }
+    .content-block p:last-child {
+        margin-bottom: 0;
+    }
+    .content-block ul {
+        margin: 1rem 0 1rem 1.5rem;
+        line-height: 1.7;
+    }
+    .data-sources-list li {
+        margin-bottom: 0.5rem;
+    }
+    .formula-display {
+        background: #f8f9fa;
+        border-left: 4px solid var(--color-accent);
+        padding: 1rem 1.25rem;
+        margin: 1rem 0;
+        border-radius: 0 6px 6px 0;
+    }
+    .math-box {
+        font-family: monospace;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #111;
+    }
+</style>

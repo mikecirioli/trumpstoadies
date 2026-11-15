@@ -38,11 +38,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <div class="container">
                 <h1><a href={`${base}/`}>Trump's Toadies</a></h1>
                 <nav>
-                    <a href={`${base}/`}>The Feed</a>
+                    <a href={`${base}/`}>Scoreboard</a>
+                    <a href={`${base}/feed/`}>The Feed</a>
+                    <a href={`${base}/rankings/`}>Rankings</a>
                     <a href={`${base}/people/`}>People</a>
                     <a href={`${base}/issues/`}>Issues</a>
-                    <a href={`${base}/rankings/`}>Rankings</a>
                     <a href={`${base}/lies/`}>Lies</a>
+                    <a href={`${base}/about/`}>About</a>
                 </nav>
             </div>
         </header>
@@ -86,9 +88,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         text-decoration: underline;
     }
     .container {
-        max-width: 800px;
+        max-width: 1040px;
         margin: 0 auto;
-        padding: 0 1rem;
+        padding: 0 1.25rem;
     }
     .site-header {
         background: #111;

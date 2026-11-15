@@ -25,3 +25,7 @@ state/
 
 # jetbrains setting folder
 .idea/
+
+# local tooling
+.ddn-homebase.json
+

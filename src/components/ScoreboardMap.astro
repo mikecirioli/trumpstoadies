@@ -1,0 +1,563 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import rankingsData from '../data/rankings.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const stateNames: Record<string, string> = {
+  AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California",
+  CO: "Colorado", CT: "Connecticut", DE: "Delaware", FL: "Florida", GA: "Georgia",
+  HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa",
+  KS: "Kansas", KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland",
+  MA: "Massachusetts", MI: "Michigan", MN: "Minnesota", MS: "Mississippi", MO: "Missouri",
+  MT: "Montana", NE: "Nebraska", NV: "Nevada", NH: "New Hampshire", NJ: "New Jersey",
+  NM: "New Mexico", NY: "New York", NC: "North Carolina", ND: "North Dakota", OH: "Ohio",
+  OK: "Oklahoma", OR: "Oregon", PA: "Pennsylvania", RI: "Rhode Island", SC: "South Carolina",
+  SD: "South Dakota", TN: "Tennessee", TX: "Texas", UT: "Utah", VT: "Vermont",
+  VA: "Virginia", WA: "Washington", WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming",
+  DC: "District of Columbia"
+};
+
+const allMembers = [
+  ...rankingsData.senate.map((s: any) => ({ ...s, chamber: "senate", chamberLabel: "Senate" })),
+  ...rankingsData.house.map((h: any) => ({ ...h, chamber: "house", chamberLabel: "House" }))
+];
+
+const stateMap: Record<string, any> = {};
+
+Object.keys(stateNames).forEach(code => {
+  stateMap[code] = {
+    code,
+    name: stateNames[code],
+    avgScore: 0,
+    totalMembers: 0,
+    totalScore: 0,
+    repCount: 0,
+    demCount: 0,
+    indCount: 0,
+    senators: [],
+    reps: []
+  };
+});
+
+allMembers.forEach(m => {
+  if (!stateMap[m.state]) return;
+  const s = stateMap[m.state];
+  s.totalMembers++;
+  s.totalScore += m.score;
+  if (m.chamber === "senate") s.senators.push(m);
+  else s.reps.push(m);
+
+  if (m.party === "Republican") s.repCount++;
+  else if (m.party === "Democrat") s.demCount++;
+  else s.indCount++;
+});
+
+// Color scales
+function getChoroplethColor(score: number): string {
+  if (score >= 85) return "#b71c1c"; // Deep Red (High loyalty)
+  if (score >= 70) return "#e53935"; // Red / Orange
+  if (score >= 50) return "#8e44ad"; // Purple (Mixed / Divided)
+  if (score >= 35) return "#2980b9"; // Blue
+  return "#1565c0";                  // Deep Blue (Strong opposition)
+}
+
+function scoreTextColor(score: number): string {
+  return (score > 30 && score < 70) ? '#111' : '#fff';
+}
+
+Object.values(stateMap).forEach(s => {
+  s.avgScore = s.totalMembers > 0 ? parseFloat((s.totalScore / s.totalMembers).toFixed(1)) : 0;
+  s.color = getChoroplethColor(s.avgScore);
+  s.senators.sort((a: any, b: any) => b.score - a.score);
+  s.reps.sort((a: any, b: any) => b.score - a.score);
+});
+
+// Prepare sorted state list for dropdown
+const sortedStates = Object.values(stateMap).sort((a, b) => b.avgScore - a.avgScore);
+
+// Process the raw SVG map
+let svgContent = '';
+try {
+  const svgPath = path.resolve('./src/assets/us_map.svg');
+  let raw = fs.readFileSync(svgPath, 'utf8');
+  raw = raw.replace(/<\?xml[^>]*\?>/, '');
+  raw = raw.replace(/<title>.*?<\/title>/, '');
+  raw = raw.replace(/<path class="([a-z]{2})"/g, (match, code) => {
+    return `<path class="state-path ${code}" data-state="${code.toUpperCase()}"`;
+  });
+  raw = raw.replace(/<circle class="state borders dccircle dc"/, `<circle class="state-path dccircle dc" data-state="DC"`);
+  svgContent = raw;
+} catch (e) {
+  console.error("Failed to read SVG map:", e);
+}
+
+// Build state CSS rules for coloring
+const stateColorStyles = Object.values(stateMap).map(s => {
+  return `.us-map-wrapper .state-path.${s.code.toLowerCase()} { fill: ${s.color}; }`;
+}).join('\n');
+---
+
+<section class="map-section" aria-labelledby="map-title">
+    <div class="map-header">
+        <h3 id="map-title">State-By-State Loyalty Map</h3>
+        <p class="map-subtitle">
+            Average Congressional delegation loyalty score across all 50 states. 
+            Click any state or select from the dropdown to see its Senators and Representatives.
+        </p>
+    </div>
+
+    <!-- Quick Dropdown Controls -->
+    <div class="map-controls">
+        <label for="stateSelect" class="control-label">Jump to State:</label>
+        <select id="stateSelect" class="state-select">
+            <option value="">-- Choose a State ({sortedStates.length}) --</option>
+            {sortedStates.map(st => (
+                <option value={st.code}>
+                    {st.name} ({st.code}) &mdash; {st.avgScore}% Toady ({st.repCount}R / {st.demCount}D)
+                </option>
+            ))}
+        </select>
+    </div>
+
+    <!-- Layout: Map & Delegation Card -->
+    <div class="map-layout">
+        <div class="map-container">
+            <div class="us-map-wrapper" id="usMapWrapper" set:html={svgContent} />
+
+            <!-- Map Choropleth Legend -->
+            <div class="map-legend" aria-label="Map color legend">
+                <span class="legend-title">Delegation Score:</span>
+                <div class="legend-scale">
+                    <span class="legend-item"><span class="legend-swatch" style="background:#1565c0;"></span> &lt;35% (Deep Blue)</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#2980b9;"></span> 35&ndash;49% (Blue)</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#8e44ad;"></span> 50&ndash;69% (Purple)</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#e53935;"></span> 70&ndash;84% (Red)</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#b71c1c;"></span> 85%+ (Deep Red)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Delegation Card -->
+        <aside class="delegation-panel" id="delegationPanel" aria-live="polite">
+            <div class="panel-placeholder" id="panelPlaceholder">
+                <div class="placeholder-icon">🗺️</div>
+                <h4>Select a State</h4>
+                <p>Click any state on the map or use the dropdown to inspect its Senators and Representatives.</p>
+            </div>
+
+            <div class="panel-content" id="panelContent" style="display:none;">
+                <div class="panel-header">
+                    <div class="state-title-row">
+                        <h4 id="panelStateName">Oklahoma</h4>
+                        <span class="state-badge" id="panelStateScore">91.4%</span>
+                    </div>
+                    <div class="state-meta" id="panelStateMeta">
+                        7 Members &bull; 7 Republicans &bull; 0 Democrats
+                    </div>
+                </div>
+
+                <!-- Senators Section -->
+                <div class="chamber-section">
+                    <div class="section-title">U.S. Senators (2)</div>
+                    <div class="member-list" id="panelSenators"></div>
+                </div>
+
+                <!-- Representatives Section -->
+                <div class="chamber-section">
+                    <div class="section-title">Representatives (<span id="repCountNum">5</span>)</div>
+                    <div class="member-list" id="panelReps"></div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<!-- Inject data for client-side interactivity -->
+<script id="stateDataJson" type="application/json" set:html={JSON.stringify(stateMap)} />
+<script id="basePathJson" type="application/json" set:html={JSON.stringify(base)} />
+
+<script type="module">
+    const stateDataEl = document.getElementById('stateDataJson');
+    const basePathEl = document.getElementById('basePathJson');
+    if (stateDataEl) {
+        const stateMap = JSON.parse(stateDataEl.textContent || '{}');
+        const base = JSON.parse(basePathEl.textContent || '""');
+
+        const mapWrapper = document.getElementById('usMapWrapper');
+        const stateSelect = document.getElementById('stateSelect');
+        const panelPlaceholder = document.getElementById('panelPlaceholder');
+        const panelContent = document.getElementById('panelContent');
+
+        const panelStateName = document.getElementById('panelStateName');
+        const panelStateScore = document.getElementById('panelStateScore');
+        const panelStateMeta = document.getElementById('panelStateMeta');
+        const panelSenators = document.getElementById('panelSenators');
+        const panelReps = document.getElementById('panelReps');
+        const repCountNum = document.getElementById('repCountNum');
+
+        function renderMemberRow(m) {
+            const partyDotClass = m.party === 'Republican' ? 'r' : (m.party === 'Democrat' ? 'd' : 'i');
+            const rankLabel = m.rank ? `#${m.rank}` : '';
+            return `
+                <a href="${base}/subjects/${m.subjectId}/" class="member-row">
+                    <div class="member-info">
+                        <span class="party-dot ${partyDotClass}"></span>
+                        <span class="member-name">${m.name}</span>
+                        ${rankLabel ? `<span class="member-rank">${rankLabel}</span>` : ''}
+                    </div>
+                    <span class="member-score" style="background:${getScoreColor(m.score)}; color:${getScoreTextColor(m.score)}">
+                        ${m.score.toFixed(1)}%
+                    </span>
+                </a>
+            `;
+        }
+
+        function getScoreColor(score) {
+            if (score >= 85) return "#b71c1c";
+            if (score >= 70) return "#e53935";
+            if (score >= 50) return "#8e44ad";
+            if (score >= 35) return "#2980b9";
+            return "#1565c0";
+        }
+
+        function getScoreTextColor(score) {
+            return (score > 30 && score < 70) ? '#111' : '#fff';
+        }
+
+        function selectState(code) {
+            if (!code || !stateMap[code]) {
+                panelPlaceholder.style.display = 'block';
+                panelContent.style.display = 'none';
+                document.querySelectorAll('.state-path.active').forEach(p => p.classList.remove('active'));
+                return;
+            }
+
+            const st = stateMap[code];
+
+            // Highlight path in SVG
+            document.querySelectorAll('.state-path.active').forEach(p => p.classList.remove('active'));
+            const matchingPaths = document.querySelectorAll(`.state-path.${code.toLowerCase()}`);
+            matchingPaths.forEach(p => p.classList.add('active'));
+
+            // Sync dropdown
+            if (stateSelect.value !== code) {
+                stateSelect.value = code;
+            }
+
+            // Populate Panel
+            panelStateName.textContent = `${st.name} (${st.code})`;
+            panelStateScore.textContent = `${st.avgScore}%`;
+            panelStateScore.style.background = st.color;
+            panelStateScore.style.color = getScoreTextColor(st.avgScore);
+
+            const breakdown = [];
+            if (st.repCount > 0) breakdown.push(`${st.repCount} R`);
+            if (st.demCount > 0) breakdown.push(`${st.demCount} D`);
+            if (st.indCount > 0) breakdown.push(`${st.indCount} I`);
+            panelStateMeta.textContent = `${st.totalMembers} Members (${breakdown.join(' \u2022 ') || 'None tracked'})`;
+
+            // Senators
+            if (st.senators.length > 0) {
+                panelSenators.innerHTML = st.senators.map(renderMemberRow).join('');
+            } else {
+                panelSenators.innerHTML = '<div class="empty-notice">No Senators recorded</div>';
+            }
+
+            // Reps
+            repCountNum.textContent = st.reps.length;
+            if (st.reps.length > 0) {
+                panelReps.innerHTML = st.reps.map(renderMemberRow).join('');
+            } else {
+                panelReps.innerHTML = '<div class="empty-notice">No Representatives recorded</div>';
+            }
+
+            panelPlaceholder.style.display = 'none';
+            panelContent.style.display = 'block';
+        }
+
+        // Click on SVG paths
+        if (mapWrapper) {
+            mapWrapper.addEventListener('click', (e) => {
+                const target = e.target.closest('.state-path');
+                if (target) {
+                    const code = target.getAttribute('data-state');
+                    if (code) selectState(code);
+                }
+            });
+        }
+
+        // Change on dropdown
+        if (stateSelect) {
+            stateSelect.addEventListener('change', (e) => {
+                selectState(e.target.value);
+            });
+        }
+
+        // Default to Oklahoma (#1 Toadiest State) on load
+        selectState('OK');
+    }
+</script>
+
+<style is:inline set:html={stateColorStyles} />
+
+<style>
+    .map-section {
+        background: var(--color-card);
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .map-header {
+        margin-bottom: 1rem;
+    }
+    .map-header h3 {
+        font-size: 1.35rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--color-text);
+        margin-bottom: 0.35rem;
+    }
+    .map-subtitle {
+        color: var(--color-muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    .map-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+        flex-wrap: wrap;
+    }
+    .control-label {
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--color-text);
+    }
+    .state-select {
+        flex: 1;
+        min-width: 250px;
+        max-width: 420px;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        background: #fff;
+        font-size: 0.9rem;
+        color: var(--color-text);
+        cursor: pointer;
+    }
+    .state-select:focus {
+        outline: none;
+        border-color: var(--color-accent);
+    }
+    .map-layout {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 1.5rem;
+        align-items: start;
+    }
+    @media (max-width: 768px) {
+        .map-layout {
+            grid-template-columns: 1fr;
+        }
+    }
+    .map-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .us-map-wrapper {
+        width: 100%;
+        background: #fdfdfd;
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        padding: 0.5rem;
+        overflow: hidden;
+    }
+    .us-map-wrapper :global(svg) {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .us-map-wrapper :global(.borders) {
+        stroke: #ffffff;
+        stroke-width: 1px;
+    }
+    .us-map-wrapper :global(.separator1) {
+        stroke: #cccccc;
+        stroke-width: 1.5px;
+    }
+    .us-map-wrapper :global(.state-path) {
+        cursor: pointer;
+        transition: filter 0.15s ease, stroke 0.15s ease;
+    }
+    .us-map-wrapper :global(.state-path:hover) {
+        stroke: #f1c40f !important;
+        stroke-width: 2.5px !important;
+        filter: drop-shadow(0 0 5px rgba(241, 196, 15, 0.9));
+    }
+    .us-map-wrapper :global(.state-path.active) {
+        stroke: #f39c12 !important;
+        stroke-width: 3px !important;
+        filter: drop-shadow(0 0 7px rgba(243, 156, 18, 1));
+    }
+    .map-legend {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        font-size: 0.8rem;
+        color: var(--color-muted);
+        padding: 0.5rem;
+        background: #fafafa;
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+    }
+    .legend-title {
+        font-weight: 700;
+        color: var(--color-text);
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
+    .legend-scale {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+    .legend-swatch {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        border: 1px solid rgba(0,0,0,0.15);
+    }
+    .delegation-panel {
+        background: #fafafa;
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        padding: 1.25rem;
+        min-height: 420px;
+        max-height: 580px;
+        overflow-y: auto;
+    }
+    .panel-placeholder {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--color-muted);
+    }
+    .placeholder-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .panel-header {
+        border-bottom: 2px solid var(--color-border);
+        padding-bottom: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    .state-title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .state-title-row h4 {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--color-text);
+    }
+    .state-badge {
+        font-size: 0.95rem;
+        font-weight: 800;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        color: #fff;
+    }
+    .state-meta {
+        font-size: 0.825rem;
+        color: var(--color-muted);
+        margin-top: 0.25rem;
+    }
+    .chamber-section {
+        margin-bottom: 1rem;
+    }
+    .section-title {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--color-muted);
+        margin-bottom: 0.4rem;
+    }
+    .member-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+    :global(.member-row) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        border: 1px solid var(--color-border);
+        border-radius: 4px;
+        padding: 0.4rem 0.6rem;
+        text-decoration: none;
+        color: var(--color-text);
+        font-size: 0.85rem;
+        transition: background 0.1s, border-color 0.1s;
+    }
+    :global(.member-row:hover) {
+        background: #f1f2f6;
+        border-color: #bbb;
+        text-decoration: none;
+    }
+    :global(.member-info) {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        overflow: hidden;
+    }
+    :global(.member-name) {
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    :global(.member-rank) {
+        font-size: 0.7rem;
+        color: var(--color-muted);
+    }
+    :global(.member-score) {
+        font-weight: 700;
+        font-size: 0.75rem;
+        padding: 0.15rem 0.45rem;
+        border-radius: 3px;
+        white-space: nowrap;
+    }
+    :global(.party-dot) {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+    :global(.party-dot.r) { background: #e74c3c; }
+    :global(.party-dot.d) { background: #3498db; }
+    :global(.party-dot.i) { background: #95a5a6; }
+    .empty-notice {
+        font-size: 0.8rem;
+        color: var(--color-muted);
+        font-style: italic;
+        padding: 0.25rem 0;
+    }
+</style>

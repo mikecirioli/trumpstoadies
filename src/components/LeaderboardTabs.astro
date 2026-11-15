@@ -1,0 +1,572 @@
+---
+// LeaderboardTabs.astro - Spotlights Top Loyalists, Crossover Democrats, GOP Defectors, and Searchable Roster
+import rankingsData from '../data/rankings.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const { senate, house } = rankingsData;
+
+const allMembers = [
+    ...senate.map((s: any) => ({ ...s, chamber: 'Senate' })),
+    ...house.map((h: any) => ({ ...h, chamber: 'House' }))
+];
+
+// Top Loyalists (Highest score overall)
+const topLoyalists = [...allMembers]
+    .sort((a, b) => b.score - a.score || b.total - a.total)
+    .slice(0, 10);
+
+// Crossover Democrats (Democrats with highest loyalty scores)
+const crossoverDems = allMembers
+    .filter(m => m.party === 'Democrat')
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10);
+
+// Rare GOP Defectors (Republicans with lowest loyalty scores)
+const gopDefectors = allMembers
+    .filter(m => m.party === 'Republican' && m.total >= 5) // ensure meaningful vote sample
+    .sort((a, b) => a.score - b.score)
+    .slice(0, 10);
+
+function partyColor(party: string): string {
+    const p = party.toLowerCase();
+    if (p === 'republican') return '#e74c3c';
+    if (p === 'democrat') return '#3498db';
+    return '#95a5a6';
+}
+
+function partyInitial(party: string): string {
+    const p = party.toLowerCase();
+    if (p === 'republican') return 'R';
+    if (p === 'democrat') return 'D';
+    return 'I';
+}
+
+function scoreColor(score: number): string {
+    if (score >= 50) {
+        const t = (score - 50) / 50;
+        const r = Math.round(0xc0 + (0xff - 0xc0) * (1 - t));
+        const g = Math.round(0x39 + (0xff - 0x39) * (1 - t));
+        const b = Math.round(0x2b + (0xff - 0x2b) * (1 - t));
+        return `rgb(${r},${g},${b})`;
+    } else {
+        const t = score / 50;
+        const r = Math.round(0x29 + (0xff - 0x29) * t);
+        const g = Math.round(0x80 + (0xff - 0x80) * t);
+        const b = Math.round(0xb9 + (0xff - 0xb9) * t);
+        return `rgb(${r},${g},${b})`;
+    }
+}
+
+function scoreTextColor(score: number): string {
+    return (score > 30 && score < 70) ? '#111' : '#fff';
+}
+---
+
+<section class="leaderboard-section" id="leaderboard">
+    <div class="section-header">
+        <h3>Congressional Outliers & Spotlights</h3>
+        <p class="section-subtitle">
+            Explore the biggest loyalists, surprise crossover Democrats who frequently back Trump, and the rare Republican defectors.
+        </p>
+    </div>
+
+    <div class="tabs-nav" role="tablist">
+        <button class="tab-btn active" data-tab="loyalists" role="tab" aria-selected="true" aria-controls="panel-loyalists">
+            🔥 Top Loyalists
+        </button>
+        <button class="tab-btn" data-tab="crossover" role="tab" aria-selected="false" aria-controls="panel-crossover">
+            🔄 Crossover Democrats
+        </button>
+        <button class="tab-btn" data-tab="defectors" role="tab" aria-selected="false" aria-controls="panel-defectors">
+            ⚡ GOP Defectors
+        </button>
+        <button class="tab-btn" data-tab="search" role="tab" aria-selected="false" aria-controls="panel-search">
+            🔍 Search All 532 Members
+        </button>
+    </div>
+
+    <!-- Panel 1: Top Loyalists -->
+    <div class="tab-panel active" id="panel-loyalists" role="tabpanel">
+        <div class="panel-desc">
+            Members of Congress with the highest percentage of votes matching Donald Trump's legislative positions.
+        </div>
+        <div class="table-container">
+            <table class="roster-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Member</th>
+                        <th>Chamber</th>
+                        <th>State</th>
+                        <th>Toady Score</th>
+                        <th>Aligned Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {topLoyalists.map((m, idx) => (
+                        <tr>
+                            <td class="col-rank">
+                                <span class="rank-badge">#{idx + 1}</span>
+                            </td>
+                            <td class="col-name">
+                                <a href={`${base}/subjects/${m.subjectId}/`} class="member-link">
+                                    <span class="party-dot" style={`background:${partyColor(m.party)}`}></span>
+                                    <strong>{m.name}</strong>
+                                    <span class="party-tag">({partyInitial(m.party)})</span>
+                                </a>
+                            </td>
+                            <td class="col-chamber">{m.chamber}</td>
+                            <td class="col-state">{m.state}</td>
+                            <td class="col-score">
+                                <span class="score-pill" style={`background:${scoreColor(m.score)};color:${scoreTextColor(m.score)}`}>
+                                    {m.score.toFixed(1)}%
+                                </span>
+                            </td>
+                            <td class="col-votes">{m.pro} / {m.total}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+        <div class="view-all-link">
+            <a href={`${base}/rankings/`}>View Complete Rankings for All 532 Members &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Panel 2: Crossover Democrats -->
+    <div class="tab-panel" id="panel-crossover" role="tabpanel">
+        <div class="panel-desc">
+            Democratic lawmakers who vote most often with Donald Trump's executive policies and appointments.
+        </div>
+        <div class="table-container">
+            <table class="roster-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Member</th>
+                        <th>Chamber</th>
+                        <th>State</th>
+                        <th>Toady Score</th>
+                        <th>Aligned Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {crossoverDems.map((m, idx) => (
+                        <tr>
+                            <td class="col-rank">
+                                <span class="rank-badge dem">#{idx + 1}</span>
+                            </td>
+                            <td class="col-name">
+                                <a href={`${base}/subjects/${m.subjectId}/`} class="member-link">
+                                    <span class="party-dot" style={`background:${partyColor(m.party)}`}></span>
+                                    <strong>{m.name}</strong>
+                                    <span class="party-tag">(D)</span>
+                                </a>
+                            </td>
+                            <td class="col-chamber">{m.chamber}</td>
+                            <td class="col-state">{m.state}</td>
+                            <td class="col-score">
+                                <span class="score-pill" style={`background:${scoreColor(m.score)};color:${scoreTextColor(m.score)}`}>
+                                    {m.score.toFixed(1)}%
+                                </span>
+                            </td>
+                            <td class="col-votes">{m.pro} / {m.total}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Panel 3: GOP Defectors -->
+    <div class="tab-panel" id="panel-defectors" role="tabpanel">
+        <div class="panel-desc">
+            Republican lawmakers who have broken ranks most often against Trump-backed legislation or nominees.
+        </div>
+        <div class="table-container">
+            <table class="roster-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Member</th>
+                        <th>Chamber</th>
+                        <th>State</th>
+                        <th>Toady Score</th>
+                        <th>Aligned Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {gopDefectors.map((m, idx) => (
+                        <tr>
+                            <td class="col-rank">
+                                <span class="rank-badge rep">#{idx + 1}</span>
+                            </td>
+                            <td class="col-name">
+                                <a href={`${base}/subjects/${m.subjectId}/`} class="member-link">
+                                    <span class="party-dot" style={`background:${partyColor(m.party)}`}></span>
+                                    <strong>{m.name}</strong>
+                                    <span class="party-tag">(R)</span>
+                                </a>
+                            </td>
+                            <td class="col-chamber">{m.chamber}</td>
+                            <td class="col-state">{m.state}</td>
+                            <td class="col-score">
+                                <span class="score-pill" style={`background:${scoreColor(m.score)};color:${scoreTextColor(m.score)}`}>
+                                    {m.score.toFixed(1)}%
+                                </span>
+                            </td>
+                            <td class="col-votes">{m.pro} / {m.total}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Panel 4: Search All 532 Members -->
+    <div class="tab-panel" id="panel-search" role="tabpanel">
+        <div class="search-controls">
+            <input type="text" id="memberSearchInput" placeholder="Filter by member name, state, or district..." aria-label="Search members" />
+            <div class="filter-pills">
+                <button class="filter-btn active" data-filter-party="all">All Parties</button>
+                <button class="filter-btn" data-filter-party="Republican">Republicans</button>
+                <button class="filter-btn" data-filter-party="Democrat">Democrats</button>
+                <button class="filter-btn" data-filter-chamber="all">All Chambers</button>
+                <button class="filter-btn" data-filter-chamber="Senate">Senate</button>
+                <button class="filter-btn" data-filter-chamber="House">House</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="roster-table" id="searchableRoster">
+                <thead>
+                    <tr>
+                        <th>Chamber Rank</th>
+                        <th>Member</th>
+                        <th>Chamber</th>
+                        <th>State</th>
+                        <th>Toady Score</th>
+                        <th>Aligned Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {allMembers.map((m) => (
+                        <tr 
+                            class="member-search-row" 
+                            data-name={m.name.toLowerCase()} 
+                            data-state={m.state.toLowerCase()} 
+                            data-party={m.party} 
+                            data-chamber={m.chamber}
+                        >
+                            <td class="col-rank">
+                                <span class="rank-badge">#{m.rank}</span>
+                            </td>
+                            <td class="col-name">
+                                <a href={`${base}/subjects/${m.subjectId}/`} class="member-link">
+                                    <span class="party-dot" style={`background:${partyColor(m.party)}`}></span>
+                                    <strong>{m.name}</strong>
+                                    <span class="party-tag">({partyInitial(m.party)})</span>
+                                </a>
+                            </td>
+                            <td class="col-chamber">{m.chamber}</td>
+                            <td class="col-state">{m.state}</td>
+                            <td class="col-score">
+                                <span class="score-pill" style={`background:${scoreColor(m.score)};color:${scoreTextColor(m.score)}`}>
+                                    {m.score.toFixed(1)}%
+                                </span>
+                            </td>
+                            <td class="col-votes">{m.pro} / {m.total}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+        <p id="noResultsMsg" class="no-results" style="display:none;">No members match your search criteria.</p>
+    </div>
+</section>
+
+<style>
+    .leaderboard-section {
+        background: var(--color-card);
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .section-header h3 {
+        font-size: 1.35rem;
+        margin-bottom: 0.35rem;
+    }
+    .section-subtitle {
+        color: var(--color-muted);
+        font-size: 0.95rem;
+        margin-bottom: 1.25rem;
+    }
+    .tabs-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        border-bottom: 2px solid var(--color-border);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    .tab-btn {
+        background: #f1f1f1;
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        color: #444;
+    }
+    .tab-btn:hover {
+        background: #e5e5e5;
+    }
+    .tab-btn.active {
+        background: var(--color-accent);
+        color: #fff;
+        border-color: var(--color-accent);
+    }
+    .tab-panel {
+        display: none;
+    }
+    .tab-panel.active {
+        display: block;
+    }
+    .panel-desc {
+        font-size: 0.9rem;
+        color: var(--color-muted);
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+    .table-container {
+        overflow-x: auto;
+    }
+    .roster-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+    }
+    .roster-table th {
+        background: #f8f9fa;
+        text-align: left;
+        padding: 0.6rem 0.75rem;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #666;
+        border-bottom: 2px solid var(--color-border);
+    }
+    .roster-table td {
+        padding: 0.6rem 0.75rem;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+    }
+    .roster-table tr:hover {
+        background: #fcfcfc;
+    }
+    .col-rank {
+        width: 60px;
+    }
+    .rank-badge {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        background: #eee;
+        color: #333;
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+    }
+    .rank-badge.dem {
+        background: #e3f2fd;
+        color: #1976d2;
+    }
+    .rank-badge.rep {
+        background: #ffebee;
+        color: #c62828;
+    }
+    .member-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: #222;
+        text-decoration: none;
+    }
+    .member-link:hover {
+        color: var(--color-accent);
+        text-decoration: underline;
+    }
+    .party-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        flex-shrink: 0;
+    }
+    .party-tag {
+        font-size: 0.8rem;
+        color: #888;
+        font-weight: normal;
+    }
+    .col-chamber, .col-state, .col-votes {
+        color: #555;
+        font-size: 0.85rem;
+    }
+    .score-pill {
+        display: inline-block;
+        padding: 0.25rem 0.6rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-align: center;
+        min-width: 62px;
+    }
+    .view-all-link {
+        margin-top: 1rem;
+        text-align: right;
+        font-size: 0.9rem;
+    }
+    .view-all-link a {
+        font-weight: 600;
+    }
+
+    /* Search controls */
+    .search-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    #memberSearchInput {
+        width: 100%;
+        padding: 0.65rem 0.85rem;
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        font-size: 0.95rem;
+        outline: none;
+    }
+    #memberSearchInput:focus {
+        border-color: var(--color-accent);
+        box-shadow: 0 0 0 2px rgba(192, 57, 43, 0.15);
+    }
+    .filter-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+    .filter-btn {
+        background: #fff;
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        padding: 0.3rem 0.75rem;
+        font-size: 0.8rem;
+        cursor: pointer;
+        color: #555;
+    }
+    .filter-btn.active {
+        background: #333;
+        color: #fff;
+        border-color: #333;
+    }
+    .no-results {
+        padding: 2rem;
+        text-align: center;
+        color: #888;
+        font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+        .tabs-nav {
+            flex-direction: column;
+        }
+        .tab-btn {
+            width: 100%;
+            text-align: left;
+        }
+        .roster-table th:nth-child(3),
+        .roster-table td:nth-child(3),
+        .roster-table th:nth-child(6),
+        .roster-table td:nth-child(6) {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    // Tab switching logic
+    const tabBtns = document.querySelectorAll<HTMLButtonElement>('.leaderboard-section .tab-btn');
+    const panels = document.querySelectorAll<HTMLElement>('.leaderboard-section .tab-panel');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetTab = btn.dataset.tab;
+            tabBtns.forEach(b => {
+                const isActive = b === btn;
+                b.classList.toggle('active', isActive);
+                b.setAttribute('aria-selected', String(isActive));
+            });
+            panels.forEach(p => {
+                p.classList.toggle('active', p.id === `panel-${targetTab}`);
+            });
+        });
+    });
+
+    // Search and filter logic
+    const searchInput = document.getElementById('memberSearchInput') as HTMLInputElement | null;
+    const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-pills .filter-btn');
+    const rows = document.querySelectorAll<HTMLTableRowElement>('.member-search-row');
+    const noResultsMsg = document.getElementById('noResultsMsg');
+
+    let activePartyFilter = 'all';
+    let activeChamberFilter = 'all';
+
+    function filterMembers() {
+        const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+            const name = row.dataset.name || '';
+            const state = row.dataset.state || '';
+            const party = row.dataset.party || '';
+            const chamber = row.dataset.chamber || '';
+
+            const matchesQuery = !query || name.includes(query) || state.includes(query);
+            const matchesParty = activePartyFilter === 'all' || party === activePartyFilter;
+            const matchesChamber = activeChamberFilter === 'all' || chamber === activeChamberFilter;
+
+            if (matchesQuery && matchesParty && matchesChamber) {
+                row.style.display = '';
+                visibleCount++;
+            } else {
+                row.style.display = 'none';
+            }
+        });
+
+        if (noResultsMsg) {
+            noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('input', filterMembers);
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.dataset.filterParty !== undefined) {
+                activePartyFilter = btn.dataset.filterParty;
+                document.querySelectorAll<HTMLButtonElement>('[data-filter-party]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            } else if (btn.dataset.filterChamber !== undefined) {
+                activeChamberFilter = btn.dataset.filterChamber;
+                document.querySelectorAll<HTMLButtonElement>('[data-filter-chamber]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
+            filterMembers();
+        });
+    });
+</script>

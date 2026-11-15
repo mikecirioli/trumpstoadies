@@ -1,0 +1,197 @@
+---
+// SiteExplainer.astro - Context, methodology, and visual legend
+---
+
+<section class="explainer-section" aria-labelledby="explainer-title">
+    <div class="explainer-header">
+        <h3 id="explainer-title">How It Works & Legend</h3>
+        <p class="explainer-intro">
+            A public-interest transparency project tracking how members of the 119th U.S. Congress vote on Donald Trump's legislative agenda, executive actions, and cabinet nominees.
+        </p>
+    </div>
+
+    <div class="explainer-grid">
+        <!-- Card 1: Data & AI -->
+        <div class="explainer-card">
+            <div class="card-icon">🏛️</div>
+            <h4>Official Data & AI Synthesis</h4>
+            <p>
+                Every vote is scraped directly from official U.S. government roll-call feeds at 
+                <a href="https://www.senate.gov/legislative/votes_new.htm" target="_blank" rel="noopener">senate.gov</a> and 
+                <a href="https://clerk.house.gov/Votes" target="_blank" rel="noopener">clerk.house.gov</a>.
+            </p>
+            <p class="card-subtext">
+                Plain-English summaries and arguments are synthesized directly from raw Congressional record XML and official bill text using AI to provide objective, non-partisan context.
+            </p>
+        </div>
+
+        <!-- Card 2: Toady Score -->
+        <div class="explainer-card">
+            <div class="card-icon">📊</div>
+            <h4>The Toady Score Formula</h4>
+            <p>
+                A member's <strong>Toady Score</strong> is the percentage of tracked roll-call votes where they voted in alignment with Donald Trump's stated executive position or public agenda:
+            </p>
+            <div class="formula-box">
+                <code>(Trump-Aligned Votes &divide; Total Tracked Votes) &times; 100</code>
+            </div>
+            <p class="card-subtext">
+                Members must have at least 3 tracked votes to receive an official ranking.
+            </p>
+        </div>
+
+        <!-- Card 3: Visual Legend -->
+        <div class="explainer-card legend-card">
+            <div class="card-icon">🏷️</div>
+            <h4>Key Terms & Badge Legend</h4>
+            <ul class="legend-list">
+                <li>
+                    <span class="badge-sample pro">Toadies Won</span>
+                    <span>Trump's legislative position or nomination prevailed.</span>
+                </li>
+                <li>
+                    <span class="badge-sample anti">Opposition Held</span>
+                    <span>Trump's position was defeated, filibustered, or blocked.</span>
+                </li>
+                <li>
+                    <span class="badge-sample party r">R</span>
+                    <span class="badge-sample party d">D</span>
+                    <span class="badge-sample party i">I</span>
+                    <span>Party: Republican, Democrat, Independent.</span>
+                </li>
+                <li>
+                    <span class="badge-sample bubble">212 Yea (R: 210 | D: 2)</span>
+                    <span>Vote totals and party breakdowns on every bill.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style>
+    .explainer-section {
+        background: var(--color-card);
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .explainer-header {
+        margin-bottom: 1.25rem;
+    }
+    .explainer-header h3 {
+        font-size: 1.35rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--color-text);
+        margin-bottom: 0.35rem;
+    }
+    .explainer-intro {
+        color: var(--color-muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    .explainer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
+    }
+    .explainer-card {
+        background: #fafafa;
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        padding: 1.15rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .card-icon {
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+    .explainer-card h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--color-text);
+    }
+    .explainer-card p {
+        font-size: 0.875rem;
+        color: var(--color-text);
+        line-height: 1.5;
+    }
+    .card-subtext {
+        color: var(--color-muted) !important;
+        font-size: 0.8rem !important;
+    }
+    .formula-box {
+        background: #fff;
+        border: 1px solid var(--color-border);
+        padding: 0.4rem 0.6rem;
+        border-radius: 4px;
+        text-align: center;
+        font-size: 0.85rem;
+        margin: 0.25rem 0;
+    }
+    .formula-box code {
+        font-family: monospace;
+        font-weight: 700;
+        color: var(--color-accent);
+    }
+    .legend-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-top: 0.25rem;
+    }
+    .legend-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.825rem;
+        color: var(--color-text);
+        line-height: 1.3;
+    }
+    .badge-sample {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 0.2rem 0.45rem;
+        border-radius: 3px;
+        white-space: nowrap;
+    }
+    .badge-sample.pro {
+        background: #c0392b;
+        color: #fff;
+    }
+    .badge-sample.anti {
+        background: #2980b9;
+        color: #fff;
+    }
+    .badge-sample.party.r {
+        background: #e74c3c;
+        color: #fff;
+        padding: 0.15rem 0.4rem;
+    }
+    .badge-sample.party.d {
+        background: #3498db;
+        color: #fff;
+        padding: 0.15rem 0.4rem;
+    }
+    .badge-sample.party.i {
+        background: #95a5a6;
+        color: #fff;
+        padding: 0.15rem 0.4rem;
+    }
+    .badge-sample.bubble {
+        background: #f1f2f6;
+        border: 1px solid #dcdde1;
+        color: #2f3542;
+        font-family: monospace;
+        font-size: 0.65rem;
+        text-transform: none;
+    }
+</style>
