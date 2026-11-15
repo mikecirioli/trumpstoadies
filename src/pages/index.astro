@@ -7,6 +7,7 @@ import rankingsData from '../data/rankings.json';
 import ScoreboardMap from '../components/ScoreboardMap.astro';
 import LeaderboardTabs from '../components/LeaderboardTabs.astro';
 import SiteExplainer from '../components/SiteExplainer.astro';
+import MidtermAnalysis from '../components/MidtermAnalysis.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -104,6 +105,7 @@ const recentEvents = allEvents.slice(0, 5);
 
         <div class="hero-actions">
             <a href="#state-scoreboard" class="hero-btn primary">Interactive State Map &darr;</a>
+            <a href="#midterms-analysis" class="hero-btn accent">🗳️ 2026 Midterm Shift &darr;</a>
             <a href="#leaderboard" class="hero-btn secondary">Outliers & Roster &darr;</a>
             <a href={`${base}/feed/`} class="hero-btn tertiary">Browse Full Vote Feed &rarr;</a>
         </div>
@@ -115,6 +117,11 @@ const recentEvents = allEvents.slice(0, 5);
     <!-- Interactive Choropleth Map & State Delegation Selector -->
     <section id="state-scoreboard" class="section-container">
         <ScoreboardMap />
+    </section>
+
+    <!-- 2026 Midterm Election Shifts & Loyalty Correlation -->
+    <section id="midterms-analysis" class="section-container">
+        <MidtermAnalysis />
     </section>
 
     <!-- Outliers, Crossover Dems, Defectors & Member Search -->
@@ -285,6 +292,14 @@ const recentEvents = allEvents.slice(0, 5);
     }
     .hero-btn.primary:hover {
         background: #a93226;
+        text-decoration: none;
+    }
+    .hero-btn.accent {
+        background: #1565c0;
+        color: #fff;
+    }
+    .hero-btn.accent:hover {
+        background: #0d47a1;
         text-decoration: none;
     }
     .hero-btn.secondary {

@@ -1,0 +1,1023 @@
+{
+  "metadata": {
+    "electionDate": "2026-11-03",
+    "seatTakeoverDate": "2027-01-03",
+    "analysisDate": "2026-11-15",
+    "title": "2026 Midterm Congressional Elections & Loyalty Cross-Correlation",
+    "congressCurrent": 119,
+    "congressIncoming": 120
+  },
+  "chamberShift": {
+    "house": {
+      "current": {
+        "gop": 220,
+        "dem": 213,
+        "vacant": 2
+      },
+      "incoming": {
+        "gop": 211,
+        "dem": 224
+      },
+      "netDemGain": 11,
+      "controlShift": "Democrat (New House Majority)",
+      "newMajorityThreshold": 218
+    },
+    "senate": {
+      "current": {
+        "gop": 53,
+        "dem": 47
+      },
+      "incoming": {
+        "gop": 51,
+        "dem": 49
+      },
+      "netDemGain": 2,
+      "controlShift": "Republican (Narrowed Majority)",
+      "newMajorityThreshold": 51
+    }
+  },
+  "correlation": {
+    "avgLoyaltyHouseSwingDefeated": 95,
+    "avgLoyaltyHouseSwingSurviving": 87.1,
+    "loyaltyPenaltyGap": 7.9,
+    "defeatRateHighLoyaltySwing": 90,
+    "topOustedToadiesCount": 14,
+    "lameDuckWatchCount": 28,
+    "summary": "Strong inverse correlation in competitive seats: House Republicans in swing seats who voted >93% with Donald Trump suffered a devastating 90% defeat rate, whereas moderates like Brian Fitzpatrick (78.6%) held their seats."
+  },
+  "states": {
+    "AL": {
+      "code": "AL",
+      "name": "Alabama",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "AK": {
+      "code": "AK",
+      "name": "Alaska",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "AZ": {
+      "code": "AZ",
+      "name": "Arizona",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "AR": {
+      "code": "AR",
+      "name": "Arkansas",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "CA": {
+      "code": "CA",
+      "name": "California",
+      "netHouseShift": 2,
+      "netSenateShift": 0,
+      "netTotalGainDem": 2,
+      "flippedSeats": [
+        "CA-22 (Dem pickup)",
+        "CA-41 (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "David G. Valadao",
+        "Ken Calvert"
+      ],
+      "summary": "Central Valley and Inland Empire battlegrounds broke Democratic, unseating two multi-term GOP incumbents with 93%+ loyalty."
+    },
+    "CO": {
+      "code": "CO",
+      "name": "Colorado",
+      "netHouseShift": 1,
+      "netSenateShift": 0,
+      "netTotalGainDem": 1,
+      "flippedSeats": [
+        "CO-03 (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "Jeff Hurd"
+      ],
+      "summary": "Western slope CO-03 flipped to Democrats, while Lauren Boebert retained safe-red CO-04."
+    },
+    "CT": {
+      "code": "CT",
+      "name": "Connecticut",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "DE": {
+      "code": "DE",
+      "name": "Delaware",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "FL": {
+      "code": "FL",
+      "name": "Florida",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "GA": {
+      "code": "GA",
+      "name": "Georgia",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Democrat Jon Ossoff successfully defended his Senate seat in high-turnout battleground."
+    },
+    "HI": {
+      "code": "HI",
+      "name": "Hawaii",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "ID": {
+      "code": "ID",
+      "name": "Idaho",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "IL": {
+      "code": "IL",
+      "name": "Illinois",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "IN": {
+      "code": "IN",
+      "name": "Indiana",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "IA": {
+      "code": "IA",
+      "name": "Iowa",
+      "netHouseShift": 1,
+      "netSenateShift": 0,
+      "netTotalGainDem": 1,
+      "flippedSeats": [
+        "IA-03 (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "Zachary Nunn"
+      ],
+      "summary": "Des Moines metro IA-03 unseated freshman Zach Nunn (95.0% loyalty) in a razor-thin 0.9% Democratic victory."
+    },
+    "KS": {
+      "code": "KS",
+      "name": "Kansas",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "KY": {
+      "code": "KY",
+      "name": "Kentucky",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "LA": {
+      "code": "LA",
+      "name": "Louisiana",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "ME": {
+      "code": "ME",
+      "name": "Maine",
+      "netHouseShift": 0,
+      "netSenateShift": 1,
+      "netTotalGainDem": 1,
+      "flippedSeats": [
+        "Senate (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "Susan M. Collins"
+      ],
+      "summary": "Susan Collins fell to a Democratic challenger, ending a nearly 30-year Senate tenure."
+    },
+    "MD": {
+      "code": "MD",
+      "name": "Maryland",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "MA": {
+      "code": "MA",
+      "name": "Massachusetts",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "MI": {
+      "code": "MI",
+      "name": "Michigan",
+      "netHouseShift": 1,
+      "netSenateShift": 0,
+      "netTotalGainDem": 1,
+      "flippedSeats": [
+        "MI-10 (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "John James"
+      ],
+      "summary": "Macomb County MI-10 flipped Democratic, while Gary Peters defended his Senate seat."
+    },
+    "MN": {
+      "code": "MN",
+      "name": "Minnesota",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "MS": {
+      "code": "MS",
+      "name": "Mississippi",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "MO": {
+      "code": "MO",
+      "name": "Missouri",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "MT": {
+      "code": "MT",
+      "name": "Montana",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "NE": {
+      "code": "NE",
+      "name": "Nebraska",
+      "netHouseShift": 1,
+      "netSenateShift": 0,
+      "netTotalGainDem": 1,
+      "flippedSeats": [
+        "NE-02 (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "Don Bacon"
+      ],
+      "summary": "Omaha swing district flipped Democratic after moderate voters rejected Bacon's 95.1% Trump alignment."
+    },
+    "NV": {
+      "code": "NV",
+      "name": "Nevada",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "NH": {
+      "code": "NH",
+      "name": "New Hampshire",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "NJ": {
+      "code": "NJ",
+      "name": "New Jersey",
+      "netHouseShift": 1,
+      "netSenateShift": 0,
+      "netTotalGainDem": 1,
+      "flippedSeats": [
+        "NJ-07 (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "Thomas H. Kean, Jr."
+      ],
+      "summary": "Suburban NJ-07 ousted 96.3% Trump loyalist Kean Jr. in one of the most suburban-educated districts in the country."
+    },
+    "NM": {
+      "code": "NM",
+      "name": "New Mexico",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "NY": {
+      "code": "NY",
+      "name": "New York",
+      "netHouseShift": 3,
+      "netSenateShift": 0,
+      "netTotalGainDem": 3,
+      "flippedSeats": [
+        "NY-17 (Dem pickup)",
+        "NY-01 (Dem pickup)",
+        "NY-19 (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "Michael Lawler",
+        "Nick LaLota"
+      ],
+      "summary": "Major Democratic sweep across suburban and Hudson Valley districts, flipping 3 seats previously held by top Trump loyalists."
+    },
+    "NC": {
+      "code": "NC",
+      "name": "North Carolina",
+      "netHouseShift": 0,
+      "netSenateShift": 1,
+      "netTotalGainDem": 1,
+      "flippedSeats": [
+        "Senate (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "Thom Tillis"
+      ],
+      "summary": "Democrats scored their marquee Senate pickup in North Carolina, narrowly ousting Thom Tillis."
+    },
+    "ND": {
+      "code": "ND",
+      "name": "North Dakota",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "OH": {
+      "code": "OH",
+      "name": "Ohio",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "GOP held all targeted seats (Carey in OH-15, Miller in OH-07) behind strong working-class turnout."
+    },
+    "OK": {
+      "code": "OK",
+      "name": "Oklahoma",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "OR": {
+      "code": "OR",
+      "name": "Oregon",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "PA": {
+      "code": "PA",
+      "name": "Pennsylvania",
+      "netHouseShift": 1,
+      "netSenateShift": 0,
+      "netTotalGainDem": 1,
+      "flippedSeats": [
+        "PA-10 (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "Scott Perry"
+      ],
+      "summary": "Former Freedom Caucus chair Scott Perry fell in PA-10; moderate GOP survivor Brian Fitzpatrick held PA-01 by bucking Trump."
+    },
+    "RI": {
+      "code": "RI",
+      "name": "Rhode Island",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "SC": {
+      "code": "SC",
+      "name": "South Carolina",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "SD": {
+      "code": "SD",
+      "name": "South Dakota",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "TN": {
+      "code": "TN",
+      "name": "Tennessee",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "TX": {
+      "code": "TX",
+      "name": "Texas",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Cornyn defended Senate seat; Gonzales held TX-23; crossover Democrat Henry Cuellar won re-election."
+    },
+    "UT": {
+      "code": "UT",
+      "name": "Utah",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "VT": {
+      "code": "VT",
+      "name": "Vermont",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "VA": {
+      "code": "VA",
+      "name": "Virginia",
+      "netHouseShift": 1,
+      "netSenateShift": 0,
+      "netTotalGainDem": 1,
+      "flippedSeats": [
+        "VA-02 (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "Jennifer A. Kiggans"
+      ],
+      "summary": "Coastal Virginia swing seat VA-02 flipped to Democrats as veteran voters recoiled from 94.5% loyalty score."
+    },
+    "WA": {
+      "code": "WA",
+      "name": "Washington",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Crossover Democrat Marie Gluesenkamp Perez successfully held battleground WA-03."
+    },
+    "WV": {
+      "code": "WV",
+      "name": "West Virginia",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "WI": {
+      "code": "WI",
+      "name": "Wisconsin",
+      "netHouseShift": 1,
+      "netSenateShift": 0,
+      "netTotalGainDem": 1,
+      "flippedSeats": [
+        "WI-03 (Dem pickup)"
+      ],
+      "oustedIncumbents": [
+        "Derrick Van Orden"
+      ],
+      "summary": "Rural/working-class WI-03 flipped back to Democrats as Van Orden's 96.0% loyalty alienated rural independents."
+    },
+    "WY": {
+      "code": "WY",
+      "name": "Wyoming",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    },
+    "DC": {
+      "code": "DC",
+      "name": "District of Columbia",
+      "netHouseShift": 0,
+      "netSenateShift": 0,
+      "netTotalGainDem": 0,
+      "flippedSeats": [],
+      "oustedIncumbents": [],
+      "summary": "Status quo maintained: incumbents held or predictable partisan patterns prevailed."
+    }
+  },
+  "races": [
+    {
+      "subjectId": "L000599",
+      "district": "NY-17",
+      "chamber": "House",
+      "pvi": "D+1",
+      "pviNum": -1,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-2.1% Dem",
+      "winner": "Mondaire Jones (D)",
+      "keyFactor": "Highest-ranking House toady in a Biden district (96.1% score). Overwhelmingly punished by Hudson Valley suburbanites for lockstep votes.",
+      "name": "Michael Lawler",
+      "party": "Republican",
+      "state": "NY",
+      "toadyScore": 96.1,
+      "toadyRank": 5
+    },
+    {
+      "subjectId": "K000398",
+      "district": "NJ-07",
+      "chamber": "House",
+      "pvi": "R+1",
+      "pviNum": 1,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-2.6% Dem",
+      "winner": "Sue Altman (D)",
+      "keyFactor": "Ranked #4 Toady in Congress (96.3% score) in a wealthy, college-educated suburban district. Voters rejected national MAGA agenda.",
+      "name": "Thomas H. Kean, Jr.",
+      "party": "Republican",
+      "state": "NJ",
+      "toadyScore": 96.3,
+      "toadyRank": 4
+    },
+    {
+      "subjectId": "B001298",
+      "district": "NE-02",
+      "chamber": "House",
+      "pvi": "EVEN",
+      "pviNum": 0,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-1.8% Dem",
+      "winner": "Tony Vargas (D)",
+      "keyFactor": "Previously cast as an independent moderate, Bacon's 95.1% loyalty score destroyed his crossover appeal in suburban Omaha.",
+      "name": "Don Bacon",
+      "party": "Republican",
+      "state": "NE",
+      "toadyScore": 95.1,
+      "toadyRank": 10
+    },
+    {
+      "subjectId": "V000135",
+      "district": "WI-03",
+      "chamber": "House",
+      "pvi": "R+4",
+      "pviNum": 4,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-1.4% Dem",
+      "winner": "Rebecca Cooke (D)",
+      "keyFactor": "Ranked #6 Toady (96.0% score). Relentless combative rhetoric and loyalty to Trump tariffs turned dairy farmers and rural swing voters.",
+      "name": "Derrick Van Orden",
+      "party": "Republican",
+      "state": "WI",
+      "toadyScore": 96,
+      "toadyRank": 6
+    },
+    {
+      "subjectId": "N000193",
+      "district": "IA-03",
+      "chamber": "House",
+      "pvi": "R+3",
+      "pviNum": 3,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-0.9% Dem",
+      "winner": "Lanon Baccam (D)",
+      "keyFactor": "95.0% Trump loyalty in Des Moines suburbs proved fatal amid higher-than-expected suburban Democratic mobilization.",
+      "name": "Zachary Nunn",
+      "party": "Republican",
+      "state": "IA",
+      "toadyScore": 95,
+      "toadyRank": 13
+    },
+    {
+      "subjectId": "K000399",
+      "district": "VA-02",
+      "chamber": "House",
+      "pvi": "R+2",
+      "pviNum": 2,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-1.7% Dem",
+      "winner": "Missy Cotter Smasal (D)",
+      "keyFactor": "Navy veteran Kiggans (94.5% score) suffered from federal employee and veteran backlash to Trump administration executive firings.",
+      "name": "Jennifer A. Kiggans",
+      "party": "Republican",
+      "state": "VA",
+      "toadyScore": 94.5,
+      "toadyRank": 19
+    },
+    {
+      "subjectId": "V000129",
+      "district": "CA-22",
+      "chamber": "House",
+      "pvi": "D+5",
+      "pviNum": -5,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-3.2% Dem",
+      "winner": "Rudy Salas (D)",
+      "keyFactor": "Despite surviving past cycles as a moderate, Valadao's 93.4% alignment in a heavily Latino Central Valley seat drove record turnout against him.",
+      "name": "David G. Valadao",
+      "party": "Republican",
+      "state": "CA",
+      "toadyScore": 93.4,
+      "toadyRank": 89
+    },
+    {
+      "subjectId": "L000598",
+      "district": "NY-01",
+      "chamber": "House",
+      "pvi": "R+3",
+      "pviNum": 3,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-1.1% Dem",
+      "winner": "John Avlon (D)",
+      "keyFactor": "Suffolk County voters flipped after LaLota's 95.1% score alienating moderate eastern Long Island commuters.",
+      "name": "Nick LaLota",
+      "party": "Republican",
+      "state": "NY",
+      "toadyScore": 95.1,
+      "toadyRank": 10
+    },
+    {
+      "subjectId": "H001100",
+      "district": "CO-03",
+      "chamber": "House",
+      "pvi": "R+7",
+      "pviNum": 7,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-0.8% Dem",
+      "winner": "Adam Frisch (D)",
+      "keyFactor": "Freshman Hurd (95.1% score) could not replicate conservative margins on the Western Slope as water and public lands issues dominated.",
+      "name": "Jeff Hurd",
+      "party": "Republican",
+      "state": "CO",
+      "toadyScore": 95.1,
+      "toadyRank": 10
+    },
+    {
+      "subjectId": "P000605",
+      "district": "PA-10",
+      "chamber": "House",
+      "pvi": "R+5",
+      "pviNum": 5,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-1.5% Dem",
+      "winner": "Janelle Stelson (D)",
+      "keyFactor": "Longtime Freedom Caucus chair and Trump confidant (84.5% score) ousted following heavy voter revolt in Dauphin and Cumberland counties.",
+      "name": "Scott Perry",
+      "party": "Republican",
+      "state": "PA",
+      "toadyScore": 84.5,
+      "toadyRank": 206
+    },
+    {
+      "subjectId": "J000307",
+      "district": "MI-10",
+      "chamber": "House",
+      "pvi": "R+3",
+      "pviNum": 3,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-1.2% Dem",
+      "winner": "Carl Marlinga (D)",
+      "keyFactor": "93.3% loyalty score dragged down James in Macomb County auto-worker communities concerned about trade instability.",
+      "name": "John James",
+      "party": "Republican",
+      "state": "MI",
+      "toadyScore": 93.3,
+      "toadyRank": 116
+    },
+    {
+      "subjectId": "C000059",
+      "district": "CA-41",
+      "chamber": "House",
+      "pvi": "R+3",
+      "pviNum": 3,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-1.9% Dem",
+      "winner": "Will Rollins (D)",
+      "keyFactor": "Calvert (93.4% score, 30+ years in Congress) finally lost Palm Springs/Corona battleground to Rollins in repeat rematch.",
+      "name": "Ken Calvert",
+      "party": "Republican",
+      "state": "CA",
+      "toadyScore": 93.4,
+      "toadyRank": 89
+    },
+    {
+      "subjectId": "F000466",
+      "district": "PA-01",
+      "chamber": "House",
+      "pvi": "EVEN",
+      "pviNum": 0,
+      "category": "survived_swing",
+      "outcome": "Re-elected (GOP Hold)",
+      "margin": "+4.5% GOP",
+      "winner": "Brian K. Fitzpatrick (R)",
+      "keyFactor": "The lowest-scoring Republican in PA (78.6%). By frequently voting against Trump nominees and hardline bills, Fitzpatrick preserved his swing-district coalition.",
+      "name": "Brian K. Fitzpatrick",
+      "party": "Republican",
+      "state": "PA",
+      "toadyScore": 78.6,
+      "toadyRank": 216
+    },
+    {
+      "subjectId": "C001126",
+      "district": "OH-15",
+      "chamber": "House",
+      "pvi": "R+6",
+      "pviNum": 6,
+      "category": "survived_swing",
+      "outcome": "Re-elected (GOP Hold)",
+      "margin": "+1.2% GOP",
+      "winner": "Mike Carey (R)",
+      "keyFactor": "Rank #7 Toady (95.6% score) survived Columbus suburbs by the narrowest margin of his career, saved only by rural southern turnout.",
+      "name": "Mike Carey",
+      "party": "Republican",
+      "state": "OH",
+      "toadyScore": 95.6,
+      "toadyRank": 7
+    },
+    {
+      "subjectId": "M001222",
+      "district": "OH-07",
+      "chamber": "House",
+      "pvi": "R+14",
+      "pviNum": 14,
+      "category": "survived_safe",
+      "outcome": "Re-elected (GOP Hold)",
+      "margin": "+18.4% GOP",
+      "winner": "Max L. Miller (R)",
+      "keyFactor": "Rank #2 Toady in House (96.7% score). In deeply conservative northeastern Ohio, total Trump fealty remains an electoral asset, not a liability.",
+      "name": "Max L. Miller",
+      "party": "Republican",
+      "state": "OH",
+      "toadyScore": 96.7,
+      "toadyRank": 2
+    },
+    {
+      "subjectId": "G000594",
+      "district": "TX-23",
+      "chamber": "House",
+      "pvi": "R+5",
+      "pviNum": 5,
+      "category": "survived_safe",
+      "outcome": "Re-elected (GOP Hold)",
+      "margin": "+3.9% GOP",
+      "winner": "Tony Gonzales (R)",
+      "keyFactor": "#1 Ranked Toady in the House (97.5% score). Survived primary challenges from the far-right and held off Democratic challenger on border issues.",
+      "name": "Tony Gonzales",
+      "party": "Republican",
+      "state": "TX",
+      "toadyScore": 97.5,
+      "toadyRank": 1
+    },
+    {
+      "subjectId": "B000825",
+      "district": "CO-04",
+      "chamber": "House",
+      "pvi": "R+13",
+      "pviNum": 13,
+      "category": "survived_safe",
+      "outcome": "Re-elected (GOP Hold)",
+      "margin": "+12.1% GOP",
+      "winner": "Lauren Boebert (R)",
+      "keyFactor": "Having carpetbagged to the ultra-safe CO-04, Boebert's 88.1% loyalty score easily carried her across the eastern plains.",
+      "name": "Lauren Boebert",
+      "party": "Republican",
+      "state": "CO",
+      "toadyScore": 88.1,
+      "toadyRank": 196
+    },
+    {
+      "subjectId": "G000600",
+      "district": "WA-03",
+      "chamber": "House",
+      "pvi": "R+5",
+      "pviNum": 5,
+      "category": "crossover_dem",
+      "outcome": "Re-elected (Dem Hold)",
+      "margin": "+1.8% Dem",
+      "winner": "Marie Gluesenkamp Perez (D)",
+      "keyFactor": "Top Crossover Democrat (71.3% score). By backing Trump on border enforcement and deregulation, Perez retained working-class southwest WA.",
+      "name": "Marie Gluesenkamp Perez",
+      "party": "Democrat",
+      "state": "WA",
+      "toadyScore": 71.3,
+      "toadyRank": 221
+    },
+    {
+      "subjectId": "G000592",
+      "district": "ME-02",
+      "chamber": "House",
+      "pvi": "R+6",
+      "pviNum": 6,
+      "category": "crossover_dem",
+      "outcome": "Re-elected (Dem Hold)",
+      "margin": "+1.1% Dem",
+      "winner": "Jared F. Golden (D)",
+      "keyFactor": "69.7% loyalty score. Golden proved once again that calculated crossover votes insulate Democrats in rural Trump-voting districts.",
+      "name": "Jared F. Golden",
+      "party": "Democrat",
+      "state": "ME",
+      "toadyScore": 69.7,
+      "toadyRank": 222
+    },
+    {
+      "subjectId": "C001063",
+      "district": "TX-28",
+      "chamber": "House",
+      "pvi": "R+3",
+      "pviNum": 3,
+      "category": "crossover_dem",
+      "outcome": "Re-elected (Dem Hold)",
+      "margin": "+4.2% Dem",
+      "winner": "Henry Cuellar (D)",
+      "keyFactor": "78.7% loyalty score. Retained south Texas Rio Grande Valley seat by embracing bipartisan border policies.",
+      "name": "Henry Cuellar",
+      "party": "Democrat",
+      "state": "TX",
+      "toadyScore": 78.7,
+      "toadyRank": 215
+    },
+    {
+      "subjectId": "T000476",
+      "district": "Senate",
+      "chamber": "Senate",
+      "pvi": "R+3",
+      "pviNum": 3,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-1.3% Dem",
+      "winner": "Roy Cooper (D)",
+      "keyFactor": "76.9% loyalty score. Former Gov. Roy Cooper mobilized suburban Research Triangle and Charlotte to capture North Carolina's Senate seat.",
+      "name": "Thom Tillis",
+      "party": "Republican",
+      "state": "NC",
+      "toadyScore": 76.9,
+      "toadyRank": 51
+    },
+    {
+      "subjectId": "C001035",
+      "district": "Senate",
+      "chamber": "Senate",
+      "pvi": "D+2",
+      "pviNum": -2,
+      "category": "defeated",
+      "outcome": "Defeated (Dem Pickup)",
+      "margin": "-3.7% Dem",
+      "winner": "Democratic Nominee (D)",
+      "keyFactor": "80.0% score (Rank #49). Collins could no longer sustain her centrist brand after voting to confirm controversial Trump judicial and cabinet appointees.",
+      "name": "Susan M. Collins",
+      "party": "Republican",
+      "state": "ME",
+      "toadyScore": 80,
+      "toadyRank": 49
+    },
+    {
+      "subjectId": "O000174",
+      "district": "Senate",
+      "chamber": "Senate",
+      "pvi": "R+1",
+      "pviNum": 1,
+      "category": "survived_swing",
+      "outcome": "Re-elected (Dem Hold)",
+      "margin": "+2.1% Dem",
+      "winner": "Jon Ossoff (D)",
+      "keyFactor": "Low loyalty score (20.3%). Energized Atlanta suburban coalition and young voters to secure a second term in Georgia.",
+      "name": "Jon Ossoff",
+      "party": "Democrat",
+      "state": "GA",
+      "toadyScore": 20.3,
+      "toadyRank": 82
+    },
+    {
+      "subjectId": "P000595",
+      "district": "Senate",
+      "chamber": "Senate",
+      "pvi": "R+1",
+      "pviNum": 1,
+      "category": "survived_swing",
+      "outcome": "Re-elected (Dem Hold)",
+      "margin": "+2.9% Dem",
+      "winner": "Gary C. Peters (R)",
+      "keyFactor": "Low loyalty score (23.6%). Strong union backing and pragmatic constituent service propelled Peters to re-election in Michigan.",
+      "name": "Gary C. Peters",
+      "party": "Democrat",
+      "state": "MI",
+      "toadyScore": 23.6,
+      "toadyRank": 64
+    }
+  ]
+}

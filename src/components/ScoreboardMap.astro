@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import rankingsData from '../data/rankings.json';
+import midtermsData from '../data/midterms2026.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -63,6 +64,15 @@ function getChoroplethColor(score: number): string {
   return "#1565c0";                  // Deep Blue (Strong opposition)
 }
 
+function getMidtermChoroplethColor(code: string): string {
+  const m = (midtermsData.states as any)[code];
+  if (!m) return "#e0e0e0";
+  if (m.netTotalGainDem >= 2) return "#1565c0"; // Deep Blue (Multi-seat Dem pickup)
+  if (m.netTotalGainDem === 1) return "#42a5f5"; // Sky Blue (Dem pickup)
+  if (["OH", "TX", "GA", "WA", "NV", "AZ"].includes(code)) return "#8e44ad"; // Battleground Hold / Split
+  return "#e57373"; // GOP Hold / Red
+}
+
 function scoreTextColor(score: number): string {
   return (score > 30 && score < 70) ? '#111' : '#fff';
 }
@@ -70,6 +80,8 @@ function scoreTextColor(score: number): string {
 Object.values(stateMap).forEach(s => {
   s.avgScore = s.totalMembers > 0 ? parseFloat((s.totalScore / s.totalMembers).toFixed(1)) : 0;
   s.color = getChoroplethColor(s.avgScore);
+  s.midtermColor = getMidtermChoroplethColor(s.code);
+  s.midterm = (midtermsData.states as any)[s.code] || null;
   s.senators.sort((a: any, b: any) => b.score - a.score);
   s.reps.sort((a: any, b: any) => b.score - a.score);
 });
@@ -126,8 +138,18 @@ const stateColorStyles = Object.values(stateMap).map(s => {
     <!-- Layout: Map & Delegation Card -->
     <div class="map-layout">
         <div class="map-container">
-            <!-- Map Toolbar with Zoom & Fit Controls -->
+            <!-- Map Toolbar with Layer Switcher & Zoom & Fit Controls -->
             <div class="map-toolbar">
+                <!-- Layer Toggle Switch -->
+                <div class="layer-switch" role="tablist" aria-label="Map Overlays">
+                    <button type="button" class="layer-btn active" id="layerBtnLoyalty" data-layer="loyalty">
+                        🔥 Loyalty Heatmap
+                    </button>
+                    <button type="button" class="layer-btn" id="layerBtnMidterms" data-layer="midterms">
+                        🗳️ 2026 Midterm Shift
+                    </button>
+                </div>
+
                 <div class="zoom-controls" role="group" aria-label="Map Zoom and Fit Controls">
                     <button type="button" id="zoomInBtn" class="zoom-btn" title="Zoom in" aria-label="Zoom in">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
@@ -146,8 +168,8 @@ const stateColorStyles = Object.values(stateMap).map(s => {
             <!-- SVG Map Wrapper (Auto-fits on load) -->
             <div class="us-map-wrapper" id="usMapWrapper" set:html={svgContent} />
 
-            <!-- Map Choropleth Legend -->
-            <div class="map-legend" aria-label="Map color legend">
+            <!-- Map Choropleth Legend (Loyalty) -->
+            <div class="map-legend" id="legendLoyalty" aria-label="Loyalty map color legend">
                 <span class="legend-title">Delegation Score:</span>
                 <div class="legend-scale">
                     <span class="legend-item"><span class="legend-swatch" style="background:#1565c0;"></span> &lt;35% (Deep Blue)</span>
@@ -155,6 +177,17 @@ const stateColorStyles = Object.values(stateMap).map(s => {
                     <span class="legend-item"><span class="legend-swatch" style="background:#8e44ad;"></span> 50&ndash;69% (Purple)</span>
                     <span class="legend-item"><span class="legend-swatch" style="background:#e53935;"></span> 70&ndash;84% (Red)</span>
                     <span class="legend-item"><span class="legend-swatch" style="background:#b71c1c;"></span> 85%+ (Deep Red)</span>
+                </div>
+            </div>
+
+            <!-- Map Choropleth Legend (2026 Midterms) -->
+            <div class="map-legend" id="legendMidterms" aria-label="2026 Midterm shift map color legend" style="display:none;">
+                <span class="legend-title">2026 Midterms:</span>
+                <div class="legend-scale">
+                    <span class="legend-item"><span class="legend-swatch" style="background:#1565c0;"></span> +2&ndash;3 Dem Pickups</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#42a5f5;"></span> +1 Dem Pickup</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#8e44ad;"></span> Battleground Hold</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#e57373;"></span> GOP Stronghold</span>
                 </div>
             </div>
         </div>
@@ -176,6 +209,12 @@ const stateColorStyles = Object.values(stateMap).map(s => {
                     <div class="state-meta" id="panelStateMeta">
                         7 Members &bull; 7 Republicans &bull; 0 Democrats
                     </div>
+                </div>
+
+                <!-- 2026 Midterm Outcome Banner for this State -->
+                <div class="panel-midterm-box" id="panelMidtermBox" style="display:none;">
+                    <div class="midterm-banner-title" id="panelMidtermTitle"></div>
+                    <div class="midterm-banner-body" id="panelMidtermBody"></div>
                 </div>
 
                 <!-- Senators Section -->
@@ -375,15 +414,63 @@ const stateColorStyles = Object.values(stateMap).map(s => {
             });
         }
 
-        function renderMemberRow(m) {
+        const layerBtnLoyalty = document.getElementById('layerBtnLoyalty');
+        const layerBtnMidterms = document.getElementById('layerBtnMidterms');
+        const legendLoyalty = document.getElementById('legendLoyalty');
+        const legendMidterms = document.getElementById('legendMidterms');
+        const mapSubtitle = document.querySelector('.map-subtitle');
+
+        const panelMidtermBox = document.getElementById('panelMidtermBox');
+        const panelMidtermTitle = document.getElementById('panelMidtermTitle');
+        const panelMidtermBody = document.getElementById('panelMidtermBody');
+
+        let currentLayer = 'loyalty';
+        let selectedStateCode = 'OK';
+
+        function applyLayer(layer) {
+            currentLayer = layer;
+            if (layer === 'loyalty') {
+                layerBtnLoyalty?.classList.add('active');
+                layerBtnMidterms?.classList.remove('active');
+                if (legendLoyalty) legendLoyalty.style.display = 'flex';
+                if (legendMidterms) legendMidterms.style.display = 'none';
+                if (mapSubtitle) mapSubtitle.textContent = 'Average Congressional delegation loyalty score across all 50 states. Click any state or select from the dropdown to see its Senators and Representatives.';
+                Object.values(stateMap).forEach(s => {
+                    document.querySelectorAll(`.state-path.${s.code.toLowerCase()}`).forEach(p => {
+                        p.style.fill = s.color;
+                    });
+                });
+            } else {
+                layerBtnMidterms?.classList.add('active');
+                layerBtnLoyalty?.classList.remove('active');
+                if (legendMidterms) legendMidterms.style.display = 'flex';
+                if (legendLoyalty) legendLoyalty.style.display = 'none';
+                if (mapSubtitle) mapSubtitle.textContent = '2026 Midterm Election Results: Net Congressional seat changes and flipped districts following the November 2026 election.';
+                Object.values(stateMap).forEach(s => {
+                    document.querySelectorAll(`.state-path.${s.code.toLowerCase()}`).forEach(p => {
+                        p.style.fill = s.midtermColor;
+                    });
+                });
+            }
+            if (selectedStateCode) {
+                selectState(selectedStateCode);
+            }
+        }
+
+        if (layerBtnLoyalty) layerBtnLoyalty.addEventListener('click', () => applyLayer('loyalty'));
+        if (layerBtnMidterms) layerBtnMidterms.addEventListener('click', () => applyLayer('midterms'));
+
+        function renderMemberRow(m, st) {
             const partyDotClass = m.party === 'Republican' ? 'r' : (m.party === 'Democrat' ? 'd' : 'i');
             const rankLabel = m.rank ? `#${m.rank}` : '';
+            const isOusted = st?.midterm?.oustedIncumbents?.some((name) => m.name.includes(name));
             return `
-                <a href="${base}/subjects/${m.subjectId}/" class="member-row">
+                <a href="${base}/subjects/${m.subjectId}/" class="member-row ${isOusted ? 'is-ousted' : ''}">
                     <div class="member-info">
                         <span class="party-dot ${partyDotClass}"></span>
                         <span class="member-name">${m.name}</span>
                         ${rankLabel ? `<span class="member-rank">${rankLabel}</span>` : ''}
+                        ${isOusted ? `<span class="ousted-pill" title="Defeated in the November 2026 General Election">💥 Ousted</span>` : ''}
                     </div>
                     <span class="member-score" style="background:${getScoreColor(m.score)}; color:${getScoreTextColor(m.score)}">
                         ${m.score.toFixed(1)}%
@@ -412,6 +499,7 @@ const stateColorStyles = Object.values(stateMap).map(s => {
                 return;
             }
 
+            selectedStateCode = code;
             const st = stateMap[code];
 
             // Highlight path in SVG
@@ -427,7 +515,7 @@ const stateColorStyles = Object.values(stateMap).map(s => {
             // Populate Panel
             panelStateName.textContent = `${st.name} (${st.code})`;
             panelStateScore.textContent = `${st.avgScore}%`;
-            panelStateScore.style.background = st.color;
+            panelStateScore.style.background = currentLayer === 'midterms' ? st.midtermColor : st.color;
             panelStateScore.style.color = getScoreTextColor(st.avgScore);
 
             const breakdown = [];
@@ -436,9 +524,27 @@ const stateColorStyles = Object.values(stateMap).map(s => {
             if (st.indCount > 0) breakdown.push(`${st.indCount} I`);
             panelStateMeta.textContent = `${st.totalMembers} Members (${breakdown.join(' \u2022 ') || 'None tracked'})`;
 
+            // Populate Midterm Results Box
+            if (panelMidtermBox) {
+                if (st.midterm && (st.midterm.netTotalGainDem !== 0 || st.midterm.oustedIncumbents?.length > 0 || currentLayer === 'midterms')) {
+                    panelMidtermBox.style.display = 'block';
+                    const shiftNum = st.midterm.netTotalGainDem || 0;
+                    const shiftTag = shiftNum > 0 ? `+${shiftNum} Dem Gain` : (shiftNum < 0 ? `+${Math.abs(shiftNum)} GOP Gain` : 'No Net Seat Change');
+                    const badgeClass = shiftNum > 0 ? 'gain-dem' : (shiftNum < 0 ? 'gain-gop' : 'neutral');
+                    panelMidtermTitle.innerHTML = `<span class="midterm-flag">🗳️ 2026 Midterms:</span> <span class="midterm-shift-tag ${badgeClass}">${shiftTag}</span>`;
+                    let html = `<p class="midterm-summary-text">${st.midterm.summary}</p>`;
+                    if (st.midterm.oustedIncumbents && st.midterm.oustedIncumbents.length > 0) {
+                        html += `<div class="midterm-ousted-alert">⚠️ <strong>Ousted in Nov 2026:</strong> ${st.midterm.oustedIncumbents.join(', ')}</div>`;
+                    }
+                    panelMidtermBody.innerHTML = html;
+                } else {
+                    panelMidtermBox.style.display = 'none';
+                }
+            }
+
             // Senators
             if (st.senators.length > 0) {
-                panelSenators.innerHTML = st.senators.map(renderMemberRow).join('');
+                panelSenators.innerHTML = st.senators.map(m => renderMemberRow(m, st)).join('');
             } else {
                 panelSenators.innerHTML = '<div class="empty-notice">No Senators recorded</div>';
             }
@@ -446,7 +552,7 @@ const stateColorStyles = Object.values(stateMap).map(s => {
             // Reps
             repCountNum.textContent = st.reps.length;
             if (st.reps.length > 0) {
-                panelReps.innerHTML = st.reps.map(renderMemberRow).join('');
+                panelReps.innerHTML = st.reps.map(m => renderMemberRow(m, st)).join('');
             } else {
                 panelReps.innerHTML = '<div class="empty-notice">No Representatives recorded</div>';
             }
@@ -562,6 +668,33 @@ const stateColorStyles = Object.values(stateMap).map(s => {
         flex-wrap: wrap;
         gap: 0.5rem;
         padding: 0.25rem 0;
+    }
+    .layer-switch {
+        display: inline-flex;
+        background: #e9ecef;
+        padding: 0.2rem;
+        border-radius: 6px;
+        border: 1px solid var(--color-border);
+        gap: 0.2rem;
+    }
+    .layer-btn {
+        background: transparent;
+        border: none;
+        padding: 0.25rem 0.65rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--color-muted);
+        cursor: pointer;
+        transition: all 0.15s ease;
+    }
+    .layer-btn:hover {
+        color: var(--color-text);
+    }
+    .layer-btn.active {
+        background: #fff;
+        color: var(--color-accent);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     .zoom-controls {
         display: flex;
@@ -771,6 +904,86 @@ const stateColorStyles = Object.values(stateMap).map(s => {
         display: flex;
         flex-direction: column;
         gap: 0.35rem;
+    }
+    /* Panel Midterm Results Box */
+    .panel-midterm-box {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-left: 4px solid var(--color-accent);
+        border-radius: 4px;
+        padding: 0.65rem 0.75rem;
+        margin-bottom: 1rem;
+    }
+    .midterm-box-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        margin-bottom: 0.35rem;
+        flex-wrap: wrap;
+    }
+    .midterm-flag {
+        font-weight: 700;
+        color: var(--color-text);
+    }
+    .midterm-shift-tag {
+        font-size: 0.75rem;
+        font-weight: 800;
+        padding: 0.15rem 0.45rem;
+        border-radius: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+    }
+    .midterm-shift-tag.gain-dem {
+        background: #e3f2fd;
+        color: #1565c0;
+        border: 1px solid #90caf9;
+    }
+    .midterm-shift-tag.gain-gop {
+        background: #ffebee;
+        color: #c62828;
+        border: 1px solid #ef9a9a;
+    }
+    .midterm-shift-tag.neutral {
+        background: #f5f5f5;
+        color: #616161;
+        border: 1px solid #e0e0e0;
+    }
+    .midterm-summary-text {
+        font-size: 0.8rem;
+        color: #444;
+        margin: 0 0 0.4rem 0;
+        line-height: 1.35;
+    }
+    .midterm-ousted-alert {
+        font-size: 0.75rem;
+        background: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeeba;
+        padding: 0.25rem 0.5rem;
+        border-radius: 3px;
+        line-height: 1.3;
+    }
+
+    /* Member rows & Ousted flags */
+    :global(.member-row.is-ousted) {
+        background: #fff8f8;
+        border-color: #f5c6cb;
+    }
+    :global(.ousted-pill) {
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: #721c24;
+        background: #f8d7da;
+        border: 1px solid #f5c6cb;
+        padding: 0.1rem 0.35rem;
+        border-radius: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.15rem;
+        white-space: nowrap;
     }
     :global(.member-row) {
         display: flex;
