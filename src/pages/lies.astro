@@ -4,113 +4,581 @@ import liesData from '../data/lies.json';
 
 // Sort descending by date
 const lies = liesData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+// Compute unique topics and counts
+const topicCounts: Record<string, number> = {};
+lies.forEach(lie => {
+    topicCounts[lie.topic] = (topicCounts[lie.topic] || 0) + 1;
+});
+const topics = Object.keys(topicCounts).sort();
 ---
 
-<Layout title="Trump's Lies - Fact Checker">
+<Layout 
+    title="Trump's Documented Lies & Falsehoods - Verified Fact Checks"
+    description="A documented, cross-checked catalogue of prominent falsehoods, debunked claims, and fabricated narratives uttered by Donald Trump, verified against transcripts and Snopes fact-checks."
+>
+    <!-- Header Section -->
     <div class="header-section">
-		<h2>Trump's Lies</h2>
-		<p class="subtitle">A documented catalogue of prominent falsehoods, absurd claims, and misleading statements, verified against transcripts.</p>
+        <div class="header-badge">Fact Check Archive &bull; Sourced from Snopes</div>
+		<h2>Trump's Documented Falsehoods</h2>
+		<p class="subtitle">
+            An open catalogue tracking prominent false claims, fabricated narratives, and debunked statements uttered by Donald Trump, cross-checked against official transcripts, government data, and independent investigations by <a href="https://www.snopes.com" target="_blank" rel="noopener noreferrer">Snopes.com</a>.
+        </p>
+
+        <!-- Stats Grid -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <span class="kpi-num">{lies.length}</span>
+                <span class="kpi-label">Documented Falsehoods</span>
+                <span class="kpi-sub">Verified & Catalogued</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-num">{topics.length}</span>
+                <span class="kpi-label">Policy Categories</span>
+                <span class="kpi-sub">Immigration, Tariffs, FEMA & More</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-num">100%</span>
+                <span class="kpi-label">Independent Fact-Checks</span>
+                <span class="kpi-sub">Snopes, CBO, FBI & Official Records</span>
+            </div>
+        </div>
 	</div>
 
-    <div class="lies-feed">
-		{lies.map(lie => (
-			<article class="lie-card">
-                <div class="card-header">
-					<span class="date">{lie.date}</span>
-					<span class="topic">{lie.topic}</span>
-				</div>
-                <div class="quote-section">
-                    <blockquote>"{lie.quote}"</blockquote>
-                </div>
-                <div class="debunk-section">
-                    <h4>The Reality:</h4>
-                    <p>{lie.debunk}</p>
-                </div>
-				<div class="card-footer">
-					{lie.sourceUrl && <a href={lie.sourceUrl} target="_blank" rel="noopener noreferrer" class="source-link">Read Transcript &rarr;</a>}
-				</div>
-			</article>
-		))}
-        {lies.length === 0 && <p>No lies tracked yet.</p>}
+    <!-- Filter & Search Toolbar -->
+    <div class="filter-toolbar">
+        <div class="search-box">
+            <input 
+                type="text" 
+                id="searchLiesInput" 
+                placeholder="Search claims, quotes, topics, or fact-check keywords..." 
+                aria-label="Search lies"
+            />
+            <span class="search-icon">🔍</span>
+        </div>
+
+        <div class="topic-pills" id="topicPills">
+            <button class="topic-pill active" data-topic="all">
+                All Topics <span class="pill-count">({lies.length})</span>
+            </button>
+            {topics.map(topic => (
+                <button class="topic-pill" data-topic={topic}>
+                    {topic} <span class="pill-count">({topicCounts[topic]})</span>
+                </button>
+            ))}
+        </div>
+
+        <div class="filter-status">
+            <span id="resultsCounter">Showing all {lies.length} documented claims</span>
+        </div>
+    </div>
+
+    <!-- Lies Feed -->
+    <div class="lies-feed" id="liesFeed">
+		{lies.map(lie => {
+            const verdictLower = (lie.verdict || 'false').toLowerCase();
+            const verdictClass = verdictLower.includes('unfounded') ? 'v-unfounded' 
+                : (verdictLower.includes('mostly') ? 'v-mostly-false' 
+                : (verdictLower.includes('misleading') ? 'v-misleading' : 'v-false'));
+
+            return (
+                <article 
+                    class="lie-card" 
+                    data-topic={lie.topic}
+                    data-search={`${lie.quote} ${lie.debunk} ${lie.topic} ${lie.context || ''} ${lie.verdict || ''}`.toLowerCase()}
+                >
+                    <div class="card-header">
+                        <div class="header-left">
+                            <span class="topic-tag">{lie.topic}</span>
+                            <span class="date">{lie.date}</span>
+                            {lie.context && <span class="context-tag" title="Where and when this statement was made">📍 {lie.context}</span>}
+                        </div>
+                        <div class="header-right">
+                            <span class={`verdict-badge ${verdictClass}`}>
+                                {lie.verdict || 'False'}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="quote-section">
+                        <div class="quote-speaker">
+                            <span class="speaker-name">{lie.speaker || 'Donald Trump'}</span> said:
+                        </div>
+                        <blockquote>"{lie.quote}"</blockquote>
+                    </div>
+
+                    <div class="debunk-section">
+                        <div class="debunk-header">
+                            <span class="shield-icon">🛡️</span>
+                            <h4>The Factual Reality</h4>
+                        </div>
+                        <p>{lie.debunk}</p>
+                    </div>
+
+                    <div class="card-footer">
+                        {lie.snopesUrl && (
+                            <a href={lie.snopesUrl} target="_blank" rel="noopener noreferrer" class="snopes-btn">
+                                <span class="snopes-logo">🔍</span> Read Full Snopes Investigation &rarr;
+                            </a>
+                        )}
+                        {lie.sourceUrl && (
+                            <a href={lie.sourceUrl} target="_blank" rel="noopener noreferrer" class="transcript-link">
+                                📜 Official Transcript / Record &rarr;
+                            </a>
+                        )}
+                    </div>
+                </article>
+            );
+        })}
+
+        <div id="noResults" class="no-results-card" style="display: none;">
+            <div class="no-results-icon">🔎</div>
+            <h3>No matching falsehoods found</h3>
+            <p>Try clearing your search query or selecting a different topic category.</p>
+            <button id="resetFilterBtn" class="reset-btn">Reset Filters</button>
+        </div>
 	</div>
 </Layout>
 
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('searchLiesInput');
+        const topicPills = document.querySelectorAll('.topic-pill');
+        const cards = document.querySelectorAll('.lie-card');
+        const counter = document.getElementById('resultsCounter');
+        const noResults = document.getElementById('noResults');
+        const resetBtn = document.getElementById('resetFilterBtn');
+
+        let activeTopic = 'all';
+        let searchQuery = '';
+
+        function filterLies() {
+            let visibleCount = 0;
+            const query = searchQuery.trim().toLowerCase();
+
+            cards.forEach(card => {
+                const cardTopic = card.getAttribute('data-topic');
+                const cardSearchText = card.getAttribute('data-search') || '';
+
+                const matchesTopic = activeTopic === 'all' || cardTopic === activeTopic;
+                const matchesSearch = !query || cardSearchText.includes(query);
+
+                if (matchesTopic && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (counter) {
+                if (activeTopic === 'all' && !query) {
+                    counter.textContent = `Showing all ${cards.length} documented claims`;
+                } else {
+                    counter.textContent = `Showing ${visibleCount} of ${cards.length} claims`;
+                }
+            }
+
+            if (noResults) {
+                noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        }
+
+        // Search input listener
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                filterLies();
+            });
+        }
+
+        // Topic pills listener
+        topicPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                topicPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                activeTopic = pill.getAttribute('data-topic') || 'all';
+                filterLies();
+            });
+        });
+
+        // Reset button
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                if (searchInput) searchInput.value = '';
+                searchQuery = '';
+                activeTopic = 'all';
+                topicPills.forEach(p => p.classList.toggle('active', p.getAttribute('data-topic') === 'all'));
+                filterLies();
+            });
+        }
+    });
+</script>
+
 <style>
     .header-section {
+        background: #111;
+        color: #fff;
+        border-radius: 8px;
+        padding: 2rem;
         margin-bottom: 2rem;
+        border: 1px solid #333;
+    }
+    .header-badge {
+        display: inline-block;
+        background: rgba(192, 57, 43, 0.25);
+        color: #e74c3c;
+        border: 1px solid rgba(192, 57, 43, 0.4);
+        padding: 0.25rem 0.65rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.75rem;
     }
     .header-section h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        font-weight: 900;
         margin-bottom: 0.5rem;
+        color: #fff;
     }
     .subtitle {
-        color: var(--color-muted);
-        font-size: 1.1rem;
+        color: #bbb;
+        font-size: 1.05rem;
+        max-width: 820px;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
     }
+    .subtitle a {
+        color: #e74c3c;
+        text-decoration: underline;
+    }
+
+    /* KPI Grid */
+    .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        border-top: 1px solid #333;
+        padding-top: 1.25rem;
+    }
+    .kpi-card {
+        display: flex;
+        flex-direction: column;
+    }
+    .kpi-num {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.1;
+    }
+    .kpi-label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #ccc;
+        margin-top: 0.25rem;
+    }
+    .kpi-sub {
+        font-size: 0.75rem;
+        color: #888;
+    }
+
+    /* Filter Toolbar */
+    .filter-toolbar {
+        background: var(--color-card);
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        padding: 1.25rem;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .search-box {
+        position: relative;
+        width: 100%;
+    }
+    .search-box input {
+        width: 100%;
+        padding: 0.65rem 1rem 0.65rem 2.5rem;
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        font-size: 0.95rem;
+        background: #fafafa;
+        color: var(--color-text);
+        transition: all 0.15s ease;
+    }
+    .search-box input:focus {
+        outline: none;
+        border-color: var(--color-accent);
+        background: #fff;
+        box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
+    }
+    .search-icon {
+        position: absolute;
+        left: 0.85rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.95rem;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    /* Topic Pills */
+    .topic-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+    .topic-pill {
+        background: #f0f0f0;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        padding: 0.35rem 0.75rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #444;
+        cursor: pointer;
+        transition: all 0.15s ease;
+    }
+    .topic-pill:hover {
+        background: #e2e2e2;
+        color: #111;
+    }
+    .topic-pill.active {
+        background: var(--color-accent);
+        color: #fff;
+        border-color: var(--color-accent);
+    }
+    .pill-count {
+        font-weight: normal;
+        font-size: 0.75rem;
+        opacity: 0.85;
+    }
+
+    .filter-status {
+        font-size: 0.8rem;
+        color: var(--color-muted);
+        font-style: italic;
+    }
+
+    /* Lies Feed */
     .lies-feed {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
     }
     .lie-card {
         background: var(--color-card);
         border: 1px solid var(--color-border);
-        border-left: 4px solid var(--color-accent);
+        border-left: 5px solid var(--color-accent);
         border-radius: 8px;
         padding: 1.5rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        transition: box-shadow 0.2s ease, transform 0.15s ease;
     }
+    .lie-card:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
     .card-header {
         display: flex;
         justify-content: space-between;
-        font-size: 0.875rem;
-        color: var(--color-muted);
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
         margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #eee;
+    }
+    .header-left {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        font-size: 0.8rem;
+    }
+    .topic-tag {
+        background: #f4f4f4;
+        padding: 0.2rem 0.55rem;
+        border-radius: 4px;
+        font-weight: 800;
+        color: #333;
+        border: 1px solid #ddd;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        letter-spacing: 0.3px;
+    }
+    .date {
+        color: var(--color-muted);
+        font-weight: 600;
+    }
+    .context-tag {
+        color: #555;
+        background: #f8f9fa;
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        border: 1px solid #e9ecef;
+    }
+
+    .verdict-badge {
+        font-size: 0.75rem;
+        font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        padding: 0.25rem 0.65rem;
+        border-radius: 12px;
     }
-    .topic {
-        background: #eee;
-        padding: 0.2rem 0.5rem;
-        border-radius: 4px;
-        font-weight: bold;
-        color: var(--color-text);
+    .verdict-badge.v-false,
+    .verdict-badge.v-unfounded {
+        background: #fde8e8;
+        color: #c0392b;
+        border: 1px solid #f8b4b4;
     }
+    .verdict-badge.v-mostly-false {
+        background: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeeba;
+    }
+    .verdict-badge.v-misleading {
+        background: #e2e3e5;
+        color: #383d41;
+        border: 1px solid #d6d8db;
+    }
+
+    /* Quote Section */
     .quote-section {
-        background: #fdf2f2;
-        padding: 1rem 1.5rem;
-        border-radius: 4px;
-        margin-bottom: 1.5rem;
-        border-left: 3px solid #e74c3c;
+        background: #fff8f8;
+        border-left: 3px solid var(--color-accent);
+        padding: 1rem 1.25rem;
+        border-radius: 0 6px 6px 0;
+        margin-bottom: 1.25rem;
+    }
+    .quote-speaker {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.35rem;
+    }
+    .quote-speaker .speaker-name {
+        color: var(--color-accent);
     }
     .quote-section blockquote {
         margin: 0;
-        font-size: 1.25rem;
+        font-size: 1.15rem;
         font-style: italic;
-        color: #333;
+        color: #111;
+        line-height: 1.45;
+        font-weight: 500;
     }
-    .debunk-section h4 {
-        color: var(--color-accent);
-        margin-bottom: 0.5rem;
+
+    /* Debunk Section */
+    .debunk-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 6px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+    .debunk-header {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+    .shield-icon {
+        font-size: 0.95rem;
+    }
+    .debunk-header h4 {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 800;
         text-transform: uppercase;
-        font-size: 0.875rem;
         letter-spacing: 0.5px;
+        color: #1565c0;
     }
     .debunk-section p {
-        margin-bottom: 1.5rem;
-        font-size: 1.1rem;
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: #2c3e50;
     }
+
+    /* Card Footer */
     .card-footer {
         display: flex;
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 0.75rem;
         align-items: center;
-        border-top: 1px solid var(--color-border);
+        border-top: 1px solid #eee;
         padding-top: 1rem;
     }
-    .source-link {
-        font-weight: bold;
+    .snopes-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: #111;
+        color: #fff;
+        padding: 0.45rem 0.85rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background 0.15s ease;
+    }
+    .snopes-btn:hover {
+        background: #333;
+        color: #fff;
+        text-decoration: none;
+    }
+    .snopes-logo {
+        font-size: 0.9rem;
+    }
+    .transcript-link {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--color-muted);
+        text-decoration: none;
+    }
+    .transcript-link:hover {
+        color: var(--color-text);
+        text-decoration: underline;
+    }
+
+    /* No Results Card */
+    .no-results-card {
+        background: var(--color-card);
+        border: 2px dashed var(--color-border);
+        border-radius: 8px;
+        padding: 3rem 1.5rem;
+        text-align: center;
         color: var(--color-muted);
     }
-    .source-link:hover {
+    .no-results-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .no-results-card h3 {
         color: var(--color-text);
+        margin-bottom: 0.5rem;
+    }
+    .reset-btn {
+        background: var(--color-accent);
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+        margin-top: 1rem;
+    }
+    .reset-btn:hover {
+        background: #a93226;
     }
 </style>
