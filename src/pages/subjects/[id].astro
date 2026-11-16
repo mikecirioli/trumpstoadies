@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import subjectsData from '../../data/subjects.json';
 import actionsData from '../../data/actions.json';
+import rankingsData from '../../data/rankings.json';
 
 export async function getStaticPaths() {
   return subjectsData.map(subject => ({
@@ -23,6 +24,33 @@ const partyColor = partyKey === 'republican' ? '#e74c3c'
     : partyKey === 'democrat' ? '#3498db'
     : '#95a5a6';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Find member's Trump Loyalty ranking from rankings.json
+const isSenateMember = rankingsData.senate.some(r => r.subjectId === subject.id);
+const isHouseMember = rankingsData.house.some(r => r.subjectId === subject.id);
+const chamberList = isSenateMember ? rankingsData.senate : isHouseMember ? rankingsData.house : [];
+const memberRanking = chamberList.find(r => r.subjectId === subject.id);
+const chamberTotal = chamberList.length;
+
+function scoreColor(score: number): string {
+    if (score >= 50) {
+        const t = (score - 50) / 50;
+        const r = Math.round(0xc0 + (0xff - 0xc0) * (1 - t));
+        const g = Math.round(0x39 + (0xff - 0x39) * (1 - t));
+        const b = Math.round(0x2b + (0xff - 0x2b) * (1 - t));
+        return `rgb(${r},${g},${b})`;
+    } else {
+        const t = score / 50;
+        const r = Math.round(0x29 + (0xff - 0x29) * t);
+        const g = Math.round(0x80 + (0xff - 0x80) * t);
+        const b = Math.round(0xb9 + (0xff - 0xb9) * t);
+        return `rgb(${r},${g},${b})`;
+    }
+}
+
+function scoreTextColor(score: number): string {
+    return (score > 30 && score < 70) ? '#111' : '#fff';
+}
 ---
 
 <Layout title={`${subject.name} - Trump's Toadies`}>
@@ -37,6 +65,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             )}
         </div>
         <p class="description">{subject.description}</p>
+
+        {memberRanking && (
+            <div class="loyalty-scorecard">
+                <div class="score-display-box" style={`background:${scoreColor(memberRanking.score)};color:${scoreTextColor(memberRanking.score)}`}>
+                    <span class="score-value">{memberRanking.score.toFixed(1)}%</span>
+                    <span class="score-title">Trump Loyalty</span>
+                </div>
+                <div class="score-meta">
+                    <div class="rank-badges">
+                        <span class="rank-chip">Chamber Rank: <strong>#{memberRanking.rank}</strong> of {chamberTotal}</span>
+                        <span class="rank-chip">Party Rank: <strong>#{memberRanking.partyRank}</strong> among {subject.party}s</span>
+                    </div>
+                    <p class="loyalty-summary">
+                        Voted in alignment with Donald Trump's stated executive position on <strong>{memberRanking.pro}</strong> of <strong>{memberRanking.total}</strong> tracked votes ({memberRanking.score.toFixed(1)}%).
+                    </p>
+                    <p class="loyalty-explainer-subtext">
+                        ℹ️ <strong>Loyalty Definition:</strong> This score measures votes cast in support of Donald Trump's agenda, not party caucus unity.
+                    </p>
+                </div>
+            </div>
+        )}
         
         {hasContactInfo && (
             <div class="contact-info">
@@ -137,6 +186,83 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     .description {
         font-size: 1.125rem;
         margin-bottom: 1.5rem;
+    }
+
+    /* Loyalty Scorecard */
+    .loyalty-scorecard {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 1.75rem;
+    }
+    .score-display-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 110px;
+        padding: 0.85rem 1.1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+        flex-shrink: 0;
+    }
+    .score-display-box .score-value {
+        font-size: 1.85rem;
+        font-weight: 800;
+        line-height: 1.1;
+    }
+    .score-display-box .score-title {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-top: 0.2rem;
+        opacity: 0.95;
+    }
+    .score-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+    .rank-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 0.2rem;
+    }
+    .rank-chip {
+        font-size: 0.85rem;
+        background: #e2e8f0;
+        color: #334155;
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        font-weight: 500;
+    }
+    .rank-chip strong {
+        color: #0f172a;
+    }
+    .loyalty-summary {
+        margin: 0.2rem 0;
+        font-size: 0.98rem;
+        color: #1e293b;
+        line-height: 1.5;
+    }
+    .loyalty-explainer-subtext {
+        margin: 0;
+        font-size: 0.82rem;
+        color: #64748b;
+        line-height: 1.4;
+    }
+    @media (max-width: 600px) {
+        .loyalty-scorecard {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
     }
     
     /* Contact Info Styles */

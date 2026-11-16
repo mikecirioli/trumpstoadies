@@ -4,54 +4,113 @@
 
 <section class="explainer-section" aria-labelledby="explainer-title">
     <div class="explainer-header">
-        <h3 id="explainer-title">How It Works & Legend</h3>
+        <h3 id="explainer-title">How Scoring Works & What It Means</h3>
         <p class="explainer-intro">
-            A public-interest transparency project tracking how members of the 119th U.S. Congress vote on Donald Trump's legislative agenda, executive actions, and cabinet nominees.
+            An open-source public transparency project tracking how members of the 119th U.S. Congress vote on Donald Trump's legislative agenda, executive actions, and cabinet nominees.
         </p>
     </div>
 
+    <!-- Visual Trump Alignment Spectrum -->
+    <div class="spectrum-container" aria-label="Trump Loyalty Scoring Spectrum">
+        <div class="spectrum-bar-wrapper">
+            <div class="spectrum-track">
+                <div class="marker dem-point" style="left: 28%;">
+                    <div class="marker-pin dem-pin"></div>
+                    <div class="marker-bubble">
+                        <strong>Democrat Avg (28%)</strong>
+                        <span>Bipartisan & Crossover Votes</span>
+                    </div>
+                </div>
+                <div class="marker center-point" style="left: 50%;">
+                    <div class="marker-line"></div>
+                    <div class="marker-bubble center">
+                        <strong>50%</strong>
+                        <span>Split</span>
+                    </div>
+                </div>
+                <div class="marker rep-point" style="left: 92%;">
+                    <div class="marker-pin rep-pin"></div>
+                    <div class="marker-bubble right">
+                        <strong>Republican Avg (92%)</strong>
+                        <span>Party Lockstep with Trump</span>
+                    </div>
+                </div>
+            </div>
+            <div class="spectrum-endpoints">
+                <div class="endpoint-label left">
+                    <span class="score-tag low">0% Score</span>
+                    <span class="endpoint-desc">Total Opposition to Trump Agenda</span>
+                </div>
+                <div class="endpoint-label center-desc">
+                    <span class="spectrum-title-tag">The Trump Loyalty Spectrum &rarr;</span>
+                </div>
+                <div class="endpoint-label right">
+                    <span class="score-tag high">100% Score</span>
+                    <span class="endpoint-desc">Pure Trump Toady (100% Alignment)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="explainer-grid">
-        <!-- Card 1: Data & AI -->
-        <div class="explainer-card">
-            <div class="card-icon">🏛️</div>
-            <h4>Official Data & AI Synthesis</h4>
+        <!-- Card 1: What Does Loyalty Mean? -->
+        <div class="explainer-card highlight-card">
+            <div class="card-icon">🎯</div>
+            <h4>Loyal to Whom? (Not Party Unity)</h4>
             <p>
-                Every vote is scraped directly from official U.S. government roll-call feeds at 
-                <a href="https://www.senate.gov/legislative/votes_new.htm" target="_blank" rel="noopener">senate.gov</a> and 
-                <a href="https://clerk.house.gov/Votes" target="_blank" rel="noopener">clerk.house.gov</a>.
+                <strong>"Loyalty" on this site ALWAYS means loyalty to Donald Trump and his executive agenda</strong> — never loyalty to one's own party.
             </p>
-            <p class="card-subtext">
-                Plain-English summaries and arguments are synthesized directly from raw Congressional record XML and official bill text using AI to provide objective, non-partisan context.
-            </p>
+            <ul class="explainer-bullet-list">
+                <li>
+                    <strong>92% GOP Loyalty:</strong> The average Republican voted with Trump on 92% of roll calls (near-total lockstep).
+                </li>
+                <li>
+                    <strong>28% Democratic Loyalty:</strong> The average Democrat voted with Trump on 28% of roll calls (consensus defense bills, routine confirmations, or conservative Democrats crossing over).
+                </li>
+            </ul>
         </div>
 
-        <!-- Card 2: Toady Score -->
+        <!-- Card 2: Toady Score Formula -->
         <div class="explainer-card">
             <div class="card-icon">📊</div>
             <h4>The Toady Score Formula</h4>
             <p>
-                A member's <strong>Toady Score</strong> is the percentage of tracked roll-call votes where they voted in alignment with Donald Trump's stated executive position or public agenda:
+                A member's <strong>Toady Score</strong> is the percentage of tracked roll-call votes where they voted in alignment with Donald Trump's stated executive position:
             </p>
             <div class="formula-box">
                 <code>(Trump-Aligned Votes &divide; Total Tracked Votes) &times; 100</code>
             </div>
             <p class="card-subtext">
-                Members must have at least 3 tracked votes to receive an official ranking.
+                Members must have at least 3 tracked votes to receive an official ranking. Official leaves and absences are excluded from both numerator and denominator.
             </p>
         </div>
 
-        <!-- Card 3: Visual Legend -->
+        <!-- Card 3: Data & AI -->
+        <div class="explainer-card">
+            <div class="card-icon">🏛️</div>
+            <h4>Official Data & Neutral AI</h4>
+            <p>
+                Every roll call is scraped directly from official Congressional records at 
+                <a href="https://www.senate.gov/legislative/votes_new.htm" target="_blank" rel="noopener">senate.gov</a> and 
+                <a href="https://clerk.house.gov/Votes" target="_blank" rel="noopener">clerk.house.gov</a>.
+            </p>
+            <p class="card-subtext">
+                Plain-English summaries and arguments are synthesized directly from raw legislative text and official floor records using AI with strictly neutral, non-partisan instructions.
+            </p>
+        </div>
+
+        <!-- Card 4: Visual Legend -->
         <div class="explainer-card legend-card">
             <div class="card-icon">🏷️</div>
             <h4>Key Terms & Badge Legend</h4>
             <ul class="legend-list">
                 <li>
                     <span class="badge-sample pro">Toadies Won</span>
-                    <span>Trump's legislative position or nomination prevailed.</span>
+                    <span>Trump's legislative position or nominee prevailed.</span>
                 </li>
                 <li>
                     <span class="badge-sample anti">Opposition Held</span>
-                    <span>Trump's position was defeated, filibustered, or blocked.</span>
+                    <span>Trump's position was defeated or blocked.</span>
                 </li>
                 <li>
                     <span class="badge-sample party r">R</span>
@@ -61,7 +120,7 @@
                 </li>
                 <li>
                     <span class="badge-sample bubble">212 Yea (R: 210 | D: 2)</span>
-                    <span>Vote totals and party breakdowns on every bill.</span>
+                    <span>Vote totals and party breakdowns on every roll call.</span>
                 </li>
             </ul>
         </div>
@@ -93,6 +152,135 @@
         font-size: 0.95rem;
         line-height: 1.5;
     }
+
+    /* Spectrum Container */
+    .spectrum-container {
+        background: #fdfdfd;
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .spectrum-bar-wrapper {
+        position: relative;
+    }
+    .spectrum-track {
+        height: 18px;
+        background: linear-gradient(to right, #1565c0 0%, #2980b9 35%, #8e44ad 50%, #e53935 70%, #b71c1c 100%);
+        border-radius: 10px;
+        position: relative;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .marker {
+        position: absolute;
+        top: -6px;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        pointer-events: none;
+    }
+    .marker-pin {
+        width: 14px;
+        height: 30px;
+        border-radius: 4px;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .dem-pin {
+        background: #1976d2;
+    }
+    .rep-pin {
+        background: #c62828;
+    }
+    .marker-line {
+        width: 2px;
+        height: 30px;
+        background: #fff;
+        box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    }
+    .marker-bubble {
+        position: absolute;
+        bottom: 34px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 0.25rem 0.5rem;
+        white-space: nowrap;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        font-size: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+    }
+    .marker-bubble strong {
+        color: #111;
+    }
+    .marker-bubble span {
+        color: #666;
+        font-size: 0.7rem;
+    }
+    .marker-bubble.center {
+        bottom: 34px;
+    }
+    .marker-bubble.right {
+        right: -10px;
+    }
+    .spectrum-endpoints {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 0.8rem;
+        color: var(--color-muted);
+        padding-top: 0.25rem;
+    }
+    .endpoint-label {
+        display: flex;
+        flex-direction: column;
+        max-width: 220px;
+    }
+    .endpoint-label.right {
+        text-align: right;
+        align-items: flex-end;
+    }
+    .endpoint-label.center-desc {
+        text-align: center;
+        align-items: center;
+        color: #888;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.75rem;
+        margin-top: 0.2rem;
+    }
+    .score-tag {
+        display: inline-block;
+        font-weight: 800;
+        font-size: 0.8rem;
+        padding: 0.15rem 0.4rem;
+        border-radius: 3px;
+        width: fit-content;
+        margin-bottom: 0.15rem;
+    }
+    .score-tag.low {
+        background: #e3f2fd;
+        color: #1565c0;
+        border: 1px solid #bbdefb;
+    }
+    .score-tag.high {
+        background: #ffebee;
+        color: #b71c1c;
+        border: 1px solid #ffcdd2;
+    }
+    .endpoint-desc {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+
+    /* Cards Grid */
     .explainer-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -107,6 +295,11 @@
         flex-direction: column;
         gap: 0.5rem;
     }
+    .highlight-card {
+        background: #fffcf8;
+        border-color: #f39c12;
+        border-left: 4px solid #d35400;
+    }
     .card-icon {
         font-size: 1.5rem;
         line-height: 1;
@@ -120,6 +313,18 @@
         font-size: 0.875rem;
         color: var(--color-text);
         line-height: 1.5;
+    }
+    .explainer-bullet-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        font-size: 0.825rem;
+        color: #333;
+        margin-top: 0.25rem;
+    }
+    .explainer-bullet-list li strong {
+        color: #111;
     }
     .card-subtext {
         color: var(--color-muted) !important;
@@ -193,5 +398,19 @@
         font-family: monospace;
         font-size: 0.65rem;
         text-transform: none;
+    }
+
+    @media (max-width: 650px) {
+        .spectrum-endpoints {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .endpoint-label.right {
+            text-align: left;
+            align-items: flex-start;
+        }
+        .marker-bubble {
+            font-size: 0.65rem;
+        }
     }
 </style>

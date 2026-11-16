@@ -74,9 +74,9 @@ const recentEvents = allEvents.slice(0, 5);
     <!-- Hero Section -->
     <header class="hero-section">
         <div class="hero-badge">119th U.S. Congress &bull; Real-Time Tracker</div>
-        <h2 class="hero-title">Congressional Loyalty Scoreboard</h2>
+        <h2 class="hero-title">Congressional Trump Loyalty Scoreboard</h2>
         <p class="hero-subtitle">
-            An open-source public transparency dashboard tracking which lawmakers vote in lockstep with Donald Trump, who crosses party lines, and how each state delegation aligns.
+            An open-source public transparency dashboard tracking which lawmakers vote in lockstep with Donald Trump's legislative agenda, who breaks ranks or crosses party lines, and how each state delegation aligns.
         </p>
 
         <!-- Key Metrics Cards -->
@@ -93,14 +93,22 @@ const recentEvents = allEvents.slice(0, 5);
             </div>
             <div class="stat-card rep-stat">
                 <span class="stat-num">{repAvg}%</span>
-                <span class="stat-label">GOP Average Loyalty</span>
-                <span class="stat-sub">High Party Alignment</span>
+                <span class="stat-label">GOP Trump Alignment</span>
+                <span class="stat-sub">Votes with Trump 92% of the time</span>
             </div>
             <div class="stat-card dem-stat">
                 <span class="stat-num">{demAvg}%</span>
-                <span class="stat-label">Dem Average Loyalty</span>
-                <span class="stat-sub">Crossover Threshold</span>
+                <span class="stat-label">Dem Trump Crossover</span>
+                <span class="stat-sub">Votes with Trump 28% of the time</span>
             </div>
+        </div>
+
+        <div class="hero-explainer-banner">
+            <span class="banner-icon">💡</span>
+            <span>
+                <strong>What does this mean?</strong> Scores measure <strong>loyalty to Donald Trump's agenda</strong> &mdash; never party unity. A 28% Dem score means Democrats voted with Trump's position on 28% of roll calls (defense bills, consensus appointments, or border measures).
+                <a href="#explainer-title">See the scoring spectrum &darr;</a>
+            </span>
         </div>
 
         <div class="hero-actions">
@@ -271,6 +279,32 @@ const recentEvents = allEvents.slice(0, 5);
     }
     .dem-stat .stat-num {
         color: #3498db;
+    }
+    .hero-explainer-banner {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        padding: 0.85rem 1.25rem;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #ddd;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+    }
+    .hero-explainer-banner strong {
+        color: #fff;
+    }
+    .hero-explainer-banner a {
+        color: #f39c12;
+        text-decoration: underline;
+        font-weight: 700;
+        margin-left: 0.35rem;
+        white-space: nowrap;
+    }
+    .hero-explainer-banner a:hover {
+        color: #f1c40f;
     }
     .hero-actions {
         display: flex;

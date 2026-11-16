@@ -115,9 +115,9 @@ const stateColorStyles = Object.values(stateMap).map(s => {
 
 <section class="map-section" aria-labelledby="map-title">
     <div class="map-header">
-        <h3 id="map-title">State-By-State Loyalty Map</h3>
-        <p class="map-subtitle">
-            Average Congressional delegation loyalty score across all 50 states. 
+        <h3 id="map-title">State-By-State Trump Loyalty Map</h3>
+        <p class="map-subtitle" id="mapSubtitle">
+            Average Congressional delegation Trump loyalty score across all 50 states (how frequently lawmakers vote in alignment with Trump's agenda). 
             Click any state or select from the dropdown to see its Senators and Representatives.
         </p>
     </div>
@@ -129,7 +129,7 @@ const stateColorStyles = Object.values(stateMap).map(s => {
             <option value="">-- Choose a State ({sortedStates.length}) --</option>
             {sortedStates.map(st => (
                 <option value={st.code}>
-                    {st.name} ({st.code}) &mdash; {st.avgScore}% Toady ({st.repCount}R / {st.demCount}D)
+                    {st.name} ({st.code}) &mdash; {st.avgScore}% Trump Loyalty ({st.repCount}R / {st.demCount}D)
                 </option>
             ))}
         </select>
@@ -170,13 +170,13 @@ const stateColorStyles = Object.values(stateMap).map(s => {
 
             <!-- Map Choropleth Legend (Loyalty) -->
             <div class="map-legend" id="legendLoyalty" aria-label="Loyalty map color legend">
-                <span class="legend-title">Delegation Score:</span>
+                <span class="legend-title">Delegation Trump Alignment:</span>
                 <div class="legend-scale">
-                    <span class="legend-item"><span class="legend-swatch" style="background:#1565c0;"></span> &lt;35% (Deep Blue)</span>
-                    <span class="legend-item"><span class="legend-swatch" style="background:#2980b9;"></span> 35&ndash;49% (Blue)</span>
-                    <span class="legend-item"><span class="legend-swatch" style="background:#8e44ad;"></span> 50&ndash;69% (Purple)</span>
-                    <span class="legend-item"><span class="legend-swatch" style="background:#e53935;"></span> 70&ndash;84% (Red)</span>
-                    <span class="legend-item"><span class="legend-swatch" style="background:#b71c1c;"></span> 85%+ (Deep Red)</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#1565c0;"></span> &lt;35% (Strong Opposition)</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#2980b9;"></span> 35&ndash;49% (Opposition Leaning)</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#8e44ad;"></span> 50&ndash;69% (Split / Leans Trump)</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#e53935;"></span> 70&ndash;84% (High Trump Loyalty)</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#b71c1c;"></span> 85%+ (Heavy MAGA Lockstep)</span>
                 </div>
             </div>
 
@@ -434,7 +434,7 @@ const stateColorStyles = Object.values(stateMap).map(s => {
                 layerBtnMidterms?.classList.remove('active');
                 if (legendLoyalty) legendLoyalty.style.display = 'flex';
                 if (legendMidterms) legendMidterms.style.display = 'none';
-                if (mapSubtitle) mapSubtitle.textContent = 'Average Congressional delegation loyalty score across all 50 states. Click any state or select from the dropdown to see its Senators and Representatives.';
+                if (mapSubtitle) mapSubtitle.textContent = 'Average Congressional delegation Trump loyalty score across all 50 states (how frequently lawmakers vote in alignment with Trump\'s agenda). Click any state or select from the dropdown to see its Senators and Representatives.';
                 Object.values(stateMap).forEach(s => {
                     document.querySelectorAll(`.state-path.${s.code.toLowerCase()}`).forEach(p => {
                         p.style.fill = s.color;
@@ -472,7 +472,7 @@ const stateColorStyles = Object.values(stateMap).map(s => {
                         ${rankLabel ? `<span class="member-rank">${rankLabel}</span>` : ''}
                         ${isOusted ? `<span class="ousted-pill" title="Defeated in the November 2026 General Election">💥 Ousted</span>` : ''}
                     </div>
-                    <span class="member-score" style="background:${getScoreColor(m.score)}; color:${getScoreTextColor(m.score)}">
+                    <span class="member-score" style="background:${getScoreColor(m.score)}; color:${getScoreTextColor(m.score)}" title="Trump Loyalty Score: ${m.score.toFixed(1)}% (${m.pro} of ${m.total} votes)">
                         ${m.score.toFixed(1)}%
                     </span>
                 </a>
@@ -514,7 +514,7 @@ const stateColorStyles = Object.values(stateMap).map(s => {
 
             // Populate Panel
             panelStateName.textContent = `${st.name} (${st.code})`;
-            panelStateScore.textContent = `${st.avgScore}%`;
+            panelStateScore.textContent = currentLayer === 'midterms' ? `${st.avgScore}%` : `${st.avgScore}% Trump Loyalty`;
             panelStateScore.style.background = currentLayer === 'midterms' ? st.midtermColor : st.color;
             panelStateScore.style.color = getScoreTextColor(st.avgScore);
 

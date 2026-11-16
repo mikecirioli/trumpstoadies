@@ -72,6 +72,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <div class="formula-display">
                 <span class="math-box">Score = (Trump-Aligned Votes / Total Eligible Tracked Votes Cast) &times; 100</span>
             </div>
+
+            <div class="loyalty-clarification-box">
+                <h4>⚠️ Critical Distinction: Loyalty to Trump, Not Party Unity</h4>
+                <p>
+                    In typical political discussions, "party loyalty" denotes voting along with one's <em>own</em> political party caucus.
+                    <strong>On this site, all scores measure alignment with Donald Trump and his executive agenda.</strong>
+                </p>
+                <ul>
+                    <li>
+                        <strong>GOP 92% Trump Alignment:</strong> Indicates Republican lawmakers voted in near-lockstep with Donald Trump's stated position on 92% of tracked roll calls.
+                    </li>
+                    <li>
+                        <strong>Democratic 28% Trump Crossover:</strong> Does <em>not</em> mean 28% loyalty to the Democratic party. Rather, it means that on 28% of tracked votes, the Democratic lawmaker voted <em>in favor</em> of Trump's agenda (typically on bipartisan defense measures like the NDAA, routine consensus appointments, or conservative Democrat crossovers).
+                    </li>
+                </ul>
+            </div>
+
             <p>
                 <strong>Tiebreaker Rules:</strong> In the event of identical percentages, rank is broken by total number of affirmative votes cast.
             </p>
@@ -153,5 +170,29 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         font-size: 1.05rem;
         font-weight: 700;
         color: #111;
+    }
+    .loyalty-clarification-box {
+        background: #fff8eb;
+        border: 1px solid #f9d89c;
+        border-left: 4px solid #d97706;
+        border-radius: 6px;
+        padding: 1.1rem 1.25rem;
+        margin: 1.25rem 0;
+    }
+    .loyalty-clarification-box h4 {
+        margin: 0 0 0.5rem 0;
+        color: #92400e;
+        font-size: 1.05rem;
+    }
+    .loyalty-clarification-box p {
+        margin-bottom: 0.75rem;
+        color: #78350f;
+    }
+    .loyalty-clarification-box ul {
+        margin: 0.5rem 0 0.25rem 1.25rem;
+        color: #78350f;
+    }
+    .loyalty-clarification-box li {
+        margin-bottom: 0.4rem;
     }
 </style>

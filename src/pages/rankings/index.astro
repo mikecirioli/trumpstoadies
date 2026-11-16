@@ -50,10 +50,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <div class="header-section">
         <h2>Toadie Rankings</h2>
         <p class="subtitle">
-            Ranked by percentage of Trump-aligned votes.
-            Minimum {3} votes required to appear.
+            Ranked by percentage of votes cast in alignment with Donald Trump's stated executive agenda (Toadie Score).
+            Minimum 3 votes required to appear.
             {meta.senateEvents} Senate events &bull; {meta.houseEvents} House events tracked.
         </p>
+        <div class="score-clarification">
+            <span class="clarification-icon">ℹ️</span>
+            <span>
+                <strong>Understanding the Score:</strong> Every score measures loyalty to <strong>Donald Trump and his agenda</strong>, not party unity. A Democrat at 28% voted with Trump on 28% of roll calls; a Republican at 92% voted with Trump on 92% of roll calls.
+            </span>
+        </div>
     </div>
 
     <div class="tab-bar" role="tablist">
@@ -75,7 +81,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                     <th class="col-rank">Rank</th>
                     <th class="col-name">Name</th>
                     <th class="col-state">State</th>
-                    <th class="col-score">Score</th>
+                    <th class="col-score" title="Percentage of tracked votes cast in alignment with Donald Trump">Trump Loyalty</th>
                     <th class="col-votes">Votes</th>
                 </tr>
             </thead>
@@ -115,7 +121,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                     <th class="col-rank">Rank</th>
                     <th class="col-name">Name</th>
                     <th class="col-state">State</th>
-                    <th class="col-score">Score</th>
+                    <th class="col-score" title="Percentage of tracked votes cast in alignment with Donald Trump">Trump Loyalty</th>
                     <th class="col-votes">Votes</th>
                 </tr>
             </thead>
@@ -179,6 +185,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     .subtitle {
         color: var(--color-muted);
         font-size: 1rem;
+    }
+    .score-clarification {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        background: #f8f9fa;
+        border-left: 4px solid var(--color-accent);
+        border-radius: 4px;
+        padding: 0.65rem 0.9rem;
+        margin-top: 0.85rem;
+        font-size: 0.88rem;
+        color: #444;
+        line-height: 1.45;
+    }
+    .clarification-icon {
+        font-size: 1rem;
+        line-height: 1.2;
     }
 
     /* Tabs */
@@ -264,7 +287,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     .col-rank  { width: 9rem; white-space: nowrap; }
     .col-name  { min-width: 10rem; }
     .col-state { width: 3.5rem; text-align: center; color: var(--color-muted); font-size: 0.85rem; }
-    .col-score { width: 6rem; text-align: center; }
+    .col-score { width: 7.5rem; text-align: center; white-space: nowrap; }
     .col-votes { width: 5rem; text-align: center; color: var(--color-muted); font-size: 0.85rem; white-space: nowrap; }
 
     /* Rank cell */
